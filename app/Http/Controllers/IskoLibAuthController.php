@@ -8,6 +8,11 @@ class IskoLibAuthController extends Controller
 {
     public function showWelcome()
     {
-        return view('iskolib.lib-welcome');
+        return view('iskolib.welcome');
+    }
+
+    public function showLogin()
+    {
+        return view('iskolib.login');
     }
 }

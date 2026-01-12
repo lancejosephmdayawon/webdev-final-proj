@@ -14,7 +14,10 @@ Route::get('/test', function () {
 
 // ISKOLIB ROUTE
 Route::prefix('iskolib')->group(function () {
-    // AUTH
+    // WELCOME
     Route::get('/welcome', [IskoLibAuthController::class, 'showWelcome'])->name('iskolib.welcome');
+
+    // LOGIN
+    Route::get('/login', [IskoLibAuthController::class, 'showLogin'])->name('iskolib.login');
 });
 
