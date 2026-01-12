@@ -1,0 +1,13 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+
+class UserBookController extends Controller
+{
+    public function showBooks()
+    {
+        return view('iskolib.user.books');
+    }
+}
