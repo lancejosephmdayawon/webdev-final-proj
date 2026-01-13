@@ -219,8 +219,6 @@ body {
 .btn-edit,
 .btn-delete {
     flex: 1;
-    background: var(--color-yellow);
-    color: #000;
     border: 1px solid #000;
     border-radius: 100px;
     font-size: 14px;
@@ -230,10 +228,14 @@ body {
 }
 
 .btn-edit {
+    background: var(--color-yellow);
+    color: #000;
     padding: 2px 26px;
 }
 
 .btn-delete {
+    background-color: #ffb6c1;
+    color: #8b0000;
     padding: 2px 20px;
 }
 
