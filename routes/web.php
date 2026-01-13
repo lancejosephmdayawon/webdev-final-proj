@@ -22,7 +22,7 @@ Route::get('/test', function () {
 });
 
 // ISKOLIB ROUTE
-Route::prefix('iskolib')->group(function () {
+Route::prefix('isko-lib')->group(function () {
     // WELCOME
     Route::get('/welcome', [IskoLibAuthController::class, 'showWelcome'])->name('iskolib.welcome');
 

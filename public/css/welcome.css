@@ -1,0 +1,130 @@
+body {
+    font-family: "Roboto", sans-serif;
+    margin-left: 150px;
+    margin-right: 200px;
+}
+
+.page-wrapper {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.card-wrapper {
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+}
+
+
+.pup-logo-wel {
+    width: 120px;
+    height: 120px;
+}
+
+.pup-logo-log {
+    width: 64px;
+    height: 64px;
+}
+
+.role-img {
+    width: 100px;
+    height: 100px;
+}
+
+.lib-card,
+.stud-card {
+    width: 424px;
+    height: 300px;
+    padding: 32px;
+    border-radius: 1rem;
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.5);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+
+    transform: scale(1);
+    transition: transform 0.5s;
+}
+
+
+.lib-card,
+.stud-card {
+    background-color: #800000;
+}
+.lib-card:hover,
+.stud-card:hover {
+    background: linear-gradient(to top, #800000, #B30000);
+}
+
+.lib-card:hover,
+.stud-card:hover {
+    transform: scale(1.03);
+}
+
+.role-btn,
+.login-btn {
+    background-color: #FFDF00;
+    font-weight: bold;
+    padding: 10px 100px;
+    border-radius: 5px;
+    border: 1px solid;
+    cursor: pointer;
+
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.25);
+}
+
+.login-form {
+    background-color: #800000;
+    width: 520px;
+    height: 430px;
+    border-radius: 10px;
+    padding: 32px;
+
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.25);
+}
+
+.log-header {
+    color: #FFFFFF;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.form-input-group {
+  background-color: #FFFFFF;
+  border: 1px solid;
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+
+  display: flex;
+  align-items: center;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.form-input-group input {
+  border: none;
+  outline: none;
+  background: none;
+  flex-grow: 1;
+  padding-left: 0.75rem;
+  color: var(--color-dark-green);
+}
+
+.form-input-group input::placeholder {
+  color: var(--color-text-input);
+}
+
+.forgot-link {
+  color: #FFFFFF;
+  font-weight: 500;
+  font-size: 0.875rem;
+  text-align: right;
+  transition: color 0.1s;
+}
