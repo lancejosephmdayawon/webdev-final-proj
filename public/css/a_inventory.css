@@ -4,13 +4,12 @@
     --color-light-maroon: #b30000;
     --color-light-yellow: #ffe74d;
 
-    --color-st: #F8C9DB;
+    --color-st: #f8c9db;
     --color-lit: #cab5fc;
-    --color-soc: #BBDCE5;
-    --color-eco: #D9E9CF;
-    --color-his: #F8FAB4;
-    --color-phi: #FFC7A7;
-
+    --color-soc: #bbdce5;
+    --color-eco: #d9e9cf;
+    --color-his: #f8fab4;
+    --color-phi: #ffc7a7;
 }
 
 body {
@@ -49,7 +48,11 @@ body {
 }
 
 .add-btn:hover {
-    background: linear-gradient(to bottom, var(--color-light-maroon), var(--color-maroon));
+    background: linear-gradient(
+        to bottom,
+        var(--color-light-maroon),
+        var(--color-maroon)
+    );
     transform: scale(1.02);
 }
 
@@ -107,20 +110,134 @@ body {
 
 .book-card {
     height: 250px;
-    margin-bottom: 32px;
+    margin-bottom: 40px;
+}
 
+.book-card-details {
+    display: flex;
+    justify-content: flex-end;
+    color: #747373;
+}
+
+.categ-icon {
+    width: 70px;
+    height: 70px;
 }
 
 .st-card {
     height: 250px;
     width: auto;
+    padding: 0.5rem 1rem 1rem 1.5rem;
     border: 1px solid;
     border-radius: 10px;
 
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.25);
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.25);
 }
 
-.st-inner-card {
-    border-left: 20px solid var(--color-st);
+.categ-bar {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 15px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
 }
 
+.st-bar,
+.lit-bar,
+.soc-bar,
+.eco-bar,
+.his-bar,
+.phi-bar {
+    flex: 1;
+    border-right: 1px solid;
+}
+
+.st-bar {
+    background-color: var(--color-st);
+}
+
+.lit-bar {
+    background-color: var(--color-lit);
+}
+
+.soc-bar {
+    background-color: var(--color-soc);
+}
+
+.eco-bar {
+    background-color: var(--color-eco);
+}
+
+.his-bar {
+    background-color: var(--color-his);
+}
+
+.phi-bar {
+    background-color: var(--color-phi);
+}
+
+.avail-label,
+.notavail-label {
+    position: absolute;
+    top: 0;
+    left: 15px;
+
+    padding: 4px 10px;
+    border-radius: 0 24px 24px 0;
+    border-bottom: 1px solid;
+    border-right: 1px solid;
+    font-size: 14px;
+
+    z-index: 1;
+}
+
+.avail-label {
+    background-color: #90ee90;
+    color: #006400;
+}
+
+.notavail-label {
+    background-color: #ffb6c1;
+    color: #8b0000;
+}
+
+.book-data {
+    font-size: 14px;
+}
+
+.book-actions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    margin-top: auto;
+}
+
+.btn-edit,
+.btn-delete {
+    flex: 1;
+    background: var(--color-yellow);
+    color: #000;
+    border: 1px solid #000;
+    border-radius: 100px;
+    font-size: 14px;
+
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.25);
+    cursor: pointer;
+}
+
+.btn-edit {
+    padding: 2px 26px;
+}
+
+.btn-delete {
+    padding: 2px 20px;
+}
+
+.btn-edit:hover,
+.btn-delete:hover {
+    transform: scale(1.05);
+}
