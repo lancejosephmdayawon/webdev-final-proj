@@ -5,11 +5,12 @@
 <div class="min-h-screen">
     <div class="page-wrapper">
 
-        <img src="{{ asset('images/PUPLogo.png') }}" class="pup-logo-wel mb-6">
-
-        <h1 class="text-6xl font-black mb-4">ISKO-LIB</h1>
-        <p class="text-xl text-gray-600 mb-12">Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        <div class="welcome-header">
+            <img src="{{ asset('images/PUPLogo.png') }}" class="pup-logo-wel mb-6">
+            <h1 class="text-6xl font-black mb-4">ISKO-LIB</h1>
+            <p class="text-xl text-gray-600 mb-12">Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        </div>
 
         <div class="card-wrapper">
             <!-- LIBRARIAN BUTTON -->
