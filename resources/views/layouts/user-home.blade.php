@@ -19,7 +19,7 @@
 <body>
     @include('layouts.user-header')
     @yield('content')
-    @include('layouts.footer')
+    <!-- @include('layouts.footer') -->
 </body>
 
 </html>

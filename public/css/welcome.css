@@ -1,7 +1,7 @@
 body {
     font-family: "Roboto", sans-serif;
-    margin-left: 150px;
-    margin-right: 200px;
+    margin: 0 auto;
+    padding: 0 120px;
 }
 
 .page-wrapper {
@@ -61,12 +61,9 @@ body {
 .lib-card:hover,
 .stud-card:hover {
     background: linear-gradient(to top, #800000, #B30000);
-}
-
-.lib-card:hover,
-.stud-card:hover {
     transform: scale(1.03);
 }
+
 
 .role-btn,
 .login-btn {

@@ -10,13 +10,10 @@ use Illuminate\Support\Str;
         --color-yellow: #FFDF00;
         --color-light-maroon: #B30000;
         --color-light-yellow: #FFE74D;
-
-
-        --active-link-color: var(--color-dark-green);
-        --active-border-color: var(--color-dark-green);
     }
 
     .navbar {
+        width: 100%;
         margin: 0 !important;
         padding: 0 !important;
         background-color: var(--color-maroon);
@@ -25,12 +22,11 @@ use Illuminate\Support\Str;
     .navbar-iskolib {
         background-color: var(--color-maroon);
         height: 100px;
-        padding-left: 50px;
-        padding-right: 50px;
+        width: 70%;
+        margin: 0 auto;
         display: flex;
         align-items: center;
         justify-content: space-between;
-        padding: 0 2rem;
     }
 
     .navbar-title {

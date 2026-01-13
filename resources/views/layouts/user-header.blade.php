@@ -25,12 +25,11 @@ use Illuminate\Support\Str;
     .navbar-iskolib {
         background-color: var(--color-maroon);
         height: 100px;
-        padding-left: 50px;
-        padding-right: 50px;
+        width: 60%;
+        margin: 0 auto;
         display: flex;
         align-items: center;
         justify-content: space-between;
-        padding: 0 2rem;
     }
 
     .navbar-title {
