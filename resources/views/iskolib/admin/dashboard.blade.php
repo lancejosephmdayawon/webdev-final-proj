@@ -6,7 +6,7 @@
     <div class="inner-container">
         <div class="greet-card mb-4">
             <div class="d-flex align-items-center gap-4">
-                <div class="flex-grow-1">
+                <div class="row flex-grow-1">
                     <div class="top-text">
                         <p class="top-title fw-bold mb-0">Greetings, Librarian!</p>
                         <p class="top-detail mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
@@ -19,7 +19,7 @@
         </div>
 
         <div class="report-card row">
-            <div class="col-sm-4">
+            <div class="col-sm-6 col-lg-4">
                 <div class="avail-card d-flex align-items-center mb-4">
                     <img src="{{ asset('images/avail.png') }}" class="icon-mid mr-6">
                     <div>
@@ -31,7 +31,7 @@
                 </div>
             </div>
 
-            <div class="col-sm-4">
+            <div class="col-sm-6 col-lg-4">
                 <div class="borrow-card d-flex align-items-center mb-4">
                     <img src="{{ asset('images/borrow.png') }}" class="icon-mid mr-6">
                     <div>
@@ -43,7 +43,7 @@
                 </div>
             </div>
 
-            <div class="col-sm-4">
+            <div class="col-sm-6 col-lg-4">
                 <div class="overdue-card d-flex align-items-center mb-4">
                     <img src="{{ asset('images/overdue.png') }}" class="icon-mid mr-6">
                     <div>
