@@ -1,7 +1,7 @@
 <div id="delConModal" class="confirm-overlay" style="display: none;">
     <div class="popup-confirm">
         <div class="align-center">
-            <img src="{{ asset('images/confirm.png') }}" class="confirm-img">
+            <img src="{{ asset('images/del-con.png') }}" class="del-con-img">
         </div>
         <h2 class="my-2">Are you sure you want to delete this book?</h2>
 
@@ -57,7 +57,7 @@
         font-weight: bold;
     }
 
-    .confirm-img {
+    .del-con-img {
         width: 80px;
         height: 80px;
         padding: 0.25rem;
