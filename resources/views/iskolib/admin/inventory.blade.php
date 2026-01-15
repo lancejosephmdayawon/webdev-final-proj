@@ -2,11 +2,11 @@
 @section('title', 'ISKO-LIB: Librarian Inventory')
 @section('content')
 
-<div class="main-container">
+<div id="inventoryTab" class="main-container">
     <div class="inner-container">
         <div class="top-card d-flex justify-content-between align-items-center mb-4">
             <p class="top-title fw-bold mb-0">Book Inventory</p>
-            <a href="#" class="add-btn">Add</a>
+            <a href="{{ route('iskolib.admin.add-book') }}" class="add-btn">Add</a>
         </div>
 
         <div class="category-card">
@@ -33,7 +33,8 @@
         </div>
 
         <div class="book-card">
-            <div class="row g-4">
+            <!-- BOOK ROW 1-->
+            <div class="row g-4 mb-4">
 
                 <!-- SCIENCE & TECHNOLOGY -->
                 <div class="col-sm-6 col-lg-2">
@@ -65,8 +66,8 @@
 
                         <!-- Action Buttons -->
                         <div class="book-actions">
-                            <button type="button" class="btn-edit">Edit</button>
-                            <button type="button" class="btn-delete">Delete</button>
+                            <button type="button" class="btn-edit" onclick="openEditModal(this)">Edit</button>
+                            <button type="button" class="btn-delete" onclick="openDeleteModal(this)">Delete</button>
                         </div>
                     </div>
                 </div>
@@ -101,8 +102,8 @@
 
                         <!-- Action Buttons -->
                         <div class="book-actions">
-                            <button type="button" class="btn-edit">Edit</button>
-                            <button type="button" class="btn-delete">Delete</button>
+                            <button type="button" class="btn-edit" onclick="openEditModal(this)">Edit</button>
+                            <button type="button" class="btn-delete" onclick="openDeleteModal(this)">Delete</button>
                         </div>
                     </div>
                 </div>
@@ -137,8 +138,8 @@
 
                         <!-- Action Buttons -->
                         <div class="book-actions">
-                            <button type="button" class="btn-edit">Edit</button>
-                            <button type="button" class="btn-delete">Delete</button>
+                            <button type="button" class="btn-edit" onclick="openEditModal(this)">Edit</button>
+                            <button type="button" class="btn-delete" onclick="openDeleteModal(this)">Delete</button>
                         </div>
                     </div>
                 </div>
@@ -173,8 +174,8 @@
 
                         <!-- Action Buttons -->
                         <div class="book-actions">
-                            <button type="button" class="btn-edit">Edit</button>
-                            <button type="button" class="btn-delete">Delete</button>
+                            <button type="button" class="btn-edit" onclick="openEditModal(this)">Edit</button>
+                            <button type="button" class="btn-delete" onclick="openDeleteModal(this)">Delete</button>
                         </div>
                     </div>
                 </div>
@@ -209,8 +210,8 @@
 
                         <!-- Action Buttons -->
                         <div class="book-actions">
-                            <button type="button" class="btn-edit">Edit</button>
-                            <button type="button" class="btn-delete">Delete</button>
+                            <button type="button" class="btn-edit" onclick="openEditModal(this)">Edit</button>
+                            <button type="button" class="btn-delete" onclick="openDeleteModal(this)">Delete</button>
                         </div>
                     </div>
                 </div>
@@ -245,17 +246,16 @@
 
                         <!-- Action Buttons -->
                         <div class="book-actions">
-                            <button type="button" class="btn-edit">Edit</button>
-                            <button type="button" class="btn-delete">Delete</button>
+                            <button type="button" class="btn-edit" onclick="openEditModal(this)">Edit</button>
+                            <button type="button" class="btn-delete" onclick="openDeleteModal(this)">Delete</button>
                         </div>
                     </div>
                 </div>
 
             </div>
-        </div>
 
-        <div class="book-card">
-            <div class="row g-4">
+            <!-- BOOK ROW 2-->
+            <div class="row g-4 mb-4">
 
                 <!-- SCIENCE & TECHNOLOGY -->
                 <div class="col-sm-6 col-lg-2">
@@ -287,8 +287,8 @@
 
                         <!-- Action Buttons -->
                         <div class="book-actions">
-                            <button type="button" class="btn-edit">Edit</button>
-                            <button type="button" class="btn-delete">Delete</button>
+                            <button type="button" class="btn-edit" onclick="openEditModal(this)">Edit</button>
+                            <button type="button" class="btn-delete" onclick="openDeleteModal(this)">Delete</button>
                         </div>
                     </div>
                 </div>
@@ -323,8 +323,8 @@
 
                         <!-- Action Buttons -->
                         <div class="book-actions">
-                            <button type="button" class="btn-edit">Edit</button>
-                            <button type="button" class="btn-delete">Delete</button>
+                            <button type="button" class="btn-edit" onclick="openEditModal(this)">Edit</button>
+                            <button type="button" class="btn-delete" onclick="openDeleteModal(this)">Delete</button>
                         </div>
                     </div>
                 </div>
@@ -359,8 +359,8 @@
 
                         <!-- Action Buttons -->
                         <div class="book-actions">
-                            <button type="button" class="btn-edit">Edit</button>
-                            <button type="button" class="btn-delete">Delete</button>
+                            <button type="button" class="btn-edit" onclick="openEditModal(this)">Edit</button>
+                            <button type="button" class="btn-delete" onclick="openDeleteModal(this)">Delete</button>
                         </div>
                     </div>
                 </div>
@@ -395,8 +395,8 @@
 
                         <!-- Action Buttons -->
                         <div class="book-actions">
-                            <button type="button" class="btn-edit">Edit</button>
-                            <button type="button" class="btn-delete">Delete</button>
+                            <button type="button" class="btn-edit" onclick="openEditModal(this)">Edit</button>
+                            <button type="button" class="btn-delete" onclick="openDeleteModal(this)">Delete</button>
                         </div>
                     </div>
                 </div>
@@ -431,8 +431,8 @@
 
                         <!-- Action Buttons -->
                         <div class="book-actions">
-                            <button type="button" class="btn-edit">Edit</button>
-                            <button type="button" class="btn-delete">Delete</button>
+                            <button type="button" class="btn-edit" onclick="openEditModal(this)">Edit</button>
+                            <button type="button" class="btn-delete" onclick="openDeleteModal(this)">Delete</button>
                         </div>
                     </div>
                 </div>
@@ -467,16 +467,30 @@
 
                         <!-- Action Buttons -->
                         <div class="book-actions">
-                            <button type="button" class="btn-edit">Edit</button>
-                            <button type="button" class="btn-delete">Delete</button>
+                            <button type="button" class="btn-edit" onclick="openEditModal(this)">Edit</button>
+                            <button type="button" class="btn-delete" onclick="openDeleteModal(this)">Delete</button>
                         </div>
                     </div>
                 </div>
 
             </div>
         </div>
-        
+
+
 
     </div>
 </div>
 @endsection
+
+@push('scripts')
+<script>
+    function openEditModal(button) {
+        window.location = "{{ route('iskolib.admin.update-book') }}"
+    }
+
+    function openDeleteModal() {
+        const modal = document.getElementById('delConModal');
+        modal.style.display = 'flex';
+    }
+</script>
+@endpush

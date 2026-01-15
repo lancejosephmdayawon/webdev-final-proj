@@ -74,23 +74,29 @@ body {
 
 .btn-save,
 .btn-cancel {
-    font-weight: bold;
+    width: 110px;
+    padding: 5px;
     border-radius: 10px;
     border: 2px solid;
+    font-size: 14px;
+    font-weight: bold;
     cursor: pointer;
 
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.25);
+    position: relative;
+    top: 0;
+    display: inline-block;
+
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.25);
+    transition: all 0.3s ease;
 }
 
 .btn-save {
-    padding: 5px 60px;
     color: var(--color-maroon);
     background-color: var(--color-yellow);
     border-color: var(--color-maroon);
 }
 
 .btn-cancel {
-    padding: 5px 55px;
     color: var(--color-yellow);
     background-color: var(--color-maroon);
     border-color: var(--color-yellow);
@@ -99,4 +105,17 @@ body {
 .btn-save:hover,
 .btn-cancel:hover {
     transform: scale(1.03);
+}
+
+.btn-save:active,
+.btn-cancel:active {
+    top: 3px;
+}
+
+.btn-save:active {
+    box-shadow: 0 2px 0px var(--color-yellow);
+}
+
+.btn-cancel:active {
+    box-shadow: 0 2px 0px var(--color-maroon);
 }

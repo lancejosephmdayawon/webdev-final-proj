@@ -17,9 +17,15 @@
 </head>
 
 <body>
-    @include('layouts.admin-header')
-    @yield('content')
-    <!-- @include('layouts.footer') -->
+  @include('layouts.admin-header')
+  @yield('content')
+
+  @include('iskolib.modals.admin-upd-confirm')
+  @stack('scripts')
+
+  @include('iskolib.modals.admin-upd-success')
+  @stack('scripts')
+  <!-- @include('layouts.footer') -->
 </body>
 
 </html>

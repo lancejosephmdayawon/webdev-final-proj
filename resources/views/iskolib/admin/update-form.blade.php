@@ -1,4 +1,4 @@
-@extends('layouts.admin-form')
+@extends('layouts.admin-upd-form')
 @section('title', 'ISKO-LIB: Librarian Update a Book')
 @section('content')
 
@@ -50,12 +50,24 @@
             </div>
 
             <div class="action-buttons">
-                <button class="btn-save">Save</button>
-                <button class="btn-cancel">Cancel</button>
+                <button type="button" class="btn-save" onclick="openUpdConModal(this)">Save</button>
+                <button type="button" class="btn-cancel" onclick="closeUpdConModal(this)">Cancel</button>
             </div>
 
         </div>
     </div>
 </div>
-
 @endsection
+
+@push('scripts')
+<script>
+    function openUpdConModal(button) {
+        const modal = document.getElementById('updConModal');
+        modal.style.display = 'flex';
+    }
+
+    function closeUpdConModal() {
+        window.location = "{{ route('iskolib.admin.inventory') }}";
+    }
+</script>
+@endpush
