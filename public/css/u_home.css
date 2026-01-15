@@ -1,0 +1,255 @@
+:root {
+    --color-maroon: #800000;
+    --color-yellow: #ffdf00;
+    --color-light-maroon: #b30000;
+    --color-light-yellow: #ffe74d;
+
+    --color-st: #f5b2cc;
+    --color-lit: #cab5fc;
+    --color-soc: #bbdce5;
+    --color-eco: #d9e9cf;
+    --color-his: #f8fab4;
+    --color-phi: #ffc7a7;
+}
+
+body {
+    font-family: "Roboto", sans-serif;
+}
+
+.main-container {
+    padding-top: 32px;
+    padding-bottom: 32px;
+}
+
+.inner-container {
+    width: 70%;
+    margin: 0 auto;
+}
+
+.greet-card {
+    max-height: auto;
+    padding: 32px;
+
+    /*background: linear-gradient(to top, var(--color-maroon), var(--color-light-maroon));*/
+    border-radius: 10px;
+    border: 2px solid;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+}
+
+.top-title {
+    font-size: 32px;
+}
+
+.top-detail {
+    font-size: 16px;
+}
+
+.stu-greet {
+    height: 200px;
+    width: auto;
+    object-fit: contain;
+}
+
+.category-card {
+    margin-bottom: 32px;
+}
+
+.st-btn,
+.lit-btn,
+.soc-btn,
+.eco-btn,
+.his-btn,
+.phi-btn {
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 100px;
+    border: 1px solid;
+    cursor: pointer;
+
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.25);
+}
+
+.st-btn {
+    background-color: var(--color-st);
+}
+
+.lit-btn {
+    background-color: var(--color-lit);
+}
+
+.soc-btn {
+    background-color: var(--color-soc);
+}
+
+.eco-btn {
+    background-color: var(--color-eco);
+}
+
+.his-btn {
+    background-color: var(--color-his);
+}
+
+.phi-btn {
+    background-color: var(--color-phi);
+}
+
+.st-btn:hover,
+.lit-btn:hover,
+.soc-btn:hover,
+.eco-btn:hover,
+.his-btn:hover,
+.phi-btn:hover {
+    transform: scale(1.05);
+}
+
+.st-btn:hover {
+    background: linear-gradient(to top, var(--color-st), #FFFFFF);
+}
+
+.lit-btn:hover {
+    background: linear-gradient(to top, var(--color-lit), #FFFFFF);
+}
+
+.soc-btn:hover {
+    background: linear-gradient(to top, var(--color-soc), #FFFFFF);
+}
+
+.eco-btn:hover {
+    background: linear-gradient(to top, var(--color-eco), #FFFFFF);
+}
+
+.his-btn:hover {
+    background: linear-gradient(to top, var(--color-his), #FFFFFF);
+}
+
+.phi-btn:hover {
+    background: linear-gradient(to top, var(--color-phi), #FFFFFF);
+}
+
+.book-card {
+    height: 250px;
+    margin-bottom: 40px;
+}
+
+.book-card-details {
+    display: flex;
+    justify-content: flex-end;
+    color: #747373;
+}
+
+.categ-icon {
+    width: 70px;
+    height: 70px;
+}
+
+.st-card {
+    height: 250px;
+    width: auto;
+    padding: 0.5rem 1rem 1rem 1.5rem;
+    border: 1px solid;
+    border-radius: 10px;
+
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.25);
+}
+
+.categ-bar {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 15px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.st-bar,
+.lit-bar,
+.soc-bar,
+.eco-bar,
+.his-bar,
+.phi-bar {
+    flex: 1;
+    border-right: 1px solid;
+}
+
+.st-bar {
+    background-color: var(--color-st);
+}
+
+.lit-bar {
+    background-color: var(--color-lit);
+}
+
+.soc-bar {
+    background-color: var(--color-soc);
+}
+
+.eco-bar {
+    background-color: var(--color-eco);
+}
+
+.his-bar {
+    background-color: var(--color-his);
+}
+
+.phi-bar {
+    background-color: var(--color-phi);
+}
+
+.avail-label,
+.notavail-label {
+    position: absolute;
+    top: 0;
+    left: 15px;
+
+    padding: 4px 10px;
+    border-radius: 0 24px 24px 0;
+    border-bottom: 1px solid;
+    border-right: 1px solid;
+    font-size: 14px;
+
+    z-index: 1;
+}
+
+.avail-label {
+    background-color: #90ee90;
+    color: #006400;
+}
+
+.notavail-label {
+    background-color: #FF8A8A;
+    color: #8b0000;
+}
+
+.book-data {
+    font-size: 14px;
+}
+
+.book-actions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    margin-top: auto;
+}
+
+.btn-view {
+    flex: 1;
+    border: 1px solid #000;
+    border-radius: 100px;
+    font-size: 14px;
+
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.25);
+    cursor: pointer;
+}
+
+.btn-view {
+    background: var(--color-yellow);
+    color: #000;
+    padding: 2px 26px;
+}
+
+.btn-view:hover {
+    transform: scale(1.05);
+}

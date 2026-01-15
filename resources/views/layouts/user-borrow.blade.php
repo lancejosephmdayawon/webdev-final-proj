@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>@yield('title', 'ISKO-LIB')</title>
   @vite(['resources/sass/app.scss', 'resources/js/app.js'])
-  <link rel="stylesheet" href="{{ asset('css/u_home.css') }}">
+  <link rel="stylesheet" href="{{ asset('css/form.css') }}">
 
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
@@ -17,11 +17,17 @@
 </head>
 
 <body>
-    @include('layouts.user-header')
-    @yield('content')
+  @include('layouts.user-header')
+  @yield('content')
 
-    @stack('scripts')
-    <!-- @include('layouts.footer') -->
+  @include('iskolib.modals.user-borrow-confirm')
+  @stack('scripts')
+
+  @include('iskolib.modals.user-borrow-success')
+  @stack('scripts')
+
+  @stack('scripts')
+  <!-- @include('layouts.footer') -->
 </body>
 
 </html>

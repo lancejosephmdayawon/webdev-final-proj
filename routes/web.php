@@ -52,6 +52,12 @@ Route::prefix('isko-lib')->group(function () {
         // HOME
         Route::get('/home', [UserHomeController::class, 'showHome'])->name('iskolib.user.home');
 
+        // BOOK INFO
+        Route::get('/book-details', [UserHomeController::class, 'showBookDetails'])->name('iskolib.user.book-details');
+
+        // BOOK INFO
+        Route::get('/borrow-book', [UserHomeController::class, 'showBorrowForm'])->name('iskolib.user.borrow-book');
+
         // BOOKS
         Route::get('/books', [UserBookController::class, 'showBooks'])->name('iskolib.user.books');
     });

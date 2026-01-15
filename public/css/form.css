@@ -20,6 +20,8 @@ body {
 }
 
 .form-card {
+    color: var(--color-maroon);
+    font-size: 24px;
     border-radius: 20px;
     padding: 40px;
     border: 1px solid var(--color-maroon);
@@ -31,7 +33,9 @@ body {
 }
 
 .book-add-img,
-.book-upd-img {
+.book-upd-img,
+.book-details-img,
+.book-borrow-img {
     width: 100px;
     height: 100px;
 
