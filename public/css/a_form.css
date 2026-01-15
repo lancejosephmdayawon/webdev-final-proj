@@ -1,0 +1,102 @@
+:root {
+    --color-maroon: #800000;
+    --color-yellow: #ffdf00;
+    --color-light-maroon: #b30000;
+    --color-light-yellow: #ffe74d;
+}
+
+body {
+    font-family: "Roboto", sans-serif;
+}
+
+.main-container {
+    padding-top: 32px;
+    padding-bottom: 32px;
+}
+
+.inner-container {
+    width: 40%;
+    margin: 0 auto;
+}
+
+.form-card {
+    border-radius: 20px;
+    padding: 40px;
+    border: 1px solid var(--color-maroon);
+}
+
+.book-info-card {
+    font-size: 32px;
+    color: var(--color-maroon);
+}
+
+.book-add-img,
+.book-upd-img {
+    width: 100px;
+    height: 100px;
+
+    padding: 0.25rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 0.25rem;
+}
+
+.card-field-categ {
+    display: flex;
+    flex-direction: column;
+}
+
+.card-field label,
+.card-field-categ label,
+.card-area label {
+    font-weight: bold;
+    font-size: 16px;
+    color: var(--color-maroon);
+    margin-bottom: 4px;
+}
+
+.card-field input,
+.card-field-categ select,
+.card-area textarea {
+    flex: 1;
+    padding: 10px 12px;
+    border-radius: 8px;
+    border: 1px solid var(--color-maroon);
+    font-size: 16px;
+}
+
+.action-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+}
+
+.btn-save,
+.btn-cancel {
+    font-weight: bold;
+    border-radius: 10px;
+    border: 2px solid;
+    cursor: pointer;
+
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.25);
+}
+
+.btn-save {
+    padding: 5px 60px;
+    color: var(--color-maroon);
+    background-color: var(--color-yellow);
+    border-color: var(--color-maroon);
+}
+
+.btn-cancel {
+    padding: 5px 55px;
+    color: var(--color-yellow);
+    background-color: var(--color-maroon);
+    border-color: var(--color-yellow);
+}
+
+.btn-save:hover,
+.btn-cancel:hover {
+    transform: scale(1.03);
+}

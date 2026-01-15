@@ -4,7 +4,7 @@
     --color-light-maroon: #b30000;
     --color-light-yellow: #ffe74d;
 
-    --color-st: #f8c9db;
+    --color-st: #F5B2CC;
     --color-lit: #cab5fc;
     --color-soc: #bbdce5;
     --color-eco: #d9e9cf;
@@ -108,6 +108,30 @@ body {
     transform: scale(1.05);
 }
 
+.st-btn:hover {
+    background: linear-gradient(to top, var(--color-st), #FFFFFF);
+}
+
+.lit-btn:hover {
+    background: linear-gradient(to top, var(--color-lit), #FFFFFF);
+}
+
+.soc-btn:hover {
+    background: linear-gradient(to top, var(--color-soc), #FFFFFF);
+}
+
+.eco-btn:hover {
+    background: linear-gradient(to top, var(--color-eco), #FFFFFF);
+}
+
+.his-btn:hover {
+    background: linear-gradient(to top, var(--color-his), #FFFFFF);
+}
+
+.phi-btn:hover {
+    background: linear-gradient(to top, var(--color-phi), #FFFFFF);
+}
+
 .book-card {
     height: 250px;
     margin-bottom: 40px;
@@ -200,7 +224,7 @@ body {
 }
 
 .notavail-label {
-    background-color: #ffb6c1;
+    background-color: #FF8A8A;
     color: #8b0000;
 }
 

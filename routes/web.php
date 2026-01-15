@@ -37,6 +37,12 @@ Route::prefix('isko-lib')->group(function () {
         // INVENTORY
         Route::get('/inventory', [AdminInventoryController::class, 'showInventory'])->name('iskolib.admin.inventory');
 
+        // ADD BOOKS
+        Route::get('/add-book', [AdminInventoryController::class, 'showAddBook'])->name('iskolib.admin.add-book');
+
+        // UPDATE BOOKS
+        Route::get('/update-book', [AdminInventoryController::class, 'showUpdateBook'])->name('iskolib.admin.update-book');
+
         // TRANSACTION
         Route::get('/transaction', [AdminTransactionController::class, 'showTransaction'])->name('iskolib.admin.transaction');
     });
