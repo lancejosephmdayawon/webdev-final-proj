@@ -8,6 +8,6 @@ class UserBookController extends Controller
 {
     public function showBooks()
     {
-        return view('iskolib.user.books');
+        return view('user.books');
     }
 }

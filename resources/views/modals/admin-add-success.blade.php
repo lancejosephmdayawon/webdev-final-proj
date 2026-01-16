@@ -1,9 +1,9 @@
-<div id="updSuccessModal" class="confirm-overlay" style="display: none;">
+<div id="addSuccessModal" class="confirm-overlay" style="display: none;">
     <div class="popup-success">
         <div class="align-center">
             <img src="{{ asset('images/success.png') }}" class="success-img">
         </div>
-        <h2 class="my-2">Book Updated Successfully!</h2>
+        <h2 class="my-2">Book Added Successfully!</h2>
 
         <div class="popup-btn mt-4">
             <button class="btn-confirm-success" onclick="closeSuccessModal()">Confirm</button>
@@ -109,6 +109,6 @@
 
 <script>
     function closeSuccessModal() {
-        window.location = "{{ route('iskolib.admin.inventory') }}";
+        window.location = "{{ route('admin.inventory') }}";
     }
 </script>

@@ -1,5 +1,5 @@
-@extends('layouts.admin-upd-form')
-@section('title', 'ISKO-LIB: Librarian Update a Book')
+@extends('layouts.admin-add-form')
+@section('title', 'ISKO-LIB: Librarian Add a Book')
 @section('content')
 
 <div class="main-container">
@@ -7,8 +7,8 @@
         <div class="form-card">
 
             <div class="book-info-card row justify-content-center text-center mb-4">
-                <img src="{{ asset('images/book-upd.png') }}" class="book-upd-img mb-2">
-                <h2 class="font-extrabold">Update the Archive</h2>
+                <img src="{{ asset('images/book-add.png') }}" class="book-add-img mb-2">
+                <h2 class="font-extrabold">Expand the Library</h2>
             </div>
 
             <div class="card-field mb-2">
@@ -50,8 +50,8 @@
             </div>
 
             <div class="action-buttons">
-                <button type="button" class="btn-save" onclick="openUpdConModal(this)">Save</button>
-                <button type="button" class="btn-cancel" onclick="closeUpdConModal(this)">Cancel</button>
+                <button type="button" class="btn-save" onclick="openAddConModal(this)">Save</button>
+                <button type="button" class="btn-cancel" onclick="closeAddConModal(this)">Cancel</button>
             </div>
 
         </div>
@@ -61,13 +61,13 @@
 
 @push('scripts')
 <script>
-    function openUpdConModal(button) {
-        const modal = document.getElementById('updConModal');
+    function openAddConModal(button) {
+        const modal = document.getElementById('addConModal');
         modal.style.display = 'flex';
     }
 
-    function closeUpdConModal() {
-        window.location = "{{ route('iskolib.admin.inventory') }}";
+    function closeAddConModal() {
+        window.location = "{{ route('admin.inventory') }}";
     }
 </script>
 @endpush

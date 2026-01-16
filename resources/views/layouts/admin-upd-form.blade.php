@@ -20,10 +20,10 @@
   @include('layouts.admin-header')
   @yield('content')
 
-  @include('iskolib.modals.admin-upd-confirm')
+  @include('modals.admin-upd-confirm')
   @stack('scripts')
 
-  @include('iskolib.modals.admin-upd-success')
+  @include('modals.admin-upd-success')
   @stack('scripts')
   <!-- @include('layouts.footer') -->
 </body>

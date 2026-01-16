@@ -8,16 +8,16 @@ class AdminInventoryController extends Controller
 {
     public function showInventory()
     {
-        return view('iskolib.admin.inventory');
+        return view('admin.inventory');
     }
 
     public function showAddBook()
     {
-        return view('iskolib.admin.add-form');
+        return view('admin.add-form');
     }
 
     public function showUpdateBook()
     {
-        return view('iskolib.admin.update-form');
+        return view('admin.update-form');
     }
 }

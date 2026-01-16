@@ -8,6 +8,6 @@ class AdminDashboardController extends Controller
 {
     public function showDashboard()
     {
-        return view('iskolib.admin.dashboard');
+        return view('admin.dashboard');
     }
 }

@@ -8,16 +8,16 @@ class UserHomeController extends Controller
 {
     public function showHome()
     {
-        return view('iskolib.user.home');
+        return view('user.home');
     }
 
     public function showBookDetails()
     {
-        return view('iskolib.user.book-details');
+        return view('user.book-details');
     }
 
     public function showBorrowForm()
     {
-        return view('iskolib.user.borrow');
+        return view('user.borrow');
     }
 }

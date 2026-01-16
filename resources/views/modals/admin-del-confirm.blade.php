@@ -1,12 +1,13 @@
-<div id="userBorrowSuccessModal" class="confirm-overlay" style="display: none;">
-    <div class="popup-success">
+<div id="delConModal" class="confirm-overlay" style="display: none;">
+    <div class="popup-confirm">
         <div class="align-center">
-            <img src="{{ asset('images/success.png') }}" class="success-img">
+            <img src="{{ asset('images/del-con.png') }}" class="del-con-img">
         </div>
-        <h2 class="my-2">Book Borrowed Successfully!</h2>
+        <h2 class="my-2">Are you sure you want to delete this book?</h2>
 
         <div class="popup-btn mt-4">
-            <button class="btn-confirm-success" onclick="closeSuccessModal()">Confirm</button>
+            <button class="btn-confirm" onclick="confirmDel()">Confirm</button>
+            <button class="btn-cancel" onclick="closeDeleteModal()">Cancel</button>
         </div>
     </div>
 </div>
@@ -35,7 +36,7 @@
     }
 
 
-    .popup-success {
+    .popup-confirm {
         position: relative;
         background: #FFFFFF;
         color: var(--color-maroon);
@@ -51,12 +52,12 @@
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
     }
 
-    .popup-success h2 {
-        font-size: 25px;
+    .popup-confirm h2 {
+        font-size: 20px;
         font-weight: bold;
     }
 
-    .success-img {
+    .del-con-img {
         width: 80px;
         height: 80px;
         padding: 0.25rem;
@@ -71,7 +72,8 @@
         gap: 16px;
     }
 
-    .btn-confirm-success {
+    .btn-confirm,
+    .btn-cancel {
         width: 110px;
         padding: 5px;
         border-radius: 10px;
@@ -88,27 +90,44 @@
         transition: all 0.3s ease;
     }
 
-    .btn-confirm-success {
+    .btn-confirm {
         color: var(--color-maroon);
         background-color: var(--color-yellow);
         border-color: var(--color-maroon);
     }
 
-    .btn-confirm-success:hover {
+    .btn-cancel {
+        color: var(--color-yellow);
+        background-color: var(--color-maroon);
+        border-color: var(--color-yellow);
+    }
+
+    .btn-confirm:hover,
+    .btn-cancel:hover {
         transform: scale(1.03);
     }
 
-    .btn-confirm-success:active {
+    .btn-confirm:active,
+    .btn-cancel:active {
         top: 3px;
     }
 
-    .btn-confirm-success:active {
+    .btn-confirm:active {
         box-shadow: 0 2px 0px var(--color-yellow);
+    }
+
+    .btn-cancel:active {
+        box-shadow: 0 2px 0px var(--color-maroon);
     }
 </style>
 
 <script>
-    function closeSuccessModal() {
-        window.location = "{{ route('iskolib.user.home') }}";
+    function confirmDel() {
+        document.getElementById('delConModal').style.display = 'none';
+        document.getElementById('delSuccessModal').style.display = 'flex';
+    }
+
+    function closeDeleteModal() {
+        window.location = "{{ route('admin.inventory') }}";
     }
 </script>

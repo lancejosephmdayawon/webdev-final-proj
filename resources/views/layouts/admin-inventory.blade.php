@@ -20,10 +20,10 @@
   @include('layouts.admin-header')
   @yield('content')
 
-  @include('iskolib.modals.admin-del-confirm')
+  @include('modals.admin-del-confirm')
   @stack('scripts')
 
-  @include('iskolib.modals.admin-del-success')
+  @include('modals.admin-del-success')
   @stack('scripts')
 
   @stack('scripts')

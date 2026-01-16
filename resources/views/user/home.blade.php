@@ -265,7 +265,7 @@
 @push('scripts')
 <script>
     function openViewModal(button) {
-        window.location = "{{ route('iskolib.user.book-details') }}"
+        window.location = "{{ route('user.book-details') }}"
     }
 </script>
 @endpush

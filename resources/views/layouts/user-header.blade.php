@@ -118,14 +118,14 @@ use Illuminate\Support\Str;
 
         <ul class="nav-center">
             <li class="nav-item">
-                <a class="nav-link {{ request()->routeIs('iskolib.user.home') ? 'active' : '' }}"
-                    href="{{ route('iskolib.user.home') }}">
+                <a class="nav-link {{ request()->routeIs('user.home') ? 'active' : '' }}"
+                    href="{{ route('user.home') }}">
                     Home
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link {{ request()->routeIs('iskolib.user.books') ? 'active' : '' }}"
-                    href="{{ route('iskolib.user.books') }}">
+                <a class="nav-link {{ request()->routeIs('user.books') ? 'active' : '' }}"
+                    href="{{ route('user.books') }}">
                     Books
                 </a>
             </li>
@@ -135,7 +135,7 @@ use Illuminate\Support\Str;
             <a href="#" class="profile-icon-link">
                 <img src="{{ asset('images/pfp_icon.png') }}" class="profile-img-top" alt="Profile">
             </a>
-            <a href="{{ route('iskolib.welcome') }}" class="logout-btn">Logout</a>
+            <a href="{{ route('welcome') }}" class="logout-btn">Logout</a>
         </div>
     </div>
 </nav>

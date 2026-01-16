@@ -8,6 +8,6 @@ class AdminTransactionController extends Controller
 {
     public function showTransaction()
     {
-        return view('iskolib.admin.transaction');
+        return view('admin.transaction');
     }
 }

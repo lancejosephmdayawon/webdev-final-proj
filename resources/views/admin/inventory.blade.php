@@ -6,7 +6,7 @@
     <div class="inner-container">
         <div class="top-card d-flex justify-content-between align-items-center mb-4">
             <p class="top-title fw-bold mb-0">Book Inventory</p>
-            <a href="{{ route('iskolib.admin.add-book') }}" class="add-btn">Add</a>
+            <a href="{{ route('admin.add-book') }}" class="add-btn">Add</a>
         </div>
 
         <div class="category-card">
@@ -483,7 +483,7 @@
 @push('scripts')
 <script>
     function openEditModal(button) {
-        window.location = "{{ route('iskolib.admin.update-book') }}"
+        window.location = "{{ route('admin.update-book') }}"
     }
 
     function openDeleteModal() {
