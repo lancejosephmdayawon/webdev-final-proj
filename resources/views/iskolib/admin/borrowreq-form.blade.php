@@ -1,13 +1,15 @@
-@extends('layouts.user-borrow')
-@section('title', 'ISKO-LIB: Student Borrow Book')
+@extends('layouts.admin-borrowreq')
+@section('title', 'ISKO-LIB: Librarian Borrow Request')
 @section('content')
 
 <div class="main-container">
     <div class="inner-container">
         <div class="form-card">
+            <button class="close-btn" onclick="closeRequestModal()">&times;</button>
+
             <div class="book-info-card row justify-content-center text-center mb-4">
                 <img src="{{ asset('images/book-borrow.png') }}" class="book-borrow-img mb-2">
-                <h2 class="font-extrabold">Borrow a Book</h2>
+                <h2 class="font-extrabold">Borrow Request</h2>
             </div>
 
             <div class="card-field mb-2">
@@ -28,16 +30,16 @@
 
             <hr class="my-2">
 
-            <label class="font-extrabold">Student Information</label>
+            <label class="font-extrabold" readonly>Student Information</label>
 
             <div class="card-field mb-2">
                 <label>Name</label>
-                <input id="name" type="text" class="form-control">
+                <input id="name" type="text" class="form-control" readonly>
             </div>
 
             <div class="card-field mb-4">
                 <label>LRN</label>
-                <input id="title" type="text" class="form-control">
+                <input id="title" type="text" class="form-control" readonly>
             </div>
 
             <hr class="my-2">
@@ -50,13 +52,13 @@
 
                 <div class="col-md-6">
                     <label>Expected Return</label>
-                    <input id="date_return" type="date" class="form-control">
+                    <input id="date_return" type="date" class="form-control" readonly>
                 </div>
             </div>
 
             <div class="action-buttons">
-                <button type="button" class="btn-save" onclick="openBookDetailsModal(this)">Submit</button>
-                <button type="button" class="btn-cancel" onclick="closeBookDetailsModal(this)">Cancel</button>
+                <button type="button" class="btn-save" onclick="acceptRequestModal(this)">Accept</button>
+                <button type="button" class="btn-cancel" onclick="declineRequestModal(this)">Decline</button>
             </div>
 
         </div>
@@ -66,13 +68,18 @@
 
 @push('scripts')
 <script>
-    function openBookDetailsModal(button) {
-        const modal = document.getElementById('userBorrowConModal');
+    function acceptRequestModal(button) {
+        const modal = document.getElementById('adminAcceptConModal');
         modal.style.display = 'flex';
     }
 
-    function closeBookDetailsModal() {
-        window.location = "{{ route('user.home') }}";
+    function declineRequestModal() {
+        const modal = document.getElementById('adminDeclineConModal');
+        modal.style.display = 'flex';
+    }
+
+    function closeRequestModal() {
+        window.location = "{{ route('admin.transaction') }}";
     }
 </script>
 @endpush

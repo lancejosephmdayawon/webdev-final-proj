@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -6,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>@yield('title', 'ISKO-LIB')</title>
   @vite(['resources/sass/app.scss', 'resources/js/app.js'])
-  <link rel="stylesheet" href="{{ asset('css/a_transaction.css') }}">
+  <link rel="stylesheet" href="{{ asset('css/form.css') }}">
 
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
@@ -17,11 +18,17 @@
 </head>
 
 <body>
-    @include('layouts.admin-header')
-    @yield('content')
+  @include('layouts.admin-header')
+  @yield('content')
 
-    @stack('scripts')
-    <!-- @include('layouts.footer') -->
+  @include('iskolib.modals.admin-overdue-confirm')
+  @stack('scripts')
+
+  @include('iskolib.modals.admin-overdue-success')
+  @stack('scripts')
+
+  @stack('scripts')
+  <!-- @include('layouts.footer') -->
 </body>
 
 </html>

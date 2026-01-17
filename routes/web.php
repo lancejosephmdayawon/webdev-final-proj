@@ -43,6 +43,18 @@ Route::prefix('librarian')->group(function () {
 
     // TRANSACTION
     Route::get('/transaction', [AdminTransactionController::class, 'showTransaction'])->name('admin.transaction');
+
+    // BOOK BORROW REQUEST
+    Route::get('/borrow-request', [AdminTransactionController::class, 'showBorrowRequest'])->name('admin.borrow-request');
+
+    // BORROWED BOOK
+    Route::get('/borrowed-book', [AdminTransactionController::class, 'showBorrowedBook'])->name('admin.borrowed-book');
+
+    // OVERDUE BOOK
+    Route::get('/overdue-book', [AdminTransactionController::class, 'showOverdueBook'])->name('admin.overdue-book');
+
+    // RETURNED BOOK
+    Route::get('/returned-book', [AdminTransactionController::class, 'showReturnedBook'])->name('admin.returned-book');
 });
 
 // USER ROUTE
@@ -53,7 +65,7 @@ Route::prefix('student')->group(function () {
     // BOOK INFO
     Route::get('/book-details', [UserHomeController::class, 'showBookDetails'])->name('user.book-details');
 
-    // BOOK INFO
+    // BOOK BORROW
     Route::get('/borrow-book', [UserHomeController::class, 'showBorrowForm'])->name('user.borrow-book');
 
     // BOOKS

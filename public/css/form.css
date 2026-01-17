@@ -19,6 +19,14 @@ body {
     margin: 0 auto;
 }
 
+.close-btn {
+    background: transparent;
+    border: none;
+    font-size: 32px;
+    cursor: pointer;
+    color: var(--color-maroon);
+}
+
 .form-card {
     color: var(--color-maroon);
     font-size: 24px;
@@ -35,7 +43,8 @@ body {
 .book-add-img,
 .book-upd-img,
 .book-details-img,
-.book-borrow-img {
+.book-borrow-img,
+.book-return-img {
     width: 100px;
     height: 100px;
 

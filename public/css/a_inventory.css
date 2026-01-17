@@ -72,6 +72,13 @@ body {
     border: 1px solid;
     cursor: pointer;
 
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.25);
 }
 

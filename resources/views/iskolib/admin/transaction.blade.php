@@ -8,6 +8,7 @@
             <p class="top-title fw-bold mb-0">Request to Borrow</p>
         </div>
 
+        <!--REQUEST BOOK-->
         <div class="book-card">
             <div class="row g-4 mb-4">
 
@@ -35,7 +36,7 @@
 
                         <!-- Action Buttons -->
                         <div class="book-actions">
-                            <button type="button" class="btn-view" onclick="openEditModal(this)">View Details</button>
+                            <button type="button" class="btn-view" onclick="openViewModal(this)">View Details</button>
                         </div>
                     </div>
                 </div>
@@ -64,7 +65,7 @@
 
                         <!-- Action Buttons -->
                         <div class="book-actions">
-                            <button type="button" class="btn-view" onclick="openEditModal(this)">View Details</button>
+                            <button type="button" class="btn-view" onclick="openViewModal(this)">View Details</button>
                         </div>
                     </div>
                 </div>
@@ -93,7 +94,7 @@
 
                         <!-- Action Buttons -->
                         <div class="book-actions">
-                            <button type="button" class="btn-view" onclick="openEditModal(this)">View Details</button>
+                            <button type="button" class="btn-view" onclick="openViewModal(this)">View Details</button>
                         </div>
                     </div>
                 </div>
@@ -122,7 +123,7 @@
 
                         <!-- Action Buttons -->
                         <div class="book-actions">
-                            <button type="button" class="btn-view" onclick="openEditModal(this)">View Details</button>
+                            <button type="button" class="btn-view" onclick="openViewModal(this)">View Details</button>
                         </div>
                     </div>
                 </div>
@@ -151,7 +152,7 @@
 
                         <!-- Action Buttons -->
                         <div class="book-actions">
-                            <button type="button" class="btn-view" onclick="openEditModal(this)">View Details</button>
+                            <button type="button" class="btn-view" onclick="openViewModal(this)">View Details</button>
                         </div>
                     </div>
                 </div>
@@ -180,7 +181,7 @@
 
                         <!-- Action Buttons -->
                         <div class="book-actions">
-                            <button type="button" class="btn-view" onclick="openEditModal(this)">View Details</button>
+                            <button type="button" class="btn-view" onclick="openViewModal(this)">View Details</button>
                         </div>
                     </div>
                 </div>
@@ -217,7 +218,7 @@
                             <div class="card-book-right">
                                 <!-- Date -->
                                 <p class="card-book-date">01/01/26</p>
-                                <button type="button" class="btn-details">
+                                <button type="button" class="btn-details" onclick="openDetailsModal(this)">
                                     Details
                                 </button>
                             </div>
@@ -245,7 +246,7 @@
                             <div class="card-book-right">
                                 <!-- Date -->
                                 <p class="card-book-date">01/01/26</p>
-                                <button type="button" class="btn-details">
+                                <button type="button" class="btn-details" onclick="openDetailsModal(this)">
                                     Details
                                 </button>
                             </div>
@@ -273,7 +274,7 @@
                             <div class="card-book-right">
                                 <!-- Date -->
                                 <p class="card-book-date">01/01/26</p>
-                                <button type="button" class="btn-details">
+                                <button type="button" class="btn-details" onclick="openDetailsModal(this)">
                                     Details
                                 </button>
                             </div>
@@ -301,7 +302,7 @@
                             <div class="card-book-right">
                                 <!-- Date -->
                                 <p class="card-book-date">01/01/26</p>
-                                <button type="button" class="btn-details">
+                                <button type="button" class="btn-details" onclick="openDetailsModal(this)">
                                     Details
                                 </button>
                             </div>
@@ -329,7 +330,7 @@
                             <div class="card-book-right">
                                 <!-- Date -->
                                 <p class="card-book-date">01/01/26</p>
-                                <button type="button" class="btn-details">
+                                <button type="button" class="btn-details" onclick="openDetailsModal(this)">
                                     Details
                                 </button>
                             </div>
@@ -357,7 +358,7 @@
                             <div class="card-book-right">
                                 <!-- Date -->
                                 <p class="card-book-date">01/01/26</p>
-                                <button type="button" class="btn-details">
+                                <button type="button" class="btn-details" onclick="openDetailsModal(this)">
                                     Details
                                 </button>
                             </div>
@@ -392,7 +393,7 @@
 
                             <div class="card-book-over">
                                 <!-- Date -->
-                                <button type="button" class="btn-date-overdue">
+                                <button type="button" class="btn-date-overdue" onclick="openOverdueModal(this)">
                                     01/01/26
                                 </button>
                             </div>
@@ -419,7 +420,7 @@
 
                             <div class="card-book-right">
                                 <!-- Date -->
-                                <button type="button" class="btn-date-overdue">
+                                <button type="button" class="btn-date-overdue" onclick="openOverdueModal(this)">
                                     01/01/26
                                 </button>
                             </div>
@@ -446,7 +447,7 @@
 
                             <div class="card-book-right">
                                 <!-- Date -->
-                                <button type="button" class="btn-date-overdue">
+                                <button type="button" class="btn-date-overdue" onclick="openOverdueModal(this)">
                                     01/01/26
                                 </button>
                             </div>
@@ -473,7 +474,7 @@
 
                             <div class="card-book-right">
                                 <!-- Date -->
-                                <button type="button" class="btn-date-overdue">
+                                <button type="button" class="btn-date-overdue" onclick="openOverdueModal(this)">
                                     01/01/26
                                 </button>
                             </div>
@@ -500,7 +501,7 @@
 
                             <div class="card-book-right">
                                 <!-- Date -->
-                                <button type="button" class="btn-date-overdue">
+                                <button type="button" class="btn-date-overdue" onclick="openOverdueModal(this)">
                                     01/01/26
                                 </button>
                             </div>
@@ -527,7 +528,7 @@
 
                             <div class="card-book-right">
                                 <!-- Date -->
-                                <button type="button" class="btn-date-overdue">
+                                <button type="button" class="btn-date-overdue" onclick="openOverdueModal(this)">
                                     01/01/26
                                 </button>
                             </div>
@@ -536,6 +537,7 @@
                     </div>
                 </div>
 
+                <!--RETURNED BOOKS-->
                 <div class="col-sm-12 col-lg-4">
                     <div class="returned-card">
                         <p class="bot-title fw-bold mb-0">Returned Books</p>
@@ -561,7 +563,7 @@
 
                             <div class="card-book-over">
                                 <!-- Date -->
-                                <button type="button" class="btn-date-returned">
+                                <button type="button" class="btn-date-returned" onclick="openReturnedModal(this)">
                                     01/01/26
                                 </button>
                             </div>
@@ -588,7 +590,7 @@
 
                             <div class="card-book-right">
                                 <!-- Date -->
-                                <button type="button" class="btn-date-returned">
+                                <button type="button" class="btn-date-returned" onclick="openReturnedModal(this)">
                                     01/01/26
                                 </button>
                             </div>
@@ -615,7 +617,7 @@
 
                             <div class="card-book-right">
                                 <!-- Date -->
-                                <button type="button" class="btn-date-returned">
+                                <button type="button" class="btn-date-returned" onclick="openReturnedModal(this)">
                                     01/01/26
                                 </button>
                             </div>
@@ -642,7 +644,7 @@
 
                             <div class="card-book-right">
                                 <!-- Date -->
-                                <button type="button" class="btn-date-returned">
+                                <button type="button" class="btn-date-returned" onclick="openReturnedModal(this)">
                                     01/01/26
                                 </button>
                             </div>
@@ -669,7 +671,7 @@
 
                             <div class="card-book-right">
                                 <!-- Date -->
-                                <button type="button" class="btn-date-returned">
+                                <button type="button" class="btn-date-returned" onclick="openReturnedModal(this)">
                                     01/01/26
                                 </button>
                             </div>
@@ -696,7 +698,7 @@
 
                             <div class="card-book-right">
                                 <!-- Date -->
-                                <button type="button" class="btn-date-returned">
+                                <button type="button" class="btn-date-returned" onclick="openReturnedModal(this)">
                                     01/01/26
                                 </button>
                             </div>
@@ -710,3 +712,24 @@
 </div>
 
 @endsection
+
+@push('scripts')
+<script>
+    function openViewModal(button) {
+        window.location = "{{ route('admin.borrow-request') }}"
+    }
+
+    function openDetailsModal(button) {
+        window.location = "{{ route('admin.borrowed-book') }}"
+    }
+
+    function openOverdueModal(button) {
+        window.location = "{{ route('admin.overdue-book') }}"
+    }
+
+    function openReturnedModal(button) {
+        window.location = "{{ route('admin.returned-book') }}"
+    }
+
+</script>
+@endpush
