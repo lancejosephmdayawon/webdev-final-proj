@@ -109,6 +109,6 @@
 
 <script>
     function closeSuccessModal() {
-        window.location = "{{ route('iskolib.user.home') }}";
+        window.location = "{{ route('user.home') }}";
     }
 </script>

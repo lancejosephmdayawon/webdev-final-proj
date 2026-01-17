@@ -6,7 +6,7 @@
     <div class="inner-container">
         <div class="top-card d-flex justify-content-between align-items-center mb-4">
             <p class="top-title fw-bold mb-0">Book Inventory</p>
-            <a href="{{ route('iskolib.admin.add-book') }}" class="add-btn">Add</a>
+            <a href="{{ route('admin.add-book') }}" class="add-btn">Add</a>
         </div>
 
         <div class="category-card">
@@ -59,7 +59,7 @@
                             <!-- Book Data -->
                             <div class="book-data">
                                 <p>978-0743273565</p>
-                                <p><b>The Great Gatsby</b></p>
+                                <p class="book-data-title"><b>The Great Gatsby</b></p>
                                 <p>F.Scott Fitzgerald</p>
                             </div>
                         </div>
@@ -95,7 +95,7 @@
                             <!-- Book Data -->
                             <div class="book-data">
                                 <p>978-0743273565</p>
-                                <p><b>The Great Gatsby</b></p>
+                                <p class="book-data-title"><b>The Great Gatsby</b></p>
                                 <p>F.Scott Fitzgerald</p>
                             </div>
                         </div>
@@ -131,7 +131,7 @@
                             <!-- Book Data -->
                             <div class="book-data">
                                 <p>978-0743273565</p>
-                                <p><b>The Great Gatsby</b></p>
+                                <p class="book-data-title"><b>The Great Gatsby</b></p>
                                 <p>F.Scott Fitzgerald</p>
                             </div>
                         </div>
@@ -167,7 +167,7 @@
                             <!-- Book Data -->
                             <div class="book-data">
                                 <p>978-0743273565</p>
-                                <p><b>The Great Gatsby</b></p>
+                                <p class="book-data-title"><b>The Great Gatsby</b></p>
                                 <p>F.Scott Fitzgerald</p>
                             </div>
                         </div>
@@ -203,7 +203,7 @@
                             <!-- Book Data -->
                             <div class="book-data">
                                 <p>978-0743273565</p>
-                                <p><b>The Great Gatsby</b></p>
+                                <p class="book-data-title"><b>The Great Gatsby</b></p>
                                 <p>F.Scott Fitzgerald</p>
                             </div>
                         </div>
@@ -239,7 +239,7 @@
                             <!-- Book Data -->
                             <div class="book-data">
                                 <p>978-0743273565</p>
-                                <p><b>The Great Gatsby</b></p>
+                                <p class="book-data-title"><b>The Great Gatsby</b></p>
                                 <p>F.Scott Fitzgerald</p>
                             </div>
                         </div>
@@ -280,7 +280,7 @@
                             <!-- Book Data -->
                             <div class="book-data">
                                 <p>978-0743273565</p>
-                                <p><b>The Great Gatsby</b></p>
+                                <p class="book-data-title"><b>The Great Gatsby</b></p>
                                 <p>F.Scott Fitzgerald</p>
                             </div>
                         </div>
@@ -316,7 +316,7 @@
                             <!-- Book Data -->
                             <div class="book-data">
                                 <p>978-0743273565</p>
-                                <p><b>The Great Gatsby</b></p>
+                                <p class="book-data-title"><b>The Great Gatsby</b></p>
                                 <p>F.Scott Fitzgerald</p>
                             </div>
                         </div>
@@ -352,7 +352,7 @@
                             <!-- Book Data -->
                             <div class="book-data">
                                 <p>978-0743273565</p>
-                                <p><b>The Great Gatsby</b></p>
+                                <p class="book-data-title"><b>The Great Gatsby</b></p>
                                 <p>F.Scott Fitzgerald</p>
                             </div>
                         </div>
@@ -388,7 +388,7 @@
                             <!-- Book Data -->
                             <div class="book-data">
                                 <p>978-0743273565</p>
-                                <p><b>The Great Gatsby</b></p>
+                                <p class="book-data-title"><b>The Great Gatsby</b></p>
                                 <p>F.Scott Fitzgerald</p>
                             </div>
                         </div>
@@ -424,7 +424,7 @@
                             <!-- Book Data -->
                             <div class="book-data">
                                 <p>978-0743273565</p>
-                                <p><b>The Great Gatsby</b></p>
+                                <p class="book-data-title"><b>The Great Gatsby</b></p>
                                 <p>F.Scott Fitzgerald</p>
                             </div>
                         </div>
@@ -460,7 +460,7 @@
                             <!-- Book Data -->
                             <div class="book-data">
                                 <p>978-0743273565</p>
-                                <p><b>The Great Gatsby</b></p>
+                                <p class="book-data-title"><b>The Great Gatsby</b></p>
                                 <p>F.Scott Fitzgerald</p>
                             </div>
                         </div>
@@ -483,7 +483,7 @@
 @push('scripts')
 <script>
     function openEditModal(button) {
-        window.location = "{{ route('iskolib.admin.update-book') }}"
+        window.location = "{{ route('admin.update-book') }}"
     }
 
     function openDeleteModal() {

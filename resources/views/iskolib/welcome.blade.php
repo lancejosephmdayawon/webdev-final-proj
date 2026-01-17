@@ -16,13 +16,13 @@
             <!-- LIBRARIAN BUTTON -->
             <div class="lib-card">
                 <img src="{{ asset('images/librarian-icon.png') }}" class="role-img">
-                <a href="{{ route('iskolib.login') }}" class="role-btn w-full">Librarian</a>
+                <a href="{{ route('login') }}" class="role-btn w-full">Librarian</a>
             </div>
 
             <!-- STUDENT BUTTON -->
             <div class="stud-card">
                 <img src="{{ asset('images/student-icon.png') }}" class="role-img">
-                <a href="{{ route('iskolib.login') }}" class="role-btn w-full">Student</a>
+                <a href="{{ route('login') }}" class="role-btn w-full">Student</a>
             </div>
         </div>
 

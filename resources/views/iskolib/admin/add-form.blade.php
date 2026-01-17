@@ -67,7 +67,7 @@
     }
 
     function closeAddConModal() {
-        window.location = "{{ route('iskolib.admin.inventory') }}";
+        window.location = "{{ route('admin.inventory') }}";
     }
 </script>
 @endpush

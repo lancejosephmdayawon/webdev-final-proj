@@ -115,20 +115,20 @@ use Illuminate\Support\Str;
 
         <ul class="nav-center">
             <li class="nav-item">
-                <a class="nav-link {{ request()->routeIs('iskolib.admin.dashboard') ? 'active' : '' }}"
-                    href="{{ route('iskolib.admin.dashboard') }}">
+                <a class="nav-link {{ request()->routeIs('admin.dashboard') ? 'active' : '' }}"
+                    href="{{ route('admin.dashboard') }}">
                     Dashboard
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link {{ request()->routeIs('iskolib.admin.inventory') ? 'active' : '' }}"
-                    href="{{ route('iskolib.admin.inventory') }}">
+                <a class="nav-link {{ request()->routeIs('admin.inventory') ? 'active' : '' }}"
+                    href="{{ route('admin.inventory') }}">
                     Inventory
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link {{ request()->routeIs('iskolib.admin.transaction') ? 'active' : '' }}"
-                    href="{{ route('iskolib.admin.transaction') }}">
+                <a class="nav-link {{ request()->routeIs('admin.transaction') ? 'active' : '' }}"
+                    href="{{ route('admin.transaction') }}">
                     Transactions
                 </a>
             </li>
@@ -138,7 +138,7 @@ use Illuminate\Support\Str;
             <a href="#" class="profile-icon-link">
                 <img src="{{ asset('images/pfp_icon.png') }}" class="profile-img-top" alt="Profile">
             </a>
-            <a href="{{ route('iskolib.welcome') }}" class="logout-btn">Logout</a>
+            <a href="{{ route('welcome') }}" class="logout-btn">Logout</a>
         </div>
     </div>
 </nav>

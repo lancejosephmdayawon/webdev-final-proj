@@ -68,7 +68,7 @@
                             <!-- Book Data -->
                             <div class="book-data">
                                 <p>978-0743273565</p>
-                                <p><b>The Great Gatsby</b></p>
+                                <p class="book-data-title"><b>The Great Gatsby</b></p>
                                 <p>F.Scott Fitzgerald</p>
                             </div>
                         </div>
@@ -103,7 +103,7 @@
                             <!-- Book Data -->
                             <div class="book-data">
                                 <p>978-0743273565</p>
-                                <p><b>The Great Gatsby</b></p>
+                                <p class="book-data-title"><b>The Great Gatsby</b></p>
                                 <p>F.Scott Fitzgerald</p>
                             </div>
                         </div>
@@ -138,7 +138,7 @@
                             <!-- Book Data -->
                             <div class="book-data">
                                 <p>978-0743273565</p>
-                                <p><b>The Great Gatsby</b></p>
+                                <p class="book-data-title"><b>The Great Gatsby</b></p>
                                 <p>F.Scott Fitzgerald</p>
                             </div>
                         </div>
@@ -173,7 +173,7 @@
                             <!-- Book Data -->
                             <div class="book-data">
                                 <p>978-0743273565</p>
-                                <p><b>The Great Gatsby</b></p>
+                                <p class="book-data-title"><b>The Great Gatsby</b></p>
                                 <p>F.Scott Fitzgerald</p>
                             </div>
                         </div>
@@ -208,7 +208,7 @@
                             <!-- Book Data -->
                             <div class="book-data">
                                 <p>978-0743273565</p>
-                                <p><b>The Great Gatsby</b></p>
+                                <p class="book-data-title"><b>The Great Gatsby</b></p>
                                 <p>F.Scott Fitzgerald</p>
                             </div>
                         </div>
@@ -243,7 +243,7 @@
                             <!-- Book Data -->
                             <div class="book-data">
                                 <p>978-0743273565</p>
-                                <p><b>The Great Gatsby</b></p>
+                                <p class="book-data-title"><b>The Great Gatsby</b></p>
                                 <p>F.Scott Fitzgerald</p>
                             </div>
                         </div>
@@ -265,7 +265,7 @@
 @push('scripts')
 <script>
     function openViewModal(button) {
-        window.location = "{{ route('iskolib.user.book-details') }}"
+        window.location = "{{ route('user.book-details') }}"
     }
 </script>
 @endpush

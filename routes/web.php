@@ -21,44 +21,41 @@ Route::get('/test', function () {
     return "<h1>Successful!</h1>";
 });
 
-// ISKOLIB ROUTE
-Route::prefix('isko-lib')->group(function () {
-    // WELCOME
-    Route::get('/welcome', [IskoLibAuthController::class, 'showWelcome'])->name('iskolib.welcome');
+// WELCOME
+Route::get('/welcome', [IskoLibAuthController::class, 'showWelcome'])->name('welcome');
 
-    // LOGIN
-    Route::get('/login', [IskoLibAuthController::class, 'showLogin'])->name('iskolib.login');
+// LOGIN
+Route::get('/login', [IskoLibAuthController::class, 'showLogin'])->name('login');
 
-    // ADMIN ROUTE
-    Route::prefix('librarian')->group(function () {
-        // DASHBOARD
-        Route::get('/dashboard', [AdminDashboardController::class, 'showDashboard'])->name('iskolib.admin.dashboard');
+// ADMIN ROUTE
+Route::prefix('librarian')->group(function () {
+    // DASHBOARD
+    Route::get('/dashboard', [AdminDashboardController::class, 'showDashboard'])->name('admin.dashboard');
 
-        // INVENTORY
-        Route::get('/inventory', [AdminInventoryController::class, 'showInventory'])->name('iskolib.admin.inventory');
+    // INVENTORY
+    Route::get('/inventory', [AdminInventoryController::class, 'showInventory'])->name('admin.inventory');
 
-        // ADD BOOKS
-        Route::get('/add-book', [AdminInventoryController::class, 'showAddBook'])->name('iskolib.admin.add-book');
+    // ADD BOOKS
+    Route::get('/add-book', [AdminInventoryController::class, 'showAddBook'])->name('admin.add-book');
 
-        // UPDATE BOOKS
-        Route::get('/update-book', [AdminInventoryController::class, 'showUpdateBook'])->name('iskolib.admin.update-book');
+    // UPDATE BOOKS
+    Route::get('/update-book', [AdminInventoryController::class, 'showUpdateBook'])->name('admin.update-book');
 
-        // TRANSACTION
-        Route::get('/transaction', [AdminTransactionController::class, 'showTransaction'])->name('iskolib.admin.transaction');
-    });
+    // TRANSACTION
+    Route::get('/transaction', [AdminTransactionController::class, 'showTransaction'])->name('admin.transaction');
+});
 
-    // USER ROUTE
-    Route::prefix('student')->group(function () {
-        // HOME
-        Route::get('/home', [UserHomeController::class, 'showHome'])->name('iskolib.user.home');
+// USER ROUTE
+Route::prefix('student')->group(function () {
+    // HOME
+    Route::get('/home', [UserHomeController::class, 'showHome'])->name('user.home');
 
-        // BOOK INFO
-        Route::get('/book-details', [UserHomeController::class, 'showBookDetails'])->name('iskolib.user.book-details');
+    // BOOK INFO
+    Route::get('/book-details', [UserHomeController::class, 'showBookDetails'])->name('user.book-details');
 
-        // BOOK INFO
-        Route::get('/borrow-book', [UserHomeController::class, 'showBorrowForm'])->name('iskolib.user.borrow-book');
+    // BOOK INFO
+    Route::get('/borrow-book', [UserHomeController::class, 'showBorrowForm'])->name('user.borrow-book');
 
-        // BOOKS
-        Route::get('/books', [UserBookController::class, 'showBooks'])->name('iskolib.user.books');
-    });
+    // BOOKS
+    Route::get('/books', [UserBookController::class, 'showBooks'])->name('user.books');
 });

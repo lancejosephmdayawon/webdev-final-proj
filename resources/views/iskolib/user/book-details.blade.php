@@ -63,11 +63,11 @@
 @push('scripts')
 <script>
     function openBookDetailsModal(button) {
-        window.location = "{{ route('iskolib.user.borrow-book') }}";
+        window.location = "{{ route('user.borrow-book') }}";
     }
 
     function closeBookDetailsModal() {
-        window.location = "{{ route('iskolib.user.home') }}";
+        window.location = "{{ route('user.home') }}";
     }
 </script>
 @endpush
