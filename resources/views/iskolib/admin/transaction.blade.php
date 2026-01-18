@@ -19,6 +19,11 @@
                             <!-- Category Color -->
                             <div class="st-bar"></div>
                         </div>
+                        <!-- Status Banner -->
+                        <div class="book-card-details mb-2">
+                            <span class="pending-label">Pending</span>
+                            <span><b>01/01/26</b></span>
+                        </div>
                         <!-- Book Content -->
                         <div class="book-content">
                             <!-- Book Icon -->
@@ -47,6 +52,11 @@
                         <div class="categ-bar">
                             <!-- Category Color -->
                             <div class="lit-bar"></div>
+                        </div>
+                        <!-- Status Banner -->
+                        <div class="book-card-details mb-2">
+                            <span class="pending-label">Pending</span>
+                            <span><b>01/01/26</b></span>
                         </div>
                         <!-- Book Content -->
                         <div class="book-content">
@@ -77,6 +87,11 @@
                             <!-- Category Color -->
                             <div class="soc-bar"></div>
                         </div>
+                        <!-- Status Banner -->
+                        <div class="book-card-details mb-2">
+                            <span class="pending-label">Pending</span>
+                            <span><b>01/01/26</b></span>
+                        </div>
                         <!-- Book Content -->
                         <div class="book-content mb-4">
                             <!-- Book Icon -->
@@ -105,6 +120,11 @@
                         <div class="categ-bar">
                             <!-- Category Color -->
                             <div class="eco-bar"></div>
+                        </div>
+                        <!-- Status Banner -->
+                        <div class="book-card-details mb-2">
+                            <span class="pending-label">Pending</span>
+                            <span><b>01/01/26</b></span>
                         </div>
                         <!-- Book Content -->
                         <div class="book-content mb-4">
@@ -135,6 +155,11 @@
                             <!-- Category Color -->
                             <div class="his-bar"></div>
                         </div>
+                        <!-- Status Banner -->
+                        <div class="book-card-details mb-2">
+                            <span class="pending-label">Pending</span>
+                            <span><b>01/01/26</b></span>
+                        </div>
                         <!-- Book Content -->
                         <div class="book-content mb-4">
                             <!-- Book Icon -->
@@ -163,6 +188,11 @@
                         <div class="categ-bar">
                             <!-- Category Color -->
                             <div class="phi-bar"></div>
+                        </div>
+                        <!-- Status Banner -->
+                        <div class="book-card-details mb-2">
+                            <span class="pending-label">Pending</span>
+                            <span><b>01/01/26</b></span>
                         </div>
                         <!-- Book Content -->
                         <div class="book-content mb-4">
@@ -363,7 +393,7 @@
                             </div>
                         </div>
 
-                        
+
 
                     </div>
                 </div>
@@ -731,6 +761,5 @@
     function openReturnedModal(button) {
         window.location = "{{ route('admin.returned-book') }}"
     }
-
 </script>
 @endpush

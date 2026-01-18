@@ -256,6 +256,221 @@
                 </div>
 
             </div>
+
+            <!-- BOOK ROW 2-->
+            <div class="row g-4 mb-4">
+
+                <!-- SCIENCE & TECHNOLOGY -->
+                <div class="col-sm-6 col-lg-2">
+                    <div class="st-card position-relative overflow-hidden">
+                        <div class="categ-bar">
+                            <!-- Category Color -->
+                            <div class="st-bar"></div>
+                        </div>
+                        <!-- Status Banner -->
+                        <div class="book-card-details mb-2">
+                            <!-- Availability -->
+                            <span class="avail-label">Available</span>
+                            <span><b>QTY: #</b></span>
+                        </div>
+                        <!-- Book Content -->
+                        <div class="book-content mb-4">
+                            <!-- Book Icon -->
+                            <div class="categ-icon mb-2">
+                                <img src="{{ asset('images/SciTech.png') }}" alt="Category">
+                            </div>
+
+                            <!-- Book Data -->
+                            <div class="book-data">
+                                <p>978-0743273565</p>
+                                <p class="book-data-title"><b>The Great Gatsby</b></p>
+                                <p>F.Scott Fitzgerald</p>
+                            </div>
+                        </div>
+
+                        <!-- Action Buttons -->
+                        <div class="book-actions">
+                            <button type="button" class="btn-view" onclick="openViewModal(this)">View Details</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- LITERATURE -->
+                <div class="col-sm-6 col-lg-2">
+                    <div class="st-card position-relative overflow-hidden">
+                        <div class="categ-bar">
+                            <!-- Category Color -->
+                            <div class="lit-bar"></div>
+                        </div>
+                        <!-- Status Banner -->
+                        <div class="book-card-details mb-2">
+                            <!-- Availability -->
+                            <span class="notavail-label">Not Available</span>
+                            <span><b>QTY: #</b></span>
+                        </div>
+                        <!-- Book Content -->
+                        <div class="book-content mb-4">
+                            <!-- Book Icon -->
+                            <div class="categ-icon mb-2">
+                                <img src="{{ asset('images/Literature.png') }}" alt="Category">
+                            </div>
+
+                            <!-- Book Data -->
+                            <div class="book-data">
+                                <p>978-0743273565</p>
+                                <p class="book-data-title"><b>The Great Gatsby</b></p>
+                                <p>F.Scott Fitzgerald</p>
+                            </div>
+                        </div>
+
+                        <!-- Action Buttons -->
+                        <div class="book-actions">
+                            <button type="button" class="btn-view" onclick="openViewModal(this)">View Details</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SOCIAL STUDIES -->
+                <div class="col-sm-6 col-lg-2">
+                    <div class="st-card position-relative overflow-hidden">
+                        <div class="categ-bar">
+                            <!-- Category Color -->
+                            <div class="soc-bar"></div>
+                        </div>
+                        <!-- Status Banner -->
+                        <div class="book-card-details mb-2">
+                            <!-- Availability -->
+                            <span class="avail-label">Available</span>
+                            <span><b>QTY: #</b></span>
+                        </div>
+                        <!-- Book Content -->
+                        <div class="book-content mb-4">
+                            <!-- Book Icon -->
+                            <div class="categ-icon mb-2">
+                                <img src="{{ asset('images/SocStud.png') }}" alt="Category">
+                            </div>
+
+                            <!-- Book Data -->
+                            <div class="book-data">
+                                <p>978-0743273565</p>
+                                <p class="book-data-title"><b>The Great Gatsby</b></p>
+                                <p>F.Scott Fitzgerald</p>
+                            </div>
+                        </div>
+
+                        <!-- Action Buttons -->
+                        <div class="book-actions">
+                            <button type="button" class="btn-view" onclick="openViewModal(this)">View Details</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ECONOMICS -->
+                <div class="col-sm-6 col-lg-2">
+                    <div class="st-card position-relative overflow-hidden">
+                        <div class="categ-bar">
+                            <!-- Category Color -->
+                            <div class="eco-bar"></div>
+                        </div>
+                        <!-- Status Banner -->
+                        <div class="book-card-details mb-2">
+                            <!-- Availability -->
+                            <span class="notavail-label">Not Available</span>
+                            <span><b>QTY: #</b></span>
+                        </div>
+                        <!-- Book Content -->
+                        <div class="book-content mb-4">
+                            <!-- Book Icon -->
+                            <div class="categ-icon mb-2">
+                                <img src="{{ asset('images/Economics.png') }}" alt="Category">
+                            </div>
+
+                            <!-- Book Data -->
+                            <div class="book-data">
+                                <p>978-0743273565</p>
+                                <p class="book-data-title"><b>The Great Gatsby</b></p>
+                                <p>F.Scott Fitzgerald</p>
+                            </div>
+                        </div>
+
+                        <!-- Action Buttons -->
+                        <div class="book-actions">
+                            <button type="button" class="btn-view" onclick="openViewModal(this)">View Details</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- HISTORY -->
+                <div class="col-sm-6 col-lg-2">
+                    <div class="st-card position-relative overflow-hidden">
+                        <div class="categ-bar">
+                            <!-- Category Color -->
+                            <div class="his-bar"></div>
+                        </div>
+                        <!-- Status Banner -->
+                        <div class="book-card-details mb-2">
+                            <!-- Availability -->
+                            <span class="avail-label">Available</span>
+                            <span><b>QTY: #</b></span>
+                        </div>
+                        <!-- Book Content -->
+                        <div class="book-content mb-4">
+                            <!-- Book Icon -->
+                            <div class="categ-icon mb-2">
+                                <img src="{{ asset('images/History.png') }}" alt="Category">
+                            </div>
+
+                            <!-- Book Data -->
+                            <div class="book-data">
+                                <p>978-0743273565</p>
+                                <p class="book-data-title"><b>The Great Gatsby</b></p>
+                                <p>F.Scott Fitzgerald</p>
+                            </div>
+                        </div>
+
+                        <!-- Action Buttons -->
+                        <div class="book-actions">
+                            <button type="button" class="btn-view" onclick="openViewModal(this)">View Details</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PHILOSOPHY -->
+                <div class="col-sm-6 col-lg-2">
+                    <div class="st-card position-relative overflow-hidden">
+                        <div class="categ-bar">
+                            <!-- Category Color -->
+                            <div class="phi-bar"></div>
+                        </div>
+                        <!-- Status Banner -->
+                        <div class="book-card-details mb-2">
+                            <!-- Availability -->
+                            <span class="notavail-label">Not Available</span>
+                            <span><b>QTY: #</b></span>
+                        </div>
+                        <!-- Book Content -->
+                        <div class="book-content mb-4">
+                            <!-- Book Icon -->
+                            <div class="categ-icon mb-2">
+                                <img src="{{ asset('images/Philosophy.png') }}" alt="Category">
+                            </div>
+
+                            <!-- Book Data -->
+                            <div class="book-data">
+                                <p>978-0743273565</p>
+                                <p class="book-data-title"><b>The Great Gatsby</b></p>
+                                <p>F.Scott Fitzgerald</p>
+                            </div>
+                        </div>
+
+                        <!-- Action Buttons -->
+                        <div class="book-actions">
+                            <button type="button" class="btn-view" onclick="openViewModal(this)">View Details</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
         </div>
     </div>
 </div>

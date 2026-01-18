@@ -44,7 +44,6 @@ body {
     }
 }
 
-
 .top-title {
     font-size: 32px;
     color: var(--color-maroon);
@@ -53,7 +52,6 @@ body {
 .book-card {
     min-height: 250px;
     height: auto;
-    margin-bottom: 16px;
     position: relative;
 
     overflow-x: auto;
@@ -68,7 +66,6 @@ body {
 .book-card .row {
     flex-wrap: nowrap;
 }
-
 
 .book-card:hover {
     scrollbar-width: thin;
@@ -85,7 +82,6 @@ body {
     height: 6px;
 }
 
-
 .book-card-details {
     display: flex;
     justify-content: flex-end;
@@ -101,9 +97,9 @@ body {
     background-color: #ffffff;
     height: 260px;
     width: auto;
-    padding: 0.25rem 0.75rem 0.75rem 1.60rem;
     border: 1px solid;
     border-radius: 10px;
+    padding: 0.25rem 0.75rem 0.75rem 1.6rem;
     font-size: 14px;
 
     display: flex;
@@ -157,13 +153,11 @@ body {
     background-color: var(--color-phi);
 }
 
-.book-card-details {
-    display: flex;
-    justify-content: flex-end;
-    color: #747373;
-}
-
-.pending-label {
+.approved-label,
+.pending-label,
+.declined-label,
+.borrowed-label,
+.overdue-label {
     position: absolute;
     top: 0;
     left: 15px;
@@ -178,9 +172,25 @@ body {
     z-index: 1;
 }
 
+.approved-label {
+    background-color: #90ee90;
+    color: #006400;
+}
+
 .pending-label {
     background-color: #fcf09c;
     color: #7c6c03;
+}
+
+.declined-label,
+.overdue-label {
+    background-color: #ff8a8a;
+    color: #8b0000;
+}
+
+.borrowed-label {
+    background-color: #90cbf9;
+    color: #0747a1;
 }
 
 .book-data {
@@ -194,7 +204,7 @@ body {
     -webkit-line-clamp: 2;
     overflow: hidden;
     text-overflow: ellipsis;
-    word-break: break-word
+    word-break: break-word;
 }
 
 .book-data p:not(.book-data-title) {
@@ -240,10 +250,8 @@ body {
     color: var(--color-maroon);
 }
 
-.borrow-card,
-.overdue-card,
-.returned-card {
-    height: 540px;
+.history-card {
+    height: 650px;
     padding: 0.5rem 1rem;
     border-radius: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
@@ -252,30 +260,22 @@ body {
     overflow-y: auto;
 }
 
-.borrow-card,
-.overdue-card,
-.returned-card {
+.historycard {
     overflow: auto;
     scrollbar-width: none;
 }
 
-.borrow-card:hover,
-.overdue-card:hover,
-.returned-card:hover {
+.history-card:hover {
     scrollbar-width: thin;
     scrollbar-color: var(--color-maroon) transparent;
 }
 
-.borrow-card::-webkit-scrollbar,
-.overdue-card::-webkit-scrollbar,
-.returned-card::-webkit-scrollbar {
+.history-card::-webkit-scrollbar {
     width: 0;
     height: 0;
 }
 
-.borrow-card:hover::-webkit-scrollbar,
-.overdue-card:hover::-webkit-scrollbar,
-.returned-card:hover::-webkit-scrollbar {
+.history-card:hover::-webkit-scrollbar {
     width: 6px;
     height: 6px;
 }
@@ -337,10 +337,11 @@ body {
     display: flex;
     flex-direction: row;
     align-items: center;
-    overflow: hidden;   
+    overflow: hidden;
     gap: 1rem;
 
     box-sizing: border-box;
+    cursor: pointer;
 }
 
 .card-data-book:hover {
@@ -377,11 +378,9 @@ body {
 }
 
 .card-book-right {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    gap: 0.5rem;
+    align-self: flex-start;
     margin-left: auto;
+    text-align: center;
 }
 
 .card-book-date {
@@ -399,37 +398,121 @@ body {
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.25);
 }
 
-.card-book-over {
-    align-self: flex-start;
-    margin-left: auto;
-    text-align: center;
+/* From Uiverse.io by 0xnihilism */ 
+.card {
+  width: auto;
+  height: 320px;
+  padding: 20px;
+  background: #fff;
+  border: 6px solid var(--color-maroon);
+  box-shadow: 10px 10px 0 var(--color-maroon);
+  transition: transform 0.3s, box-shadow 0.3s;
 }
 
-.btn-date-overdue {
-    font-size: 12px;
-    background-color: #FF8A8A;
-    color: #8b0000;
-    border: 1px solid #8b0000;
-
-    width: 100px;
-    height: 20px;
-    border-radius: 10px;
+.card:hover {
+  transform: translate(-5px, -5px);
+  box-shadow: 17px 17px 0 var(--color-maroon);
 }
 
-.btn-date-returned {
-    font-size: 12px;
-    background-color: #90ee90;
-    color: #006400;
-    border: 1px solid #006400;
-
-    width: 100px;
-    height: 20px;
-    border-radius: 10px;
+.card__title {
+  font-size: 32px;
+  font-weight: 900;
+  color: var(--color-maroon);
+  text-transform: uppercase;
+  margin-bottom: 15px;
+  display: block;
+  position: relative;
+  overflow: hidden;
 }
 
+.card__title::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 90%;
+  height: 3px;
+  background-color: var(--color-maroon);
+  transform: translateX(-100%);
+  transition: transform 0.3s;
+}
 
-.btn-details:hover,
-.btn-date-overdue:hover,
-.btn-date-returned:hover {
-    transform: scale(1.05);
+.card:hover .card__title::after {
+  transform: translateX(0);
+}
+
+.card__content {
+  font-size: 16px;
+  line-height: 1.4;
+  color: var(--color-maroon);
+  margin-bottom: 20px;
+}
+
+.card__form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.card__button {
+  border: 3px solid var(--color-maroon);
+  background: var(--color-maroon);
+  color: var(--color-yellow);
+  padding: 10px;
+  font-size: 18px;
+  left: 20%;
+  font-weight: bold;
+  text-transform: uppercase;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s;
+  width: 50%;
+  height: 100%;
+}
+
+.card__button::before {
+  content: "Sure?";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 105%;
+  background-color: var(--color-yellow);
+  color: var(--color-maroon);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: translateY(100%);
+  transition: transform 0.3s;
+}
+
+.card__button:hover::before {
+  transform: translateY(0);
+}
+
+.card__button:active {
+  transform: scale(0.95);
+}
+
+@keyframes glitch {
+  0% {
+    transform: translate(2px, 2px);
+  }
+  25% {
+    transform: translate(-2px, -2px);
+  }
+  50% {
+    transform: translate(-2px, 2px);
+  }
+  75% {
+    transform: translate(2px, -2px);
+  }
+  100% {
+    transform: translate(2px, 2px);
+  }
+}
+
+.glitch {
+  animation: glitch 0.3s infinite;
 }

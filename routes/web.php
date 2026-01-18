@@ -70,4 +70,13 @@ Route::prefix('student')->group(function () {
 
     // BOOKS
     Route::get('/books', [UserBookController::class, 'showBooks'])->name('user.books');
+
+    // BOOK BORROW REQUEST
+    Route::get('/borrow-request', [UserBookController::class, 'showBorrowRequest'])->name('user.borrow-request');
+
+    // BORROWED BOOK
+    Route::get('/borrowed-book', [UserBookController::class, 'showBorrowedBook'])->name('user.borrowed-book');
+
+    // OVERDUE BOOK
+    Route::get('/overdue-book', [UserBookController::class, 'showOverdueBook'])->name('user.overdue-book');
 });
