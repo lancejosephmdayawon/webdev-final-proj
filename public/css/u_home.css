@@ -26,6 +26,24 @@ body {
     margin: 0 auto;
 }
 
+@media (min-width: 1400px) {
+    .inner-container {
+        width: 70%;
+    }
+}
+
+@media (max-width: 1399px) {
+    .inner-container {
+        width: 80%;
+    }
+}
+
+@media (max-width: 400px) {
+    .inner-container {
+        width: 100%;
+    }
+}
+
 .greet-card {
     max-height: auto;
     padding: 32px;

@@ -26,19 +26,65 @@ body {
     margin: 0 auto;
 }
 
+@media (min-width: 1400px) {
+    .inner-container {
+        width: 70%;
+    }
+}
+
+@media (max-width: 1399px) {
+    .inner-container {
+        width: 80%;
+    }
+}
+
+@media (max-width: 400px) {
+    .inner-container {
+        width: 100%;
+    }
+}
+
+
 .top-title {
     font-size: 32px;
     color: var(--color-maroon);
 }
 
 .book-card {
-    min-height: 250px;   /* keeps layout neat */
+    min-height: 250px;
     height: auto;
-    margin-bottom: 32px;
+    margin-bottom: 16px;
     position: relative;
-    overflow: visible;
 
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+
+    scrollbar-width: none;
 }
+
+.book-card .row {
+    flex-wrap: nowrap;
+}
+
+
+.book-card:hover {
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-maroon) transparent;
+}
+
+.book-card::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+}
+
+.book-card:hover::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
 
 .book-card-details {
     display: flex;
@@ -203,6 +249,36 @@ body {
     overflow-x: auto;
     overflow-y: auto;
 }
+
+.borrow-card,
+.overdue-card,
+.returned-card {
+    overflow: auto;
+    scrollbar-width: none;
+}
+
+.borrow-card:hover,
+.overdue-card:hover,
+.returned-card:hover {
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-maroon) transparent;
+}
+
+.borrow-card::-webkit-scrollbar,
+.overdue-card::-webkit-scrollbar,
+.returned-card::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+}
+
+.borrow-card:hover::-webkit-scrollbar,
+.overdue-card:hover::-webkit-scrollbar,
+.returned-card:hover::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+
 
 .categ-bar {
     position: absolute;

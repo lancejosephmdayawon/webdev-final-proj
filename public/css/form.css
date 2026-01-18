@@ -15,8 +15,25 @@ body {
 }
 
 .inner-container {
-    width: 40%;
     margin: 0 auto;
+}
+
+@media (min-width: 1400px) {
+    .inner-container {
+        width: 40%;
+    }
+}
+
+@media (max-width: 1399px) {
+    .inner-container {
+        width: 90%;
+    }
+}
+
+@media (max-width: 400px) {
+    .inner-container {
+        width: 100%;
+    }
 }
 
 .close-btn {
