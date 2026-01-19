@@ -13,16 +13,16 @@ class UserBookController extends Controller
 
     public function showBorrowRequest()
     {
-        return view('iskolib.user.borrowreq-form');
+        return view('user.borrowreq-form');
     }
 
     public function showBorrowedBook()
     {
-        return view('iskolib.user.borrowed-form');
+        return view('user.borrowed-form');
     }
 
     public function showOverdueBook()
     {
-        return view('iskolib.user.overdue-form');
+        return view('user.overdue-form');
     }
 }

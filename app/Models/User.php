@@ -13,6 +13,8 @@ class User extends Authenticatable
     use Notifiable, SoftDeletes;
 
     protected $table = 'users';
+    
+    protected $primaryKey = 'id';
 
     // Laravel expects 'password', but we have 'password_hash'
     protected $hidden = ['password_hash'];
