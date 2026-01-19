@@ -13,19 +13,20 @@ use App\Http\Controllers\AdminTransactionController;
 use App\Http\Controllers\UserHomeController;
 use App\Http\Controllers\UserBookController;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 Route::get('/test', function () {
     return "<h1>Successful!</h1>";
 });
 
 // WELCOME
-Route::get('/welcome', [IskoLibAuthController::class, 'showWelcome'])->name('welcome');
+Route::get('/', [IskoLibAuthController::class, 'showWelcome'])->name('welcome');
 
 // LOGIN
 Route::get('/login', [IskoLibAuthController::class, 'showLogin'])->name('login');
+
 
 // ADMIN ROUTE
 Route::prefix('librarian')->group(function () {
