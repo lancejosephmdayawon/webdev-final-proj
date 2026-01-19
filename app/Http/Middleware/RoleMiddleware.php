@@ -18,15 +18,20 @@ class RoleMiddleware
      */
     public function handle(Request $request, Closure $next, $role)
     {
-        if (!Auth::check()) {
-            // User not logged in
-            return redirect('/login');
+        $userRole = Auth::user()->role;
+
+        if ($userRole !== $role) {
+            // User is logged in but trying to access the wrong role page
+            if ($userRole === 'student') {
+                return redirect()->route('user.home')->with('error', 'Unauthorized action.');
+            } elseif ($userRole === 'admin') {
+                return redirect()->route('admin.dashboard')->with('error', 'Unauthorized action.');
+            } else {
+                // Optional: fallback for any unexpected role
+                return redirect('/login')->with('error', 'Unauthorized action.');
+            }
         }
 
-        if (Auth::user()->role !== $role) {
-            // Logged in but not the correct role
-            abort(403, 'Unauthorized action.');
-        }
 
         return $next($request);
     }

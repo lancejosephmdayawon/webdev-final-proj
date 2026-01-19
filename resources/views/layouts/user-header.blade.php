@@ -135,7 +135,17 @@ use Illuminate\Support\Str;
             <a href="#" class="profile-icon-link">
                 <img src="{{ asset('images/pfp_icon.png') }}" class="profile-img-top" alt="Profile">
             </a>
-            <a href="{{ route('welcome') }}" class="logout-btn">Logout</a>
+
+            <!-- Logout link -->
+            <a href="#" class="logout-btn"
+                onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                Logout
+            </a>
+
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                @csrf
+            </form>
         </div>
+
     </div>
 </nav>

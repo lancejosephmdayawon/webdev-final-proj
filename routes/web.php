@@ -12,6 +12,9 @@ use App\Http\Controllers\AdminTransactionController;
 // STUDENT CONTROLLER
 use App\Http\Controllers\UserHomeController;
 use App\Http\Controllers\UserBookController;
+use App\Http\Middleware\Authenticate;
+use App\Http\Middleware\RoleMiddleware;
+use Illuminate\Container\Attributes\Auth;
 
 Route::get('/test', function () {
     return "<h1>Successful!</h1>";
@@ -26,12 +29,12 @@ Route::get('/test', function () {
     Route::post('/login', [IskoLibAuthController::class, 'processLogin'])->name('login.process');
 
     // LOGOUT
-    Route::middleware('auth')->post('/logout', [IskoLibAuthController::class, 'logout'])->name('logout');
+    Route::middleware(Authenticate::class)->post('/logout', [IskoLibAuthController::class, 'logout'])->name('logout');
 
 
 
 // ADMIN ROUTE
-Route::prefix('librarian')->middleware(['auth', 'role:admin'])->group(function () {
+Route::prefix('librarian')->middleware([Authenticate::class, RoleMiddleware::class . ':admin'])->group(function () {
     // DASHBOARD
     Route::get('/dashboard', [AdminDashboardController::class, 'showDashboard'])->name('admin.dashboard');
 
@@ -62,7 +65,7 @@ Route::prefix('librarian')->middleware(['auth', 'role:admin'])->group(function (
 
 
 // USER ROUTE
-Route::prefix('student')->middleware(['auth', 'role:student'])->group(function () {
+Route::prefix('student')->middleware([Authenticate::class, RoleMiddleware::class . ':student'])->group(function () {
     // HOME
     Route::get('/home', [UserHomeController::class, 'showHome'])->name('user.home');
 

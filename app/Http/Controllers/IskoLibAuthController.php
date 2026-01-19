@@ -11,6 +11,17 @@ class IskoLibAuthController extends Controller
 {
     public function showWelcome()
     {
+        if (Auth::check()) {
+            $role = Auth::user()->role;
+
+            if ($role === 'student') {
+                return redirect()->route('user.home');
+            } elseif ($role === 'admin') {
+                return redirect()->route('admin.dashboard');
+            }
+        }
+
+        // No user is logged in, show the welcome page
         return view('welcome');
     }
 
@@ -36,7 +47,7 @@ class IskoLibAuthController extends Controller
             return redirect()->intended(
                 $user->role === 'admin'
                     ? route('admin.dashboard')
-                    : route('student.home')
+                    : route('user.home')
             );
         }
 
