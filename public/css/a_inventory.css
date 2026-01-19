@@ -26,6 +26,24 @@ body {
     margin: 0 auto;
 }
 
+@media (min-width: 1400px) {
+    .inner-container {
+        width: 70%;
+    }
+}
+
+@media (max-width: 1399px) {
+    .inner-container {
+        width: 80%;
+    }
+}
+
+@media (max-width: 400px) {
+    .inner-container {
+        width: 100%;
+    }
+}
+
 .top-card {
     margin-bottom: 32px;
 }
@@ -71,6 +89,13 @@ body {
     border-radius: 100px;
     border: 1px solid;
     cursor: pointer;
+
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.25);
 }
@@ -149,12 +174,16 @@ body {
 }
 
 .st-card {
-    height: 250px;
+    background-color: #FFFFFF;
+    height: 260px;
     width: auto;
-    padding: 0.5rem 1rem 1rem 1.5rem;
+    padding: 0.25rem 1rem 0.5rem 1.5rem;
     border: 1px solid;
     border-radius: 10px;
 
+    display: flex;
+    flex-direction: column;
+    
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.25);
 }
 
@@ -230,7 +259,24 @@ body {
 
 .book-data {
     font-size: 14px;
+    min-width: 0;
 }
+
+.book-data-title {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-break: break-word
+}
+
+.book-data p:not(.book-data-title) {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
 
 .book-actions {
     display: flex;

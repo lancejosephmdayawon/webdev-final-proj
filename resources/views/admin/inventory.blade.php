@@ -59,7 +59,7 @@
                             <!-- Book Data -->
                             <div class="book-data">
                                 <p>978-0743273565</p>
-                                <p><b>The Great Gatsby</b></p>
+                                <p class="book-data-title"><b>The Great Gatsby</b></p>
                                 <p>F.Scott Fitzgerald</p>
                             </div>
                         </div>
@@ -95,7 +95,7 @@
                             <!-- Book Data -->
                             <div class="book-data">
                                 <p>978-0743273565</p>
-                                <p><b>The Great Gatsby</b></p>
+                                <p class="book-data-title"><b>The Great Gatsby</b></p>
                                 <p>F.Scott Fitzgerald</p>
                             </div>
                         </div>
@@ -131,7 +131,7 @@
                             <!-- Book Data -->
                             <div class="book-data">
                                 <p>978-0743273565</p>
-                                <p><b>The Great Gatsby</b></p>
+                                <p class="book-data-title"><b>The Great Gatsby</b></p>
                                 <p>F.Scott Fitzgerald</p>
                             </div>
                         </div>
@@ -167,7 +167,7 @@
                             <!-- Book Data -->
                             <div class="book-data">
                                 <p>978-0743273565</p>
-                                <p><b>The Great Gatsby</b></p>
+                                <p class="book-data-title"><b>The Great Gatsby</b></p>
                                 <p>F.Scott Fitzgerald</p>
                             </div>
                         </div>
@@ -203,7 +203,7 @@
                             <!-- Book Data -->
                             <div class="book-data">
                                 <p>978-0743273565</p>
-                                <p><b>The Great Gatsby</b></p>
+                                <p class="book-data-title"><b>The Great Gatsby</b></p>
                                 <p>F.Scott Fitzgerald</p>
                             </div>
                         </div>
@@ -239,7 +239,7 @@
                             <!-- Book Data -->
                             <div class="book-data">
                                 <p>978-0743273565</p>
-                                <p><b>The Great Gatsby</b></p>
+                                <p class="book-data-title"><b>The Great Gatsby</b></p>
                                 <p>F.Scott Fitzgerald</p>
                             </div>
                         </div>
@@ -280,7 +280,7 @@
                             <!-- Book Data -->
                             <div class="book-data">
                                 <p>978-0743273565</p>
-                                <p><b>The Great Gatsby</b></p>
+                                <p class="book-data-title"><b>The Great Gatsby</b></p>
                                 <p>F.Scott Fitzgerald</p>
                             </div>
                         </div>
@@ -316,7 +316,7 @@
                             <!-- Book Data -->
                             <div class="book-data">
                                 <p>978-0743273565</p>
-                                <p><b>The Great Gatsby</b></p>
+                                <p class="book-data-title"><b>The Great Gatsby</b></p>
                                 <p>F.Scott Fitzgerald</p>
                             </div>
                         </div>
@@ -352,7 +352,7 @@
                             <!-- Book Data -->
                             <div class="book-data">
                                 <p>978-0743273565</p>
-                                <p><b>The Great Gatsby</b></p>
+                                <p class="book-data-title"><b>The Great Gatsby</b></p>
                                 <p>F.Scott Fitzgerald</p>
                             </div>
                         </div>
@@ -388,7 +388,7 @@
                             <!-- Book Data -->
                             <div class="book-data">
                                 <p>978-0743273565</p>
-                                <p><b>The Great Gatsby</b></p>
+                                <p class="book-data-title"><b>The Great Gatsby</b></p>
                                 <p>F.Scott Fitzgerald</p>
                             </div>
                         </div>
@@ -424,7 +424,7 @@
                             <!-- Book Data -->
                             <div class="book-data">
                                 <p>978-0743273565</p>
-                                <p><b>The Great Gatsby</b></p>
+                                <p class="book-data-title"><b>The Great Gatsby</b></p>
                                 <p>F.Scott Fitzgerald</p>
                             </div>
                         </div>
@@ -460,7 +460,7 @@
                             <!-- Book Data -->
                             <div class="book-data">
                                 <p>978-0743273565</p>
-                                <p><b>The Great Gatsby</b></p>
+                                <p class="book-data-title"><b>The Great Gatsby</b></p>
                                 <p>F.Scott Fitzgerald</p>
                             </div>
                         </div>

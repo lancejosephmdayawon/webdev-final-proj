@@ -15,8 +15,33 @@ body {
 }
 
 .inner-container {
-    width: 40%;
     margin: 0 auto;
+}
+
+@media (min-width: 1400px) {
+    .inner-container {
+        width: 40%;
+    }
+}
+
+@media (max-width: 1399px) {
+    .inner-container {
+        width: 90%;
+    }
+}
+
+@media (max-width: 400px) {
+    .inner-container {
+        width: 100%;
+    }
+}
+
+.close-btn {
+    background: transparent;
+    border: none;
+    font-size: 32px;
+    cursor: pointer;
+    color: var(--color-maroon);
 }
 
 .form-card {
@@ -35,7 +60,8 @@ body {
 .book-add-img,
 .book-upd-img,
 .book-details-img,
-.book-borrow-img {
+.book-borrow-img,
+.book-return-img {
     width: 100px;
     height: 100px;
 

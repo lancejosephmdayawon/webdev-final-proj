@@ -25,7 +25,7 @@ use Illuminate\Support\Str;
     .navbar-iskolib {
         background-color: var(--color-maroon);
         height: 100px;
-        width: 60%;
+        width: 70%;
         margin: 0 auto;
         display: flex;
         align-items: center;

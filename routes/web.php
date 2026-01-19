@@ -13,23 +13,20 @@ use App\Http\Controllers\AdminTransactionController;
 use App\Http\Controllers\UserHomeController;
 use App\Http\Controllers\UserBookController;
 
-Route::get('/', function () {
-    return redirect()->route('welcome');
-});
-
 Route::get('/test', function () {
     return "<h1>Successful!</h1>";
 });
 
-
 // WELCOME
-Route::get('/welcome', [IskoLibAuthController::class, 'showWelcome'])->name('welcome');
+Route::get('/', [IskoLibAuthController::class, 'showWelcome'])->name('welcome');
 
 // LOGIN
 Route::get('/login', [IskoLibAuthController::class, 'showLogin'])->name('login');
+Route::post('/login', [IskoLibAuthController::class, 'processLogin'])->name('login.process');
+
 
 // ADMIN ROUTE
-Route::prefix('admin')->group(function () {
+Route::prefix('librarian')->group(function () {
     // DASHBOARD
     Route::get('/dashboard', [AdminDashboardController::class, 'showDashboard'])->name('admin.dashboard');
 
@@ -44,6 +41,18 @@ Route::prefix('admin')->group(function () {
 
     // TRANSACTION
     Route::get('/transaction', [AdminTransactionController::class, 'showTransaction'])->name('admin.transaction');
+
+    // BOOK BORROW REQUEST
+    Route::get('/borrow-request', [AdminTransactionController::class, 'showBorrowRequest'])->name('admin.borrow-request');
+
+    // BORROWED BOOK
+    Route::get('/borrowed-book', [AdminTransactionController::class, 'showBorrowedBook'])->name('admin.borrowed-book');
+
+    // OVERDUE BOOK
+    Route::get('/overdue-book', [AdminTransactionController::class, 'showOverdueBook'])->name('admin.overdue-book');
+
+    // RETURNED BOOK
+    Route::get('/returned-book', [AdminTransactionController::class, 'showReturnedBook'])->name('admin.returned-book');
 });
 
 // USER ROUTE
@@ -54,9 +63,18 @@ Route::prefix('student')->group(function () {
     // BOOK INFO
     Route::get('/book-details', [UserHomeController::class, 'showBookDetails'])->name('user.book-details');
 
-    // BOOK INFO
+    // BOOK BORROW
     Route::get('/borrow-book', [UserHomeController::class, 'showBorrowForm'])->name('user.borrow-book');
 
     // BOOKS
     Route::get('/books', [UserBookController::class, 'showBooks'])->name('user.books');
+
+    // BOOK BORROW REQUEST
+    Route::get('/borrow-request', [UserBookController::class, 'showBorrowRequest'])->name('user.borrow-request');
+
+    // BORROWED BOOK
+    Route::get('/borrowed-book', [UserBookController::class, 'showBorrowedBook'])->name('user.borrowed-book');
+
+    // OVERDUE BOOK
+    Route::get('/overdue-book', [UserBookController::class, 'showOverdueBook'])->name('user.overdue-book');
 });

@@ -11,7 +11,7 @@
                 <h1 class="text-4xl font-extrabold">ISKO-LIB</h1>
             </div>
 
-            <form method="POST" action="#">
+            <form method="POST" action="{{ route('login.process') }}">
                 @csrf
                 <!-- EMAIL -->
                 <div class="form-input-group mb-3">
