@@ -23,27 +23,25 @@ class IskoLibAuthController extends Controller
     {
         $credentials = $request->validate([
             'email' => 'required|email',
-            'password' => 'required|min:6',
+            'password' => 'required|min:5',
         ]);
 
-        // Find user by email
         $user = User::where('email', $credentials['email'])->first();
 
-        // Check password and login
         if ($user && Hash::check($credentials['password'], $user->password_hash)) {
-            Auth::login($user);  
-            $request->session()->regenerate();
+            Auth::login($user); // logs in user
+            $request->session()->regenerate(); // protects session
 
             // Redirect based on role
-            if ($user->role === 'admin') {
-                return redirect()->route('admin.dashboard')->with('success', 'Welcome Admin!');
-            } else {
-                return redirect()->route('student.home')->with('success', 'Login successful!');
-            }
+            return redirect()->intended(
+                $user->role === 'admin'
+                    ? route('admin.dashboard')
+                    : route('student.home')
+            );
         }
 
         return back()->withErrors([
-            'email' => 'The credentials do not match our records.',
+            'email' => 'Invalid credentials.',
         ])->withInput();
     }
 

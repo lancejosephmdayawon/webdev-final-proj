@@ -17,16 +17,21 @@ Route::get('/test', function () {
     return "<h1>Successful!</h1>";
 });
 
-// WELCOME
-Route::get('/', [IskoLibAuthController::class, 'showWelcome'])->name('welcome');
+// PUBLIC ROUTES
+    // WELCOME
+    Route::get('/', [IskoLibAuthController::class, 'showWelcome'])->name('welcome');
 
-// LOGIN
-Route::get('/login', [IskoLibAuthController::class, 'showLogin'])->name('login');
-Route::post('/login', [IskoLibAuthController::class, 'processLogin'])->name('login.process');
+    // LOGIN
+    Route::get('/login', [IskoLibAuthController::class, 'showLogin'])->name('login');
+    Route::post('/login', [IskoLibAuthController::class, 'processLogin'])->name('login.process');
+
+    // LOGOUT
+    Route::middleware('auth')->post('/logout', [IskoLibAuthController::class, 'logout'])->name('logout');
+
 
 
 // ADMIN ROUTE
-Route::prefix('librarian')->group(function () {
+Route::prefix('librarian')->middleware(['auth', 'role:admin'])->group(function () {
     // DASHBOARD
     Route::get('/dashboard', [AdminDashboardController::class, 'showDashboard'])->name('admin.dashboard');
 
@@ -55,8 +60,9 @@ Route::prefix('librarian')->group(function () {
     Route::get('/returned-book', [AdminTransactionController::class, 'showReturnedBook'])->name('admin.returned-book');
 });
 
+
 // USER ROUTE
-Route::prefix('student')->group(function () {
+Route::prefix('student')->middleware(['auth', 'role:student'])->group(function () {
     // HOME
     Route::get('/home', [UserHomeController::class, 'showHome'])->name('user.home');
 
