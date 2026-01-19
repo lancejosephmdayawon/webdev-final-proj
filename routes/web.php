@@ -8,7 +8,7 @@ use App\Http\Controllers\IskoLibAuthController;
 use App\Http\Controllers\AdminDashboardController;
 use App\Http\Controllers\AdminInventoryController;
 use App\Http\Controllers\AdminTransactionController;
-
+use App\Http\Controllers\UserApiController;
 // STUDENT CONTROLLER
 use App\Http\Controllers\UserHomeController;
 use App\Http\Controllers\UserBookController;
@@ -16,9 +16,9 @@ use App\Http\Middleware\Authenticate;
 use App\Http\Middleware\RoleMiddleware;
 use Illuminate\Container\Attributes\Auth;
 
-Route::get('/test', function () {
-    return "<h1>Successful!</h1>";
-});
+// TEST ROUTES
+Route::get('/test', function () {return "<h1>Successful!</h1>";});
+Route::middleware('auth')->get('/me', [UserApiController::class, 'me']);
 
 // PUBLIC ROUTES
     // WELCOME
