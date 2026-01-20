@@ -18,6 +18,9 @@
             </div>
         </div>
 
+
+        <!-- Admin Summary -->
+
         <div class="report-card row">
             <div class="col-sm-6 col-lg-4">
                 <div class="avail-card d-flex align-items-center mb-4">
@@ -25,7 +28,7 @@
                     <div>
                         <p class="mid-title fw-bold mb-1">Available Books</p>
                         <p class="mid-detail">
-                            <b>123</b><br>out of total books
+                            <b>{{ $availableBooks }}</b><br>out of {{ $totalBooks }} total books
                         </p>
                     </div>
                 </div>
@@ -37,7 +40,7 @@
                     <div>
                         <p class="mid-title fw-bold mb-1">Borrowed Books</p>
                         <p class="mid-detail">
-                            <b>123</b><br>out of total books
+                            <b>{{ $borrowedBooks }}</b><br>out of {{ $totalBooks }} total books
                         </p>
                     </div>
                 </div>
@@ -49,7 +52,7 @@
                     <div>
                         <p class="mid-title fw-bold mb-1">Overdue Books</p>
                         <p class="mid-detail">
-                            <b>123</b><br>out of total books
+                            <b>{{ $overdueBooks }}</b><br>out of {{ $borrowedBooks }} borrowed books
                         </p>
                     </div>
                 </div>
@@ -61,7 +64,7 @@
             <p class="bot-title fw-bold mb-2">Book Inventory Status</p>
 
             <div class="table-res">
-                <table class="table table-bordered table-hover align-middle">
+                <!-- <table class="table table-bordered table-hover align-middle">
                     <thead class="table-light">
                         <tr>
                             <th scope="col">ISBN</th>
@@ -138,11 +141,40 @@
                             <td>0</td>
                         </tr>
                     </tbody>
+                </table> -->
 
-
-
-
+                <!-- DYNAMIC TABLE -->
+                <table class="table table-bordered table-hover align-middle">
+                    <thead class="table-light">
+                        <tr>
+                            <th scope="col">ISBN</th>
+                            <th scope="col">Category</th>
+                            <th scope="col">Book Name</th>
+                            <th scope="col">Author</th>
+                            <th scope="col">Status</th>
+                            <th scope="col">Stock</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach($books as $book)
+                        <tr>
+                            <td>{{ $book->isbn }}</td>
+                            <td>{{ $book->category->name ?? 'N/A' }}</td>
+                            <td>{{ $book->title }}</td>
+                            <td>{{ $book->author }}</td>
+                            <td>
+                                @if($book->stock_qty > 0)
+                                <span class="avail-badge">Available</span>
+                                @else
+                                <span class="notavail-badge">Not Available</span>
+                                @endif
+                            </td>
+                            <td>{{ $book->stock_qty }}</td>
+                        </tr>
+                        @endforeach
+                    </tbody>
                 </table>
+
             </div>
 
         </div>
