@@ -32,463 +32,129 @@
             </div>
         </div>
 
-        <div class="book-card">
-            <!-- BOOK ROW 1-->
-            <div class="row g-4 mb-4">
+@php
+$categoryOrder = [
+    'Science & Technology' => ['color' => 'st-bar', 'img' => 'SciTech.png'],
+    'Literature' => ['color' => 'lit-bar', 'img' => 'Literature.png'],
+    'Social Studies' => ['color' => 'soc-bar', 'img' => 'SocStud.png'],
+    'Economics' => ['color' => 'eco-bar', 'img' => 'Economics.png'],
+    'History' => ['color' => 'his-bar', 'img' => 'History.png'],
+    'Philosophy' => ['color' => 'phi-bar', 'img' => 'Philosophy.png'],
+];
+@endphp
 
-                <!-- SCIENCE & TECHNOLOGY -->
-                <div class="col-sm-6 col-lg-2">
-                    <div class="st-card position-relative overflow-hidden">
-                        <div class="categ-bar">
-                            <!-- Category Color -->
-                            <div class="st-bar"></div>
-                        </div>
-                        <!-- Status Banner -->
-                        <div class="book-card-details mb-2">
-                            <!-- Availability -->
-                            <span class="avail-label">Available</span>
-                            <span><b>QTY: #</b></span>
-                        </div>
-                        <!-- Book Content -->
-                        <div class="book-content mb-4">
-                            <!-- Book Icon -->
-                            <div class="categ-icon mb-2">
-                                <img src="{{ asset('images/SciTech.png') }}" alt="Category">
-                            </div>
+<div class="category-book-grid row g-4">
 
-                            <!-- Book Data -->
-                            <div class="book-data">
-                                <p>978-0743273565</p>
-                                <p class="book-data-title"><b>The Great Gatsby</b></p>
-                                <p>F.Scott Fitzgerald</p>
-                            </div>
-                        </div>
+    @foreach($categoryOrder as $catName => $catData)
+        <div class="col-sm-6 col-lg-2">
 
-                        <!-- Action Buttons -->
-                        <div class="book-actions">
-                            <button type="button" class="btn-edit" onclick="openEditModal(this)">Edit</button>
-                            <button type="button" class="btn-delete" onclick="openDeleteModal(this)">Delete</button>
-                        </div>
+            @php
+                $category = $categories->firstWhere('category_name', $catName);
+                $books = $category ? $category->books : collect();
+            @endphp
+
+            @foreach($books as $book)
+            <div class="st-card position-relative overflow-hidden mb-3">
+
+                <!-- Category Color Bar -->
+                <div class="categ-bar">
+                    <div class="{{ $catData['color'] }}"></div>
+                </div>
+
+                <!-- Status & Stock -->
+                <div class="book-card-details mb-2">
+                    <span class="{{ $book->stock_qty > 0 ? 'avail-label' : 'notavail-label' }}">
+                        {{ $book->stock_qty > 0 ? 'Available' : 'Not Available' }}
+                    </span>
+                    <span><b>QTY: {{ $book->stock_qty }}</b></span>
+                </div>
+
+                <!-- Book Info -->
+                <div class="book-content mb-4">
+                    <div class="categ-icon mb-2">
+                        <img src="{{ asset('images/' . $catData['img']) }}" alt="{{ $catName }}">
+                    </div>
+                    <div class="book-data">
+                        <p>{{ $book->isbn }}</p>
+                        <p class="book-data-title"><b>{{ $book->title }}</b></p>
+                        <p>{{ $book->author }}</p>
                     </div>
                 </div>
 
-                <!-- LITERATURE -->
-                <div class="col-sm-6 col-lg-2">
-                    <div class="st-card position-relative overflow-hidden">
-                        <div class="categ-bar">
-                            <!-- Category Color -->
-                            <div class="lit-bar"></div>
-                        </div>
-                        <!-- Status Banner -->
-                        <div class="book-card-details mb-2">
-                            <!-- Availability -->
-                            <span class="notavail-label">Not Available</span>
-                            <span><b>QTY: #</b></span>
-                        </div>
-                        <!-- Book Content -->
-                        <div class="book-content mb-4">
-                            <!-- Book Icon -->
-                            <div class="categ-icon mb-2">
-                                <img src="{{ asset('images/Literature.png') }}" alt="Category">
-                            </div>
-
-                            <!-- Book Data -->
-                            <div class="book-data">
-                                <p>978-0743273565</p>
-                                <p class="book-data-title"><b>The Great Gatsby</b></p>
-                                <p>F.Scott Fitzgerald</p>
-                            </div>
-                        </div>
-
-                        <!-- Action Buttons -->
-                        <div class="book-actions">
-                            <button type="button" class="btn-edit" onclick="openEditModal(this)">Edit</button>
-                            <button type="button" class="btn-delete" onclick="openDeleteModal(this)">Delete</button>
-                        </div>
-                    </div>
+                <!-- Action Buttons -->
+                <div class="book-actions">
+                    <button type="button" class="btn-edit" onclick="openEditModal('{{ $book->id }}')">Edit</button>
+                    <button type="button" class="btn-delete" onclick="openDeleteModal('{{ $book->id }}')">Delete</button>
                 </div>
-
-                <!-- SOCIAL STUDIES -->
-                <div class="col-sm-6 col-lg-2">
-                    <div class="st-card position-relative overflow-hidden">
-                        <div class="categ-bar">
-                            <!-- Category Color -->
-                            <div class="soc-bar"></div>
-                        </div>
-                        <!-- Status Banner -->
-                        <div class="book-card-details mb-2">
-                            <!-- Availability -->
-                            <span class="avail-label">Available</span>
-                            <span><b>QTY: #</b></span>
-                        </div>
-                        <!-- Book Content -->
-                        <div class="book-content mb-4">
-                            <!-- Book Icon -->
-                            <div class="categ-icon mb-2">
-                                <img src="{{ asset('images/SocStud.png') }}" alt="Category">
-                            </div>
-
-                            <!-- Book Data -->
-                            <div class="book-data">
-                                <p>978-0743273565</p>
-                                <p class="book-data-title"><b>The Great Gatsby</b></p>
-                                <p>F.Scott Fitzgerald</p>
-                            </div>
-                        </div>
-
-                        <!-- Action Buttons -->
-                        <div class="book-actions">
-                            <button type="button" class="btn-edit" onclick="openEditModal(this)">Edit</button>
-                            <button type="button" class="btn-delete" onclick="openDeleteModal(this)">Delete</button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- ECONOMICS -->
-                <div class="col-sm-6 col-lg-2">
-                    <div class="st-card position-relative overflow-hidden">
-                        <div class="categ-bar">
-                            <!-- Category Color -->
-                            <div class="eco-bar"></div>
-                        </div>
-                        <!-- Status Banner -->
-                        <div class="book-card-details mb-2">
-                            <!-- Availability -->
-                            <span class="notavail-label">Not Available</span>
-                            <span><b>QTY: #</b></span>
-                        </div>
-                        <!-- Book Content -->
-                        <div class="book-content mb-4">
-                            <!-- Book Icon -->
-                            <div class="categ-icon mb-2">
-                                <img src="{{ asset('images/Economics.png') }}" alt="Category">
-                            </div>
-
-                            <!-- Book Data -->
-                            <div class="book-data">
-                                <p>978-0743273565</p>
-                                <p class="book-data-title"><b>The Great Gatsby</b></p>
-                                <p>F.Scott Fitzgerald</p>
-                            </div>
-                        </div>
-
-                        <!-- Action Buttons -->
-                        <div class="book-actions">
-                            <button type="button" class="btn-edit" onclick="openEditModal(this)">Edit</button>
-                            <button type="button" class="btn-delete" onclick="openDeleteModal(this)">Delete</button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- HISTORY -->
-                <div class="col-sm-6 col-lg-2">
-                    <div class="st-card position-relative overflow-hidden">
-                        <div class="categ-bar">
-                            <!-- Category Color -->
-                            <div class="his-bar"></div>
-                        </div>
-                        <!-- Status Banner -->
-                        <div class="book-card-details mb-2">
-                            <!-- Availability -->
-                            <span class="avail-label">Available</span>
-                            <span><b>QTY: #</b></span>
-                        </div>
-                        <!-- Book Content -->
-                        <div class="book-content mb-4">
-                            <!-- Book Icon -->
-                            <div class="categ-icon mb-2">
-                                <img src="{{ asset('images/History.png') }}" alt="Category">
-                            </div>
-
-                            <!-- Book Data -->
-                            <div class="book-data">
-                                <p>978-0743273565</p>
-                                <p class="book-data-title"><b>The Great Gatsby</b></p>
-                                <p>F.Scott Fitzgerald</p>
-                            </div>
-                        </div>
-
-                        <!-- Action Buttons -->
-                        <div class="book-actions">
-                            <button type="button" class="btn-edit" onclick="openEditModal(this)">Edit</button>
-                            <button type="button" class="btn-delete" onclick="openDeleteModal(this)">Delete</button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- PHILOSOPHY -->
-                <div class="col-sm-6 col-lg-2">
-                    <div class="st-card position-relative overflow-hidden">
-                        <div class="categ-bar">
-                            <!-- Category Color -->
-                            <div class="phi-bar"></div>
-                        </div>
-                        <!-- Status Banner -->
-                        <div class="book-card-details mb-2">
-                            <!-- Availability -->
-                            <span class="notavail-label">Not Available</span>
-                            <span><b>QTY: #</b></span>
-                        </div>
-                        <!-- Book Content -->
-                        <div class="book-content mb-4">
-                            <!-- Book Icon -->
-                            <div class="categ-icon mb-2">
-                                <img src="{{ asset('images/Philosophy.png') }}" alt="Category">
-                            </div>
-
-                            <!-- Book Data -->
-                            <div class="book-data">
-                                <p>978-0743273565</p>
-                                <p class="book-data-title"><b>The Great Gatsby</b></p>
-                                <p>F.Scott Fitzgerald</p>
-                            </div>
-                        </div>
-
-                        <!-- Action Buttons -->
-                        <div class="book-actions">
-                            <button type="button" class="btn-edit" onclick="openEditModal(this)">Edit</button>
-                            <button type="button" class="btn-delete" onclick="openDeleteModal(this)">Delete</button>
-                        </div>
-                    </div>
-                </div>
-
             </div>
+            @endforeach
 
-            <!-- BOOK ROW 2-->
-            <div class="row g-4 mb-4">
-
-                <!-- SCIENCE & TECHNOLOGY -->
-                <div class="col-sm-6 col-lg-2">
-                    <div class="st-card position-relative overflow-hidden">
-                        <div class="categ-bar">
-                            <!-- Category Color -->
-                            <div class="st-bar"></div>
-                        </div>
-                        <!-- Status Banner -->
-                        <div class="book-card-details mb-2">
-                            <!-- Availability -->
-                            <span class="avail-label">Available</span>
-                            <span><b>QTY: #</b></span>
-                        </div>
-                        <!-- Book Content -->
-                        <div class="book-content mb-4">
-                            <!-- Book Icon -->
-                            <div class="categ-icon mb-2">
-                                <img src="{{ asset('images/SciTech.png') }}" alt="Category">
-                            </div>
-
-                            <!-- Book Data -->
-                            <div class="book-data">
-                                <p>978-0743273565</p>
-                                <p class="book-data-title"><b>The Great Gatsby</b></p>
-                                <p>F.Scott Fitzgerald</p>
-                            </div>
-                        </div>
-
-                        <!-- Action Buttons -->
-                        <div class="book-actions">
-                            <button type="button" class="btn-edit" onclick="openEditModal(this)">Edit</button>
-                            <button type="button" class="btn-delete" onclick="openDeleteModal(this)">Delete</button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- LITERATURE -->
-                <div class="col-sm-6 col-lg-2">
-                    <div class="st-card position-relative overflow-hidden">
-                        <div class="categ-bar">
-                            <!-- Category Color -->
-                            <div class="lit-bar"></div>
-                        </div>
-                        <!-- Status Banner -->
-                        <div class="book-card-details mb-2">
-                            <!-- Availability -->
-                            <span class="notavail-label">Not Available</span>
-                            <span><b>QTY: #</b></span>
-                        </div>
-                        <!-- Book Content -->
-                        <div class="book-content mb-4">
-                            <!-- Book Icon -->
-                            <div class="categ-icon mb-2">
-                                <img src="{{ asset('images/Literature.png') }}" alt="Category">
-                            </div>
-
-                            <!-- Book Data -->
-                            <div class="book-data">
-                                <p>978-0743273565</p>
-                                <p class="book-data-title"><b>The Great Gatsby</b></p>
-                                <p>F.Scott Fitzgerald</p>
-                            </div>
-                        </div>
-
-                        <!-- Action Buttons -->
-                        <div class="book-actions">
-                            <button type="button" class="btn-edit" onclick="openEditModal(this)">Edit</button>
-                            <button type="button" class="btn-delete" onclick="openDeleteModal(this)">Delete</button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- SOCIAL STUDIES -->
-                <div class="col-sm-6 col-lg-2">
-                    <div class="st-card position-relative overflow-hidden">
-                        <div class="categ-bar">
-                            <!-- Category Color -->
-                            <div class="soc-bar"></div>
-                        </div>
-                        <!-- Status Banner -->
-                        <div class="book-card-details mb-2">
-                            <!-- Availability -->
-                            <span class="avail-label">Available</span>
-                            <span><b>QTY: #</b></span>
-                        </div>
-                        <!-- Book Content -->
-                        <div class="book-content mb-4">
-                            <!-- Book Icon -->
-                            <div class="categ-icon mb-2">
-                                <img src="{{ asset('images/SocStud.png') }}" alt="Category">
-                            </div>
-
-                            <!-- Book Data -->
-                            <div class="book-data">
-                                <p>978-0743273565</p>
-                                <p class="book-data-title"><b>The Great Gatsby</b></p>
-                                <p>F.Scott Fitzgerald</p>
-                            </div>
-                        </div>
-
-                        <!-- Action Buttons -->
-                        <div class="book-actions">
-                            <button type="button" class="btn-edit" onclick="openEditModal(this)">Edit</button>
-                            <button type="button" class="btn-delete" onclick="openDeleteModal(this)">Delete</button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- ECONOMICS -->
-                <div class="col-sm-6 col-lg-2">
-                    <div class="st-card position-relative overflow-hidden">
-                        <div class="categ-bar">
-                            <!-- Category Color -->
-                            <div class="eco-bar"></div>
-                        </div>
-                        <!-- Status Banner -->
-                        <div class="book-card-details mb-2">
-                            <!-- Availability -->
-                            <span class="notavail-label">Not Available</span>
-                            <span><b>QTY: #</b></span>
-                        </div>
-                        <!-- Book Content -->
-                        <div class="book-content mb-4">
-                            <!-- Book Icon -->
-                            <div class="categ-icon mb-2">
-                                <img src="{{ asset('images/Economics.png') }}" alt="Category">
-                            </div>
-
-                            <!-- Book Data -->
-                            <div class="book-data">
-                                <p>978-0743273565</p>
-                                <p class="book-data-title"><b>The Great Gatsby</b></p>
-                                <p>F.Scott Fitzgerald</p>
-                            </div>
-                        </div>
-
-                        <!-- Action Buttons -->
-                        <div class="book-actions">
-                            <button type="button" class="btn-edit" onclick="openEditModal(this)">Edit</button>
-                            <button type="button" class="btn-delete" onclick="openDeleteModal(this)">Delete</button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- HISTORY -->
-                <div class="col-sm-6 col-lg-2">
-                    <div class="st-card position-relative overflow-hidden">
-                        <div class="categ-bar">
-                            <!-- Category Color -->
-                            <div class="his-bar"></div>
-                        </div>
-                        <!-- Status Banner -->
-                        <div class="book-card-details mb-2">
-                            <!-- Availability -->
-                            <span class="avail-label">Available</span>
-                            <span><b>QTY: #</b></span>
-                        </div>
-                        <!-- Book Content -->
-                        <div class="book-content mb-4">
-                            <!-- Book Icon -->
-                            <div class="categ-icon mb-2">
-                                <img src="{{ asset('images/History.png') }}" alt="Category">
-                            </div>
-
-                            <!-- Book Data -->
-                            <div class="book-data">
-                                <p>978-0743273565</p>
-                                <p class="book-data-title"><b>The Great Gatsby</b></p>
-                                <p>F.Scott Fitzgerald</p>
-                            </div>
-                        </div>
-
-                        <!-- Action Buttons -->
-                        <div class="book-actions">
-                            <button type="button" class="btn-edit" onclick="openEditModal(this)">Edit</button>
-                            <button type="button" class="btn-delete" onclick="openDeleteModal(this)">Delete</button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- PHILOSOPHY -->
-                <div class="col-sm-6 col-lg-2">
-                    <div class="st-card position-relative overflow-hidden">
-                        <div class="categ-bar">
-                            <!-- Category Color -->
-                            <div class="phi-bar"></div>
-                        </div>
-                        <!-- Status Banner -->
-                        <div class="book-card-details mb-2">
-                            <!-- Availability -->
-                            <span class="notavail-label">Not Available</span>
-                            <span><b>QTY: #</b></span>
-                        </div>
-                        <!-- Book Content -->
-                        <div class="book-content mb-4">
-                            <!-- Book Icon -->
-                            <div class="categ-icon mb-2">
-                                <img src="{{ asset('images/Philosophy.png') }}" alt="Category">
-                            </div>
-
-                            <!-- Book Data -->
-                            <div class="book-data">
-                                <p>978-0743273565</p>
-                                <p class="book-data-title"><b>The Great Gatsby</b></p>
-                                <p>F.Scott Fitzgerald</p>
-                            </div>
-                        </div>
-
-                        <!-- Action Buttons -->
-                        <div class="book-actions">
-                            <button type="button" class="btn-edit" onclick="openEditModal(this)">Edit</button>
-                            <button type="button" class="btn-delete" onclick="openDeleteModal(this)">Delete</button>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
         </div>
+    @endforeach
 
+</div>
+
+<!-- DELETE CONFIRMATION MODAL -->
+<div id="delConModal" class="confirm-overlay" style="display:none;">
+    <div class="popup-confirm">
+        <div class="align-center">
+            <img src="{{ asset('images/del-con.png') }}" class="del-con-img">
+        </div>
+        <h2 class="my-2">Are you sure you want to delete this book?</h2>
+        <div class="popup-btn mt-4">
+            <button class="btn-confirm" onclick="confirmDel()">Confirm</button>
+            <button class="btn-cancel" onclick="closeDeleteModal()">Cancel</button>
+        </div>
     </div>
 </div>
+
 @endsection
 
 @push('scripts')
 <script>
-    function openEditModal(button) {
-        window.location = "{{ route('admin.update-book') }}"
-    }
+let deleteBookId = null;
 
-    function openDeleteModal() {
-        const modal = document.getElementById('delConModal');
-        modal.style.display = 'flex';
-    }
+// Edit button
+function openEditModal(bookId) {
+    window.location.href = `/librarian/update-book/${bookId}`;
+}
+
+// Open delete confirmation modal
+function openDeleteModal(bookId) {
+    deleteBookId = bookId;
+    document.getElementById('delConModal').style.display = 'flex';
+}
+
+// Confirm delete
+function confirmDel() {
+    if (!deleteBookId) return;
+
+    const form = document.createElement('form');
+    form.method = 'POST';
+    form.action = `/librarian/delete-book/${deleteBookId}`;
+
+    // CSRF token
+    const csrf = document.createElement('input');
+    csrf.type = 'hidden';
+    csrf.name = '_token';
+    csrf.value = '{{ csrf_token() }}';
+    form.appendChild(csrf);
+
+    // Spoof DELETE method
+    const method = document.createElement('input');
+    method.type = 'hidden';
+    method.name = '_method';
+    method.value = 'DELETE';
+    form.appendChild(method);
+
+    document.body.appendChild(form);
+    form.submit();
+}
+
+// Close delete modal
+function closeDeleteModal() {
+    deleteBookId = null;
+    document.getElementById('delConModal').style.display = 'none';
+}
 </script>
 @endpush

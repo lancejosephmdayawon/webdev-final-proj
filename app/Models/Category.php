@@ -15,4 +15,10 @@ class Category extends Model
         'category_name',
         'description',
     ];
+
+    // Relationship: a category has many books
+    public function books()
+    {
+        return $this->hasMany(Book::class, 'category_id');
+    }
 }
