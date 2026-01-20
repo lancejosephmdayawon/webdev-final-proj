@@ -19,11 +19,39 @@ class AdminInventoryController extends Controller
         return view('admin.add-form');
     }
 
-    public function showUpdateBook()
+    public function showUpdateBook($id)
     {
-        return view('admin.update-form');
+        $book = Book::findOrFail($id);
+        $categories = Category::all(); // for select dropdown
+        return view('admin.update-form', compact('book', 'categories'));
     }
-    
+
+    public function updateBook(Request $request, $id)
+    {
+        $book = Book::findOrFail($id);
+
+        // Only allow fillable fields
+        $data = $request->only(['isbn', 'title', 'author', 'category_id', 'stock_qty', 'description']);
+
+        // Cast numeric fields manually to match DB
+        if (isset($data['stock_qty'])) {
+            $data['stock_qty'] = (int) $data['stock_qty'];
+        }
+
+        // Compare original values
+        $original = $book->only(array_keys($data));
+
+        $book->fill($data);
+
+        if ($original == $book->only(array_keys($original))) {
+            return response()->json(['message' => 'Nothing to be saved']);
+        }
+
+        $book->save();
+
+        return response()->json(['message' => 'Book updated successfully']);
+    }
+
     public function deleteBook($id)
     {
         $book = Book::findOrFail($id);

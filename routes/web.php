@@ -44,8 +44,12 @@ Route::prefix('librarian')->middleware([Authenticate::class, RoleMiddleware::cla
     // ADD BOOKS
     Route::get('/add-book', [AdminInventoryController::class, 'showAddBook'])->name('admin.add-book');
     
-    // Edit book page
+    // Show form
     Route::get('/update-book/{id}', [AdminInventoryController::class, 'showUpdateBook'])->name('admin.update-book');
+
+    // Handle form submission
+    Route::put('/update-book/{id}', [AdminInventoryController::class, 'updateBook'])->name('admin.update-book.submit');
+
 
     // Delete book (soft delete)
     Route::delete('/delete-book/{id}', [AdminInventoryController::class, 'deleteBook'])->name('admin.delete-book');
