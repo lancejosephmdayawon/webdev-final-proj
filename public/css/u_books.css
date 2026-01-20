@@ -516,3 +516,19 @@ body {
 .glitch {
   animation: glitch 0.3s infinite;
 }
+
+.card:hover {
+    background: linear-gradient(
+        135deg,
+        var(--color-yellow),
+        var(--color-light-yellow)
+    );
+    background-size: 400% 400%;
+    animation: gradientMove 10s ease infinite;
+}
+
+@keyframes gradientMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
