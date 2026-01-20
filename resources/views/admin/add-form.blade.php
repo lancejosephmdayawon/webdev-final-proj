@@ -11,48 +11,51 @@
                 <h2 class="font-extrabold">Expand the Library</h2>
             </div>
 
-            <div class="card-field mb-2">
-                <label>ISBN</label>
-                <input id="name" type="text" class="form-control">
-            </div>
+            <form id="addBookForm">
+                @csrf
 
-            <div class="card-field mb-2">
-                <label>Book Title</label>
-                <input id="title" type="text" class="form-control">
-            </div>
+                <div class="card-field mb-2">
+                    <label>ISBN</label>
+                    <input name="isbn" type="text" class="form-control" placeholder="Enter ISBN">
+                </div>
 
-            <div class="card-field mb-2">
-                <label>Author</label>
-                <input id="author" type="text" class="form-control">
-            </div>
+                <div class="card-field mb-2">
+                    <label>Book Title</label>
+                    <input name="title" type="text" class="form-control" placeholder="Enter book title">
+                </div>
 
-            <div class="card-field-categ mb-2">
-                <label>Category</label>
-                <select id="category" class="form-select">
-                    <option selected disabled>Select a Category</option>
-                    <option>Science & Technology</option>
-                    <option>Literature</option>
-                    <option>Social Studies</option>
-                    <option>Economics</option>
-                    <option>History</option>
-                    <option>Philosophy</option>
-                </select>
-            </div>
+                <div class="card-field mb-2">
+                    <label>Author</label>
+                    <input name="author" type="text" class="form-control" placeholder="Enter author">
+                </div>
 
-            <div class="card-field mb-2">
-                <label>Stock</label>
-                <input id="stock" type="number" class="form-control">
-            </div>
+                <div class="card-field-categ mb-2">
+                    <label>Category</label>
+                    <select name="category_id" class="form-select">
+                        @foreach($categories as $category)
+                        <option value="{{ $category->id }}">
+                            {{ $category->category_name }}
+                        </option>
+                        @endforeach
+                    </select>
+                </div>
 
-            <div class="card-area mb-8">
-                <label>Description <i>(Optional)</i></label>
-                <textarea rows="4" class="form-control rounded-textarea"></textarea>
-            </div>
+                <div class="card-field mb-2">
+                    <label>Stock</label>
+                    <input name="stock_qty" type="number" class="form-control" placeholder="Enter stock quantity" min="0">
+                </div>
 
-            <div class="action-buttons">
-                <button type="button" class="btn-save" onclick="openAddConModal(this)">Save</button>
-                <button type="button" class="btn-cancel" onclick="closeAddConModal(this)">Cancel</button>
-            </div>
+                <div class="card-area mb-8">
+                    <label>Description <i>(Optional)</i></label>
+                    <textarea name="description" rows="4" class="form-control rounded-textarea" placeholder="Enter description"></textarea>
+                </div>
+
+                <div class="action-buttons">
+                    <button type="button" class="btn-save" onclick="openAddConModal()">Save</button>
+                    <button type="button" class="btn-cancel" onclick="cancelAdd()">Cancel</button>
+                </div>
+
+            </form>
 
         </div>
     </div>
@@ -61,12 +64,54 @@
 
 @push('scripts')
 <script>
-    function openAddConModal(button) {
-        const modal = document.getElementById('addConModal');
-        modal.style.display = 'flex';
+    function openAddConModal() {
+        document.getElementById('addConModal').style.display = 'flex';
+    }
+    
+    function confirmAdd() {
+        const form = document.getElementById('addBookForm');
+        const url = "{{ route('admin.add-book.submit') }}";
+
+        fetch(url, {
+                method: 'POST',
+                headers: {
+                    'X-CSRF-TOKEN': form.querySelector('[name="_token"]').value,
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify(Object.fromEntries(new FormData(form)))
+            })
+            .then(res => {
+                if (!res.ok) throw res;
+                return res.json();
+            })
+            .then(data => {
+                document.getElementById('addConModal').style.display = 'none';
+                document.getElementById('addSuccessModal').style.display = 'flex';
+            })
+            .catch(async err => {
+                let message = 'An error occurred';
+                if (err.json) {
+                    const e = await err.json();
+                    message = e.message || JSON.stringify(e.errors);
+                }
+                alert(message);
+            });
     }
 
-    function closeAddConModal() {
+    function cancelAdd() {
+        window.location = "{{ route('admin.inventory') }}";
+    }
+
+    function closeConfirmModal() {
+        document.getElementById('addConModal').style.display = 'none';
+    }
+
+    function closeSuccessModal() {
+        window.location = "{{ route('admin.inventory') }}";
+    }
+
+    function closeAddModal() {
         window.location = "{{ route('admin.inventory') }}";
     }
 </script>

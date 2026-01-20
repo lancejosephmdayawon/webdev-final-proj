@@ -17,19 +17,21 @@ use App\Http\Middleware\RoleMiddleware;
 use Illuminate\Container\Attributes\Auth;
 
 // TEST ROUTES
-Route::get('/test', function () {return "<h1>Successful!</h1>";});
+Route::get('/test', function () {
+    return "<h1>Successful!</h1>";
+});
 Route::middleware('auth')->get('/me', [UserApiController::class, 'me']);
 
 // PUBLIC ROUTES
-    // WELCOME
-    Route::get('/', [IskoLibAuthController::class, 'showWelcome'])->name('welcome');
+// WELCOME
+Route::get('/', [IskoLibAuthController::class, 'showWelcome'])->name('welcome');
 
-    // LOGIN
-    Route::get('/login', [IskoLibAuthController::class, 'showLogin'])->name('login');
-    Route::post('/login', [IskoLibAuthController::class, 'processLogin'])->name('login.process');
+// LOGIN
+Route::get('/login', [IskoLibAuthController::class, 'showLogin'])->name('login');
+Route::post('/login', [IskoLibAuthController::class, 'processLogin'])->name('login.process');
 
-    // LOGOUT
-    Route::middleware(Authenticate::class)->post('/logout', [IskoLibAuthController::class, 'logout'])->name('logout');
+// LOGOUT
+Route::middleware(Authenticate::class)->post('/logout', [IskoLibAuthController::class, 'logout'])->name('logout');
 
 
 
@@ -42,11 +44,14 @@ Route::prefix('librarian')->middleware([Authenticate::class, RoleMiddleware::cla
     Route::get('/inventory', [AdminInventoryController::class, 'showInventory'])->name('admin.inventory');
 
     // ADD BOOKS
+    // Show add book page
     Route::get('/add-book', [AdminInventoryController::class, 'showAddBook'])->name('admin.add-book');
-    
+    // Submit new book
+    Route::post('/add-book', [AdminInventoryController::class, 'storeBook'])->name('admin.add-book.submit');
+
+    // UPDATE BOOKS
     // Show form
     Route::get('/update-book/{id}', [AdminInventoryController::class, 'showUpdateBook'])->name('admin.update-book');
-
     // Handle form submission
     Route::put('/update-book/{id}', [AdminInventoryController::class, 'updateBook'])->name('admin.update-book.submit');
 

@@ -16,7 +16,31 @@ class AdminInventoryController extends Controller
 
     public function showAddBook()
     {
-        return view('admin.add-form');
+        $categories = Category::all();
+        return view('admin.add-form', compact('categories'));
+    }
+
+    public function storeBook(Request $request)
+    {
+        $request->validate([
+            'isbn' => 'required|unique:books,isbn|min:14|max:20',
+            'title' => 'required|string|max:255',
+            'author' => 'required|string|max:255',
+            'category_id' => 'required|exists:categories,id',
+            'stock_qty' => 'required|integer|min:0',
+            'description' => 'nullable|string',
+        ]);
+
+        Book::create([
+            'isbn' => $request->isbn,
+            'title' => $request->title,
+            'author' => $request->author,
+            'category_id' => $request->category_id,
+            'stock_qty' => $request->stock_qty,
+            'description' => $request->description,
+        ]);
+
+        return response()->json(['message' => 'Book added successfully']);
     }
 
     public function showUpdateBook($id)
