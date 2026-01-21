@@ -41,25 +41,46 @@ body {
     justify-content: flex-end;
 }
 
-.close-btn {
+.close-btn,
+.close-profile-btn {
     background: transparent;
     border: none;
     font-size: 32px;
     cursor: pointer;
+}
+
+.close-btn {
     color: var(--color-maroon);
+}
+
+.close-profile-btn {
+    color: var(--color-yellow);
+}
+
+.form-card {
+    font-size: 24px;
+    border-radius: 20px;
+    padding: 40px;
 }
 
 .form-card {
     color: var(--color-maroon);
-    font-size: 24px;
-    border-radius: 20px;
-    padding: 40px;
     border: 1px solid var(--color-maroon);
+}
+
+.profile-card {
+    color: #ffffff;
+    background-color: var(--color-maroon);
 }
 
 .book-info-card {
     font-size: 32px;
     color: var(--color-maroon);
+}
+
+.profile-info-card {
+    font-size: 32px;
+    color: var(--color-yellow);
 }
 
 .book-add-img,
@@ -70,7 +91,9 @@ body {
 .book-borrowed-img,
 .book-overdue-img,
 .book-history-img,
-.book-decline-img {
+.book-decline-img,
+.student-pfp-img,
+.librarian-pfp-img {
     width: 100px;
     height: 100px;
 
@@ -86,13 +109,23 @@ body {
     flex-direction: column;
 }
 
+.pfp-card-field label,
 .card-field label,
 .card-field-categ label,
 .card-area label {
     font-weight: bold;
     font-size: 16px;
-    color: var(--color-maroon);
     margin-bottom: 4px;
+}
+
+.card-field label,
+.card-field-categ label,
+.card-area label {
+    color: var(--color-maroon);
+}
+
+.pfp-card-field label {
+    color: var(--color-yellow);
 }
 
 .card-field input,
@@ -112,8 +145,8 @@ body {
 }
 
 .btn-save,
-.btn-cancel {
-    width: 110px;
+.btn-cancel,
+.btn-changepass {
     padding: 5px;
     border-radius: 10px;
     border: 2px solid;
@@ -129,6 +162,18 @@ body {
     transition: all 0.3s ease;
 }
 
+.btn-save,
+.btn-cancel {
+    width: 110px;
+}
+
+.btn-changepass {
+    width: 500px;
+    color: var(--color-maroon);
+    background-color: var(--color-yellow);
+    border-color: var(--color-maroon);
+}
+
 .btn-save {
     color: var(--color-maroon);
     background-color: var(--color-yellow);
@@ -142,24 +187,27 @@ body {
 }
 
 .btn-save:hover,
-.btn-cancel:hover {
+.btn-cancel:hover,
+.btn-changepass:hover  {
     transform: scale(1.03);
 }
 
 .btn-save:active,
-.btn-cancel:active {
+.btn-cancel:active,
+.btn-changepass:active {
     top: 3px;
 }
 
-.btn-save:active {
-    box-shadow: 0 2px 0px var(--color-yellow);
+.btn-save:active,
+.btn-changepass:active {
+    box-shadow: 0 5px 0px var(--color-yellow);
 }
 
 .btn-cancel:active {
-    box-shadow: 0 2px 0px var(--color-maroon);
+    box-shadow: 0 5px 0px var(--color-maroon);
 }
 
-.approved-badge, 
+.approved-badge,
 .pending-badge,
 .declined-badge {
     padding: 4px 24px;
@@ -179,7 +227,7 @@ body {
     color: #7c6c03;
 }
 
-.declined-badge{
+.declined-badge {
     background-color: #ff8a8a;
     color: #8b0000;
 }

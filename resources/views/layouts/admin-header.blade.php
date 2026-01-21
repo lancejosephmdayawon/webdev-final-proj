@@ -181,7 +181,7 @@
 
 <nav class="navbar">
     <div class="navbar-iskolib container-fluid" id="iskoNavbar">
-        <a class="navbar-title" href="#">ISKO-LIB</a>
+        <a class="navbar-title" href="{{ route('admin.dashboard') }}">ISKO-LIB</a>
 
         <ul class="nav-center">
             <li class="nav-item">
@@ -205,7 +205,7 @@
         </ul>
 
         <div class="profile-section">
-            <a href="#" class="profile-icon-link">
+            <a href="{{ route('admin.profile') }}" class="profile-icon-link">
                 <img src="{{ asset('images/pfp_icon.png') }}" class="profile-img-top" alt="Profile">
             </a>
             <a href="{{ route('welcome') }}" class="logout-btn">Logout</a>

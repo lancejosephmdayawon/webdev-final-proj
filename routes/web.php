@@ -27,8 +27,14 @@ Route::get('/welcome', [IskoLibAuthController::class, 'showWelcome'])->name('wel
 // LOGIN
 Route::get('/login', [IskoLibAuthController::class, 'showLogin'])->name('login');
 
+// CHANGE PASSWORD
+Route::get('/change-password', [IskoLibAuthController::class, 'showChangePass'])->name('change-pass');
+
 // ADMIN ROUTE
 Route::prefix('librarian')->group(function () {
+    // PROFILE
+    Route::get('/profile', [IskoLibAuthController::class, 'showAdminProfile'])->name('admin.profile');
+
     // DASHBOARD
     Route::get('/dashboard', [AdminDashboardController::class, 'showDashboard'])->name('admin.dashboard');
 
@@ -62,6 +68,9 @@ Route::prefix('librarian')->group(function () {
 
 // USER ROUTE
 Route::prefix('student')->group(function () {
+    // PROFILE
+    Route::get('/profile', [IskoLibAuthController::class, 'showUserProfile'])->name('user.profile');
+
     // HOME
     Route::get('/home', [UserHomeController::class, 'showHome'])->name('user.home');
 
