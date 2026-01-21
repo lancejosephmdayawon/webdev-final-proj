@@ -401,7 +401,7 @@ body {
 /* From Uiverse.io by 0xnihilism */ 
 .card {
   width: auto;
-  height: 320px;
+  height: auto;
   padding: 20px;
   background: #fff;
   border: 6px solid var(--color-maroon);
@@ -411,6 +411,7 @@ body {
 
 .card:hover {
   transform: translate(-5px, -5px);
+  background: var(--color-yellow);
   box-shadow: 17px 17px 0 var(--color-maroon);
 }
 
@@ -446,6 +447,8 @@ body {
   line-height: 1.4;
   color: var(--color-maroon);
   margin-bottom: 20px;
+  text-align: justify;
+  text-justify: inter-word;
 }
 
 .card__form {
@@ -456,11 +459,10 @@ body {
 
 .card__button {
   border: 3px solid var(--color-maroon);
-  background: var(--color-maroon);
-  color: var(--color-yellow);
+  background: var(--color-yellow);
+  color: var(--color-maroon);
   padding: 10px;
   font-size: 18px;
-  left: 20%;
   font-weight: bold;
   text-transform: uppercase;
   cursor: pointer;
@@ -469,17 +471,18 @@ body {
   transition: transform 0.3s;
   width: 50%;
   height: 100%;
+  align-self: center;
 }
 
 .card__button::before {
-  content: "Sure?";
+  content: "Borrow Now!";
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 105%;
-  background-color: var(--color-yellow);
-  color: var(--color-maroon);
+  background-color: var(--color-maroon);
+  color: var(--color-yellow);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -517,18 +520,3 @@ body {
   animation: glitch 0.3s infinite;
 }
 
-.card:hover {
-    background: linear-gradient(
-        135deg,
-        var(--color-yellow),
-        var(--color-light-yellow)
-    );
-    background-size: 400% 400%;
-    animation: gradientMove 10s ease infinite;
-}
-
-@keyframes gradientMove {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-}

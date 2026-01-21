@@ -5,7 +5,9 @@
 <div class="main-container">
     <div class="inner-container">
         <div class="form-card">
-            <button class="close-btn" onclick="closeRequestModal()">&times;</button>
+            <div class="action-close">
+                <button class="close-btn" onclick="closeRequestModal()">&times;</button>
+            </div>
 
             <div class="book-info-card row justify-content-center text-center mb-4">
                 <img src="{{ asset('images/book-borrow.png') }}" class="book-borrow-img mb-2">

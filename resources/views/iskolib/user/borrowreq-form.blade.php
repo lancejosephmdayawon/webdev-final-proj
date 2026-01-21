@@ -5,11 +5,25 @@
 <div class="main-container">
     <div class="inner-container">
         <div class="form-card">
-            <button class="close-btn" onclick="closeRequestModal()">&times;</button>
+            <div class="action-close">
+                <button class="close-btn" onclick="closeRequestModal()">&times;</button>     
+            </div> 
 
             <div class="book-info-card row justify-content-center text-center mb-4">
                 <img src="{{ asset('images/book-borrow.png') }}" class="book-borrow-img mb-2">
                 <h2 class="font-extrabold">Borrow Request</h2>
+            </div>
+
+            <div class="book-status text-center mb-2">
+                <a class="approved-badge">Approved</a>
+            </div>
+
+            <div class="book-status text-center mb-2">
+                <a class="pending-badge">Pending</a>
+            </div>
+
+            <div class="book-status text-center mb-2">
+                <a class="declined-badge">Declined</a>
             </div>
 
             <div class="card-field mb-2">

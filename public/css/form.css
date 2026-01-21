@@ -36,6 +36,11 @@ body {
     }
 }
 
+.action-close {
+    display: flex;
+    justify-content: flex-end;
+}
+
 .close-btn {
     background: transparent;
     border: none;
@@ -61,7 +66,11 @@ body {
 .book-upd-img,
 .book-details-img,
 .book-borrow-img,
-.book-return-img {
+.book-return-img,
+.book-borrowed-img,
+.book-overdue-img,
+.book-history-img,
+.book-decline-img {
     width: 100px;
     height: 100px;
 
@@ -148,4 +157,29 @@ body {
 
 .btn-cancel:active {
     box-shadow: 0 2px 0px var(--color-maroon);
+}
+
+.approved-badge, 
+.pending-badge,
+.declined-badge {
+    padding: 4px 24px;
+    border-radius: 24px;
+    border: 1px solid;
+    font-weight: 500;
+    font-size: 16px;
+}
+
+.approved-badge {
+    background-color: #90ee90;
+    color: #006400;
+}
+
+.pending-badge {
+    background-color: #fcf09c;
+    color: #7c6c03;
+}
+
+.declined-badge{
+    background-color: #ff8a8a;
+    color: #8b0000;
 }
