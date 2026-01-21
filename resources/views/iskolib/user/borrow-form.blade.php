@@ -10,14 +10,21 @@
                 <h2 class="font-extrabold">Borrow a Book</h2>
             </div>
 
-            <div class="card-field mb-2">
+            <div class="card-field-categ mb-2">
                 <label>Book Title</label>
-                <input id="author" type="text" class="form-control">
+                <select id="category" class="form-select">
+                    <option selected disabled>Select a Book</option>
+                    <option>The Great Gatsby</option>
+                    <option>The Great Gatsby</option>
+                    <option>The Great Gatsby</option>
+                    <option>The Great Gatsby</option>
+                    <option>The Great Gatsby</option>
+                </select>
             </div>
 
             <div class="card-field mb-2">
                 <label>Author</label>
-                <input id="author" type="text" class="form-control">
+                <input id="author" type="text" class="form-control" value="F.Scott Fitzgerald" readonly>
             </div>
 
             <div class="card-area mb-4">
