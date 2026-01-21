@@ -39,12 +39,17 @@ body {
 
 .greet-card {
     max-height: auto;
-    padding: 32px;
+    padding: 16px 32px;
 
-    /*background: linear-gradient(to top, var(--color-maroon), var(--color-light-maroon));*/
     border-radius: 10px;
     border: 2px solid;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+
+    display: flex;
+    align-items: center;
+
+    text-align: justify;
+    text-justify: inter-word;
 }
 
 .top-title {
@@ -57,12 +62,7 @@ body {
 
 .lib-greet {
     height: 200px;
-    width: auto;
-    object-fit: contain; 
-}
-
-.report-card {
-
+    object-fit: contain;
 }
 
 .avail-card,
@@ -77,29 +77,29 @@ body {
 }
 
 .avail-card {
-    background-color: #C1FFA9;
+    background-color: #c1ffa9;
 }
 
 .borrow-card {
-    background-color: #FFE170;
+    background-color: #ffe170;
 }
 
 .overdue-card {
-    background-color: #F36D6D;
+    background-color: #f36d6d;
 }
 
 .avail-card:hover {
-    background: linear-gradient(to top, #8AFF5C, #C1FFA9);
+    background: linear-gradient(to top, #8aff5c, #c1ffa9);
     transform: scale(1.03);
 }
 
 .borrow-card:hover {
-    background: linear-gradient(to top, #FFCF24, #FFE170);
+    background: linear-gradient(to top, #ffcf24, #ffe170);
     transform: scale(1.03);
 }
 
 .overdue-card:hover {
-    background: linear-gradient(to top, #EF3E3E, #F36D6D);
+    background: linear-gradient(to top, #ef3e3e, #f36d6d);
     transform: scale(1.03);
 }
 
@@ -161,23 +161,23 @@ body {
 .table thead th {
     vertical-align: bottom;
     background-color: var(--color-maroon);
-    color: #FFFFFF;
+    color: #ffffff;
 }
 
 .avail-badge,
 .notavail-badge {
-  padding: 4px 24px;
-  border-radius: 24px;
-  border: 1px solid;
-  font-weight: 500;
+    padding: 4px 24px;
+    border-radius: 24px;
+    border: 1px solid;
+    font-weight: 500;
 }
 
 .avail-badge {
-  background-color: #90EE90;
-  color: #006400;
+    background-color: #90ee90;
+    color: #006400;
 }
 
 .notavail-badge {
-  background-color: #FFB6C1;;
-  color: #8B0000;
+    background-color: #ffb6c1;
+    color: #8b0000;
 }

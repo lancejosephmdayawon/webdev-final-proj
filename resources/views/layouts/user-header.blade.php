@@ -1,9 +1,3 @@
-@php
-// Define the current route to determine active links
-$currentRoute = request()->route() ? request()->route()->getName() : '';
-use Illuminate\Support\Str;
-@endphp
-
 <style>
     :root {
         --color-maroon: #800000;
@@ -110,10 +104,86 @@ use Illuminate\Support\Str;
         background: linear-gradient(to top, #FFDF00, #FFE74D);
         transform: scale(1.02);
     }
+
+        .nav-toggle {
+        display: none;
+        font-size: 24px;
+        color: var(--color-yellow);
+        cursor: pointer;
+    }
+
+    @media screen and (max-width: 1000px) {
+
+        .nav-center,
+        .profile-section {
+            display: none;
+            width: 100%;
+            flex-direction: column;
+            margin-top: 12px;
+        }
+
+        .navbar-iskolib {
+            flex-wrap: wrap;
+            height: auto;
+            width: 90%;
+            padding: 24px;
+        }
+
+        .nav-toggle {
+            display: block;
+        }
+
+        .navbar-iskolib.responsive .nav-center,
+        .navbar-iskolib.responsive .profile-section {
+            display: flex;
+        }
+
+        .navbar-iskolib.responsive .profile-section {
+            flex-direction: row;
+            justify-content: flex-start;
+            gap: 1rem;
+            padding: 0.5rem 0;
+        }
+
+        .navbar-iskolib.responsive .logout-btn {
+            padding: 8px 12px;
+            min-width: 100px;
+            text-align: center;
+        }
+
+        .nav-center {
+            margin-bottom: 16px;
+        }
+
+        .nav-link.active {
+            background: var(--color-yellow) !important;
+            color: var(--color-maroon) !important;
+            font-weight: bold;
+            padding: 1rem;
+            border-radius: 5px;
+        }
+
+        .nav-center {
+            gap: 0.5rem;
+        }
+
+        .logout-btn {
+            padding: 8px 12px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .profile-section {
+            margin-bottom: 16px;
+        }
+    }
 </style>
 
+<link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 <nav class="navbar">
-    <div class="navbar-iskolib container-fluid">
+    <div class="navbar-iskolib container-fluid" id="iskoNavbar">
         <a class="navbar-title" href="#">ISKO-LIB</a>
 
         <ul class="nav-center">
@@ -137,5 +207,16 @@ use Illuminate\Support\Str;
             </a>
             <a href="{{ route('welcome') }}" class="logout-btn">Logout</a>
         </div>
+
+        <a href="javascript:void(0);" class="nav-toggle" onclick="toggleNavbar()">
+            <i class="fa fa-bars"></i>
+        </a>
     </div>
 </nav>
+
+<script>
+    function toggleNavbar() {
+        const nav = document.getElementById("iskoNavbar");
+        nav.classList.toggle("responsive");
+    }
+</script>

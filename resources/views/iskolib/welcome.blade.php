@@ -12,8 +12,7 @@
                     <img src="{{ asset('images/PUPLogo.png') }}" class="pup-logo-wel mb-2">
                     <h1 class="fw-bold display-3 text-maroon mb-2">ISKO-LIB</h1>
                     <p class="text-xl text-gray-600">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                        Welcome to ISKO-LIB! Your gateway to academic resources and learning.
                     </p>
                 </div>
             </div>

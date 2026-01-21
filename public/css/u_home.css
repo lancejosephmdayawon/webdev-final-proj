@@ -46,12 +46,17 @@ body {
 
 .greet-card {
     max-height: auto;
-    padding: 32px;
+    padding: 16px 32px;
 
-    /*background: linear-gradient(to top, var(--color-maroon), var(--color-light-maroon));*/
     border-radius: 10px;
     border: 2px solid;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+
+    display: flex;
+    align-items: center;
+
+    text-align: justify;
+    text-justify: inter-word;
 }
 
 .top-title {
@@ -128,27 +133,27 @@ body {
 }
 
 .st-btn:hover {
-    background: linear-gradient(to top, var(--color-st), #FFFFFF);
+    background: linear-gradient(to top, var(--color-st), #ffffff);
 }
 
 .lit-btn:hover {
-    background: linear-gradient(to top, var(--color-lit), #FFFFFF);
+    background: linear-gradient(to top, var(--color-lit), #ffffff);
 }
 
 .soc-btn:hover {
-    background: linear-gradient(to top, var(--color-soc), #FFFFFF);
+    background: linear-gradient(to top, var(--color-soc), #ffffff);
 }
 
 .eco-btn:hover {
-    background: linear-gradient(to top, var(--color-eco), #FFFFFF);
+    background: linear-gradient(to top, var(--color-eco), #ffffff);
 }
 
 .his-btn:hover {
-    background: linear-gradient(to top, var(--color-his), #FFFFFF);
+    background: linear-gradient(to top, var(--color-his), #ffffff);
 }
 
 .phi-btn:hover {
-    background: linear-gradient(to top, var(--color-phi), #FFFFFF);
+    background: linear-gradient(to top, var(--color-phi), #ffffff);
 }
 
 .book-card {
@@ -168,7 +173,7 @@ body {
 }
 
 .st-card {
-    background-color: #FFFFFF;
+    background-color: #ffffff;
     height: 260px;
     width: auto;
     padding: 0.25rem 1rem 0.75rem 1.5rem;
@@ -177,7 +182,7 @@ body {
 
     display: flex;
     flex-direction: column;
-    
+
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.25);
 }
 
@@ -247,7 +252,7 @@ body {
 }
 
 .notavail-label {
-    background-color: #FF8A8A;
+    background-color: #ff8a8a;
     color: #8b0000;
 }
 
@@ -262,7 +267,7 @@ body {
     -webkit-line-clamp: 2;
     overflow: hidden;
     text-overflow: ellipsis;
-    word-break: break-word
+    word-break: break-word;
 }
 
 .book-data p:not(.book-data-title) {
