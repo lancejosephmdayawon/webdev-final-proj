@@ -11,11 +11,10 @@
                     <div class="top-text">
                         <p class="top-title fw-bold mb-0">Greetings, Student!</p>
                         <p class="top-detail mb-0">
-                            Greetings from the library! This academic institutions acts as
-                            a research and study hub, allowing users to engage intellectually
-                            through access to the materials that support what you need.
-                            Librarian offers professional assistance, select collections,
-                            and encourage the use of information in a correct and ethical way.
+                            Greetings from the library! This academic institutions acts as a research and study hub,
+                            allowing users to engage intellectually through access to the materials that support what
+                            you need. Students are motivated to independently explore, evaluate and utilize information
+                            resources in order to extend their learning and research work.
                         </p>
                     </div>
                 </div>
