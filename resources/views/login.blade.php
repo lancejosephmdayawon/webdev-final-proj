@@ -30,12 +30,20 @@
                         required />
                 </div>
 
-                <div class="form-input-group mb-20 password-group">
+                <!-- PASSWORD -->
+                <div class="form-input-group mb-4 password-group">
                     <input id="password" type="password" name="password" placeholder="Password" value="{{ old('password') }}" required>
                     <button type="button" class="password-toggle" onclick="togglePassword()">
                         <i class="fa fa-eye"></i>
                     </button>
                 </div>
+
+                <p class='text-xs md:text-sm text-white'>
+                    By logging in, you agree to the institution's 
+                    <a href='https://www.pup.edu.ph/terms/' class="text-yellow-300 underline">Terms of Service</a>, and
+                    <a href='https://www.pup.edu.ph/privacy/' class="text-yellow-300 underline">Privacy Policy</a>, 
+                    and acknowledge that unauthorized access is prohibited and activities may be monitored.
+                </p>
 
                 <!-- ERROR & SUCCESS MESSAGES -->
                 @if ($errors->any())
