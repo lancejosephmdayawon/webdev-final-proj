@@ -27,13 +27,10 @@ Route::get('/', [IskoLibAuthController::class, 'showWelcome'])->name('welcome');
 // LOGIN
 Route::get('/login', [IskoLibAuthController::class, 'showLogin'])->name('login');
 
-<<<<<<< HEAD
-=======
 // CHANGE PASSWORD
 Route::get('/change-password', [IskoLibAuthController::class, 'showChangePass'])->name('change-pass');
->>>>>>> 698e4bdd9c85f5c502e67247c69bc7bb72137b07
 
-// ADMIN ROUTE
+// LIBRARIAN ROUTE
 Route::prefix('librarian')->group(function () {
     // PROFILE
     Route::get('/profile', [IskoLibAuthController::class, 'showAdminProfile'])->name('admin.profile');
