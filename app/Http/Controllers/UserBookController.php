@@ -25,4 +25,14 @@ class UserBookController extends Controller
     {
         return view('user.overdue-form');
     }
+
+    public function showBorrowForm()
+    {
+        return view('iskolib.user.borrow-form');
+    }
+
+    public function showBookHistory()
+    {
+        return view('iskolib.user.book-history');
+    }
 }

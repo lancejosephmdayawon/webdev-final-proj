@@ -11,14 +11,16 @@
                 <div class="left-card">
                     <div class="col">
                         <div class="row-sm-12 row-lg-4 mb-8">
-                            <!-- From Uiverse.io by 0xnihilism -->
+                            <!-- BORROW FORM -->
                             <div class="card">
                                 <span class="card__title">Borrow Form</span>
                                 <p class="card__content">
-                                    Get existential crisis delivered straight to your inbox every week.
+                                    Access the library's collection through a simplified borrowing system designed to facilitate student, 
+                                    instructional and research activities. Library users are welcomed to discover the resources on shelf 
+                                    and use the lending services in an efficient way complying with the rules of the library.
                                 </p>
                                 <form class="card__form">
-                                    <button class="card__button">Click me</button>
+                                    <button type="button" class="card__button" onclick="openBorrowFormModal(this)">Click me</button>
                                 </form>
                             </div>
                         </div>
@@ -30,7 +32,7 @@
                                     <p class="bot-title fw-bold mb-0">Book History</p>
 
                                     <!--Science & Technology-->
-                                    <div class="card-data-book position-relative overflow-hidden mb-2">
+                                    <div class="card-data-book position-relative overflow-hidden mb-2" onclick="openBookHistoryModal(this)">
                                         <!-- Category Color -->
                                         <div class="categ-bar">
                                             <!-- Category Color -->
@@ -55,7 +57,7 @@
                                     </div>
 
                                     <!--Literature-->
-                                    <div class="card-data-book position-relative overflow-hidden mb-2">
+                                    <div class="card-data-book position-relative overflow-hidden mb-2" onclick="openBookHistoryModal(this)">
                                         <!-- Category Color -->
                                         <div class="categ-bar">
                                             <!-- Category Color -->
@@ -80,7 +82,7 @@
                                     </div>
 
                                     <!--Social Studies-->
-                                    <div class="card-data-book position-relative overflow-hidden mb-2">
+                                    <div class="card-data-book position-relative overflow-hidden mb-2" onclick="openBookHistoryModal(this)">
                                         <!-- Category Color -->
                                         <div class="categ-bar">
                                             <!-- Category Color -->
@@ -105,7 +107,7 @@
                                     </div>
 
                                     <!--Economics-->
-                                    <div class="card-data-book position-relative overflow-hidden mb-2">
+                                    <div class="card-data-book position-relative overflow-hidden mb-2" onclick="openBookHistoryModal(this)">
                                         <!-- Category Color -->
                                         <div class="categ-bar">
                                             <!-- Category Color -->
@@ -130,7 +132,7 @@
                                     </div>
 
                                     <!--History-->
-                                    <div class="card-data-book position-relative overflow-hidden mb-2">
+                                    <div class="card-data-book position-relative overflow-hidden mb-2" onclick="openBookHistoryModal(this)">
                                         <!-- Category Color -->
                                         <div class="categ-bar">
                                             <!-- Category Color -->
@@ -155,7 +157,7 @@
                                     </div>
 
                                     <!--Philosophy-->
-                                    <div class="card-data-book position-relative overflow-hidden mb-2">
+                                    <div class="card-data-book position-relative overflow-hidden mb-2" onclick="openBookHistoryModal(this)">
                                         <!-- Category Color -->
                                         <div class="categ-bar">
                                             <!-- Category Color -->
@@ -863,6 +865,14 @@
 
     function openOverBookModal(button) {
         window.location = "{{ route('user.overdue-book') }}"
+    }
+
+    function openBorrowFormModal(button) {
+        window.location = "{{ route('user.borrow-form') }}"
+    }
+
+    function openBookHistoryModal(button) {
+        window.location = "{{ route('user.book-history') }}"
     }
 </script>
 @endpush

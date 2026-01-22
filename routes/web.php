@@ -34,9 +34,15 @@ Route::post('/login', [IskoLibAuthController::class, 'processLogin'])->name('log
 Route::middleware(Authenticate::class)->post('/logout', [IskoLibAuthController::class, 'logout'])->name('logout');
 
 
+// CHANGE PASSWORD
+Route::get('/change-password', [IskoLibAuthController::class, 'showChangePass'])->name('change-pass');
+
 
 // ADMIN ROUTE
 Route::prefix('librarian')->middleware([Authenticate::class, RoleMiddleware::class . ':admin'])->group(function () {
+    // PROFILE
+    Route::get('/profile', [IskoLibAuthController::class, 'showAdminProfile'])->name('admin.profile');
+
     // DASHBOARD
     Route::get('/dashboard', [AdminDashboardController::class, 'showDashboard'])->name('admin.dashboard');
 
@@ -65,6 +71,9 @@ Route::prefix('librarian')->middleware([Authenticate::class, RoleMiddleware::cla
     // BOOK BORROW REQUEST
     Route::get('/borrow-request', [AdminTransactionController::class, 'showBorrowRequest'])->name('admin.borrow-request');
 
+    // BOOK BORROW DECLINE
+    Route::get('/borrow-decline', [AdminTransactionController::class, 'showBorrowDecline'])->name('admin.borrow-decline');
+
     // BORROWED BOOK
     Route::get('/borrowed-book', [AdminTransactionController::class, 'showBorrowedBook'])->name('admin.borrowed-book');
 
@@ -77,7 +86,12 @@ Route::prefix('librarian')->middleware([Authenticate::class, RoleMiddleware::cla
 
 
 // USER ROUTE
+
 Route::prefix('student')->middleware([Authenticate::class, RoleMiddleware::class . ':student'])->group(function () {
+
+    // PROFILE
+    Route::get('/profile', [IskoLibAuthController::class, 'showUserProfile'])->name('user.profile');
+
     // HOME
     Route::get('/home', [UserHomeController::class, 'showHome'])->name('user.home');
 
@@ -98,4 +112,10 @@ Route::prefix('student')->middleware([Authenticate::class, RoleMiddleware::class
 
     // OVERDUE BOOK
     Route::get('/overdue-book', [UserBookController::class, 'showOverdueBook'])->name('user.overdue-book');
+
+    // BOOK BORROW FORM
+    Route::get('/borrow-form', [UserBookController::class, 'showBorrowForm'])->name('user.borrow-form');
+
+    // BOOK HISTORY DETAILS
+    Route::get('/book-history', [UserBookController::class, 'showBookHistory'])->name('user.book-history');
 });

@@ -1,17 +1,17 @@
-@extends('layouts.user-overdue')
-@section('title', 'ISKO-LIB: Student Overdue Book')
+@extends('layouts.admin-decline')
+@section('title', 'ISKO-LIB: Librarian Book Decline')
 @section('content')
 
 <div class="main-container">
     <div class="inner-container">
         <div class="form-card">
             <div class="action-close">
-                <button class="close-btn" onclick="closeOverdueModal()">&times;</button>
+                <button class="close-btn" onclick="closeDeclineModal()">&times;</button>
             </div>
 
             <div class="book-info-card row justify-content-center text-center mb-4">
-                <img src="{{ asset('images/book-overdue.png') }}" class="book-overdue-img mb-2">
-                <h2 class="font-extrabold">Overdue Book</h2>
+                <img src="{{ asset('images/book-decline.png') }}" class="book-decline-img mb-2">
+                <h2 class="font-extrabold">Request Decline</h2>
             </div>
 
             <div class="card-field mb-2">
@@ -57,7 +57,6 @@
                     <input id="date_return" type="date" class="form-control" readonly>
                 </div>
             </div>
-
         </div>
     </div>
 </div>
@@ -65,8 +64,8 @@
 
 @push('scripts')
 <script>
-    function closeOverdueModal() {
-        window.location = "{{ route('user.books') }}";
+    function closeDeclineModal() {
+        window.location = "{{ route('admin.transaction') }}";
     }
 </script>
 @endpush

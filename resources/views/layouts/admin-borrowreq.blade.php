@@ -20,16 +20,16 @@
   @include('layouts.admin-header')
   @yield('content')
 
-  @include('iskolib.modals.admin-accept-confirm')
+  @include('modals.admin-accept-confirm')
   @stack('scripts')
 
-  @include('iskolib.modals.admin-accept-success')
+  @include('modals.admin-accept-success')
   @stack('scripts')
 
-  @include('iskolib.modals.admin-decline-confirm')
+  @include('modals.admin-decline-confirm')
   @stack('scripts')
 
-  @include('iskolib.modals.admin-decline-success')
+  @include('modals.admin-decline-success')
   @stack('scripts')
 
   @stack('scripts')

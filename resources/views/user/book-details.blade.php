@@ -28,7 +28,7 @@
 
             <div class="card-field-categ mb-2">
                 <label>Category</label>
-                <select id="category" class="form-select" readonly>
+                <select id="category" class="form-select" disabled>
                     <option selected disabled>Select a Category</option>
                     <option>Science & Technology</option>
                     <option>Literature</option>

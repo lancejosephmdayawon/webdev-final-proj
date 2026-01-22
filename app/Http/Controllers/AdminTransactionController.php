@@ -13,12 +13,17 @@ class AdminTransactionController extends Controller
 
     public function showBorrowRequest()
     {
-        return view('iskolib.admin.borrowreq-form');
+        return view('admin.borrowreq-form');
     }
 
     public function showBorrowedBook()
     {
         return view('iskolib.admin.borrowed-form');
+    }
+
+    public function showBorrowDecline()
+    {
+        return view('iskolib.admin.borrow-decline');
     }
 
     public function showOverdueBook()

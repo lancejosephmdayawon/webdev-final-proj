@@ -4,23 +4,30 @@
 
 <div class="main-container">
     <div class="inner-container">
+        <!--GREETING CARD-->
         <div class="greet-card mb-4">
-            <div class="d-flex align-items-center gap-4">
-                <div class="row flex-grow-1">
+            <div class="row align-items-center justify-content-center">
+                <div class="col-sm-6 col-lg-9 mb-2">
                     <div class="top-text">
                         <p class="top-title fw-bold mb-0">Greetings, Librarian!</p>
-                        <p class="top-detail mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                        <p class="top-detail mb-0">
+                            Greetings from the library! This academic institutions acts as
+                            a research and study hub, allowing users to engage intellectually
+                            through access to the materials that support what you need.
+                            Librarian offers professional assistance, select collections,
+                            and encourage the use of information in a correct and ethical way.
+                        </p>
                     </div>
                 </div>
-                <div class="flex-shrink-0">
-                    <img src="{{ asset('images/lib-greet.png') }}" class="lib-greet" alt="Librarian greeting">
+
+                <div class="col-sm-6 col-lg-3 d-flex justify-content-center">
+                    <img src="{{ asset('images/lib-greet.png') }}" class="lib-greet">
                 </div>
             </div>
         </div>
 
 
-        <!-- Admin Summary -->
-
+        <!--REPORT DASHBOARD-->
         <div class="report-card row">
             <div class="col-sm-6 col-lg-4">
                 <div class="avail-card d-flex align-items-center mb-4">
@@ -59,7 +66,7 @@
             </div>
         </div>
 
-
+        <!--BOOK STATUS TABLE-->
         <div class="book-status mb-4">
             <p class="bot-title fw-bold mb-2">Book Inventory Status</p>
 

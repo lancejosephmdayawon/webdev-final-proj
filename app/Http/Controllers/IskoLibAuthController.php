@@ -64,4 +64,19 @@ class IskoLibAuthController extends Controller
 
         return redirect('/login')->with('success', 'Logged out successfully.');
     }
+
+    public function showChangePass()
+    {
+        return view('iskolib.change-pass');
+    }
+
+    public function showUserProfile()
+    {
+        return view('user.profile');
+    }
+
+    public function showAdminProfile()
+    {
+        return view('admin.profile');
+    }
 }
