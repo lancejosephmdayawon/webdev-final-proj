@@ -412,9 +412,7 @@
                             </div>
                         </div>
 
-
-
-                    </div>
+                    </div>  
                 </div>
 
                 <!--OVERDUE BOOKS-->

@@ -150,6 +150,7 @@
 
         .nav-center {
             margin-bottom: 16px;
+            gap: 0.5rem;
         }
 
         .nav-link.active {
@@ -158,10 +159,6 @@
             font-weight: bold;
             padding: 1rem;
             border-radius: 5px;
-        }
-
-        .nav-center {
-            gap: 0.5rem;
         }
 
         .logout-btn {
@@ -182,6 +179,10 @@
 <nav class="navbar">
     <div class="navbar-iskolib container-fluid" id="iskoNavbar">
         <a class="navbar-title" href="{{ route('admin.dashboard') }}">ISKO-LIB</a>
+
+        <a href="javascript:void(0);" class="nav-toggle" onclick="toggleNavbar()">
+            <i class="fa fa-bars"></i>
+        </a>
 
         <ul class="nav-center">
             <li class="nav-item">
@@ -219,10 +220,6 @@
                 @csrf
             </form>
         </div>
-
-        <a href="javascript:void(0);" class="nav-toggle" onclick="toggleNavbar()">
-            <i class="fa fa-bars"></i>
-        </a>
     </div>
 </nav>
 

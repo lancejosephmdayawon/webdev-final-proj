@@ -50,7 +50,6 @@ class IskoLibAuthController extends Controller
                     : route('user.home')
             );
         }
-
         return back()->withErrors([
             'email' => 'Invalid credentials.',
         ])->withInput();
