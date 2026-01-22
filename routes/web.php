@@ -69,7 +69,13 @@ Route::prefix('librarian')->middleware([Authenticate::class, RoleMiddleware::cla
     Route::get('/transaction', [AdminTransactionController::class, 'showTransaction'])->name('admin.transaction');
 
     // BOOK BORROW REQUEST
-    Route::get('/borrow-request', [AdminTransactionController::class, 'showBorrowRequest'])->name('admin.borrow-request');
+    // Get details
+    Route::get('/borrow-request/{id}', [AdminTransactionController::class, 'showBorrowRequest'])->name('admin.borrow-request');
+    // Set status approved
+    Route::post('/borrow-request/{id}/approve', [AdminTransactionController::class, 'approveBorrowRequest'])->name('admin.borrow-request.approve');
+    // Set status declined
+    Route::post('/borrow-request/{id}/decline', [AdminTransactionController::class, 'declineBorrowRequest'])->name('admin.borrow-request.decline');
+
 
     // BOOK BORROW DECLINE
     Route::get('/borrow-decline', [AdminTransactionController::class, 'showBorrowDecline'])->name('admin.borrow-decline');

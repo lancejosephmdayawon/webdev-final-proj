@@ -122,12 +122,31 @@
 </style>
 
 <script>
-    function confirmAcc() {
-        document.getElementById('adminAcceptConModal').style.display = 'none';
-        document.getElementById('adminAcceptSuccessModal').style.display = 'flex';
-    }
+function confirmAcc() {
+    const requestId = document.getElementById('adminAcceptConModal').dataset.requestId;
 
-    function closeConfirmAccModal() {
-        document.getElementById('adminAcceptConModal').style.display = 'none';
-    }
+    fetch(`/librarian/borrow-request/${requestId}/approve`, {
+        method: 'POST',
+        headers: {
+            'X-CSRF-TOKEN': '{{ csrf_token() }}',
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({})
+    })
+    .then(res => res.json())
+    .then(data => {
+        if(data.success) {
+            document.getElementById('adminAcceptConModal').style.display = 'none';
+            document.getElementById('adminAcceptSuccessModal').style.display = 'flex';
+        } else {
+            alert(data.message || "Failed to approve request.");
+        }
+    })
+    .catch(err => console.error(err));
+}
+
+function closeConfirmAccModal() {
+    document.getElementById('adminAcceptConModal').style.display = 'none';
+}
 </script>

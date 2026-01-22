@@ -122,10 +122,10 @@
 </style>
 
 <script>
-    function confirmDec() {
-        document.getElementById('adminDeclineConModal').style.display = 'none';
-        document.getElementById('adminDeclineSuccessModal').style.display = 'flex';
-    }
+    // function confirmDec() {
+    //     document.getElementById('adminDeclineConModal').style.display = 'none';
+    //     document.getElementById('adminDeclineSuccessModal').style.display = 'flex';
+    // }
 
     function closeConfirmDecModal() {
         document.getElementById('adminDeclineConModal').style.display = 'none';
