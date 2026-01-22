@@ -186,6 +186,10 @@
     <div class="navbar-iskolib container-fluid" id="iskoNavbar">
         <a class="navbar-title" href="{{ route('admin.dashboard') }}">ISKO-LIB</a>
 
+        <a href="javascript:void(0);" class="nav-toggle" onclick="toggleNavbar()">
+            <i class="fa fa-bars"></i>
+        </a>
+
         <ul class="nav-center">
             <li class="nav-item">
                 <a class="nav-link {{ request()->routeIs('user.home') ? 'active' : '' }}"
@@ -207,10 +211,6 @@
             </a>
             <a href="{{ route('welcome') }}" class="logout-btn">Logout</a>
         </div>
-
-        <a href="javascript:void(0);" class="nav-toggle" onclick="toggleNavbar()">
-            <i class="fa fa-bars"></i>
-        </a>
     </div>
 </nav>
 

@@ -104,6 +104,9 @@ body {
     display: flex;
     flex-direction: column;
 
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.25);
 }
 
@@ -397,7 +400,6 @@ body {
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.25);
 }
 
-/* From Uiverse.io by 0xnihilism */ 
 .card {
   width: auto;
   height: auto;
