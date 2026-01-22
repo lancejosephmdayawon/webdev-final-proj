@@ -20,7 +20,7 @@ class BorrowTransaction extends Model
         'date_borrowed' => 'date',
     ];
 
-    public function request()
+    public function borrowRequest()
     {
         return $this->belongsTo(BorrowRequest::class, 'request_id');
     }

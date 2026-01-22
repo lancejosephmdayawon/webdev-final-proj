@@ -80,6 +80,11 @@ Route::prefix('librarian')->middleware([Authenticate::class, RoleMiddleware::cla
     // BOOK BORROW DECLINE
     Route::get('/borrow-decline/{id}', [AdminTransactionController::class, 'showBorrowDecline'])->name('admin.borrow-decline');
 
+    // UNBORROWED BOOK
+    Route::get('unborrowed-book/{id}', [AdminTransactionController::class, 'showUnborrowedBook'])->name('admin.unborrowed-book');
+    // mARKark as borrowed
+    Route::post('borrow-book/{id}', [AdminTransactionController::class, 'borrowBook'])->name('admin.borrow-book');
+
     // BORROWED BOOK
     Route::get('/borrowed-book', [AdminTransactionController::class, 'showBorrowedBook'])->name('admin.borrowed-book');
 

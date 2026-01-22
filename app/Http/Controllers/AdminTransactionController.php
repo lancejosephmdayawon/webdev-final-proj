@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\BorrowRequest;
+use App\Models\BorrowTransaction;
 use Illuminate\Http\Request;
 
 class AdminTransactionController extends Controller
@@ -19,7 +20,15 @@ class AdminTransactionController extends Controller
             ->orderBy('request_date', 'desc')
             ->get();
 
-        return view('admin.transaction', compact('borrowRequests', 'declinedRequests'));
+        $unborrowedTransactions = BorrowTransaction::with([
+            'borrowRequest.book.category',
+            'borrowRequest.user'
+        ])
+            ->where('status', 'unborrowed')
+            ->orderBy('date_borrowed')
+            ->get();
+
+        return view('admin.transaction', compact('borrowRequests', 'declinedRequests', 'unborrowedTransactions'));
     }
 
     // Showing Barrow Requests
@@ -54,6 +63,32 @@ class AdminTransactionController extends Controller
         ]);
     }
 
+    // Show details for a specific unborrowed book
+    public function showUnborrowedBook($id)
+    {
+        $transaction = BorrowTransaction::with([
+            'borrowRequest.book.category',
+            'borrowRequest.user'
+        ])->findOrFail($id);
+
+        return view('admin.unborrowed-form', compact('transaction'));
+    }
+
+    // Confirm borrow: mark book as borrowed
+    public function borrowBook($id)
+    {
+        $transaction = BorrowTransaction::findOrFail($id);
+        $transaction->status = 'borrowed';
+        $transaction->date_borrowed = now();
+        $transaction->save();
+
+        // Return JSON for your JS fetch
+        return response()->json([
+            'success' => true,
+            'message' => 'Book marked as borrowed!',
+        ]);
+    }
+
 
     public function showBorrowedBook()
     {
@@ -63,7 +98,7 @@ class AdminTransactionController extends Controller
     public function showBorrowDecline($id)
     {
         $req = BorrowRequest::with(['user', 'book'])
-            ->where('status', 'declined') 
+            ->where('status', 'declined')
             ->findOrFail($id);
 
         return view('admin.borrow-decline', compact('req'));

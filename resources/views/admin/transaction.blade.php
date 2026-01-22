@@ -139,523 +139,127 @@
             </div>
         </div>
 
+
+        
+        
         <div class="bottom-card">
             <div class="row g-4 mb-4">
-                <!--BORROWED BOOKS-->
-                <div class="col-sm-12 col-lg-4">
-                    <div class="borrow-card">
-                        <p class="bot-title fw-bold mb-0">Borrowed Books</p>
+                <!-- UNBORROWED BOOKS -->
+                <div class="col-12">
+                    <div class="unborrowed-card" style="height: 600px; border-radius: 12px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); overflow: hidden;">
 
-                        <!--Science & Technology-->
-                        <div class="card-data-book position-relative overflow-hidden mb-2">
-                            <!-- Category Color -->
-                            <div class="categ-bar">
-                                <!-- Category Color -->
-                                <div class="st-bar"></div>
-                            </div>
-
-                            <!-- Category Image -->
-                            <div class="circle">
-                                <img src="{{ asset('images/SciTech.png') }}" class="categ-img">
-                            </div>
-
-                            <!-- Book Details -->
-                            <div class="card-book-info">
-                                <p class="card-book-title">The Great Gatsby</p>
-                                <p class="card-book-author">F.Scott Fitzgerald</p>
-                            </div>
-
-                            <div class="card-book-right">
-                                <!-- Date -->
-                                <p class="card-book-date">01/01/26</p>
-                                <button type="button" class="btn-details" onclick="openDetailsModal(this)">
-                                    Details
-                                </button>
-                            </div>
+                        <!-- Sticky header -->
+                        <div class="card-header sticky-top bg-white p-3" style="border-bottom: 1px solid #e2e2e2; z-index: 10;">
+                            <p class="bot-title fw-bold mb-0">Unborrowed Books</p>
                         </div>
 
-                        <!--Literature-->
-                        <div class="card-data-book position-relative overflow-hidden mb-2">
-                            <!-- Category Color -->
-                            <div class="categ-bar">
+                        <!-- Scrollable body -->
+                        <div class="card-body overflow-auto p-3" style="max-height: 540px;">
+                            @foreach ($unborrowedTransactions as $transaction)
+                            @php
+                            $book = $transaction->borrowRequest->book;
+                            $category = $book->category->category_name;
+
+                            $colorClass = $categoryMeta[$category]['color'] ?? 'default-bar';
+                            $imgFile = $categoryMeta[$category]['img'] ?? 'default.png';
+                            @endphp
+
+                            <div class="card-data-book position-relative overflow-hidden m-2"
+                                onclick="openUnborrowedModal('{{ $transaction->id }}')">
+
                                 <!-- Category Color -->
-                                <div class="lit-bar"></div>
-                            </div>
+                                <div class="categ-bar">
+                                    <div class="{{ $colorClass }}"></div>
+                                </div>
 
-                            <!-- Category Image -->
-                            <div class="circle">
-                                <img src="{{ asset('images/Literature.png') }}" class="categ-img">
-                            </div>
+                                <!-- Category Image -->
+                                <div class="circle">
+                                    <img src="{{ asset('images/' . $imgFile) }}" class="categ-img">
+                                </div>
 
-                            <!-- Book Details -->
-                            <div class="card-book-info">
-                                <p class="card-book-title">The Great Gatsby</p>
-                                <p class="card-book-author">F.Scott Fitzgerald</p>
-                            </div>
+                                <!-- Book Details -->
+                                <div class="card-book-info">
+                                    <p class="card-book-title">{{ $book->title }}</p>
+                                    <p class="card-book-author">{{ $book->author }}</p>
+                                </div>
 
-                            <div class="card-book-right">
-                                <!-- Date -->
-                                <p class="card-book-date">01/01/26</p>
-                                <button type="button" class="btn-details" onclick="openDetailsModal(this)">
-                                    Details
-                                </button>
+                                <!-- Request Date -->
+                                <div class="card-book-over">
+                                    <button type="button" class="btn-date-overdue">
+                                        {{ $transaction->borrowRequest->request_date->format('m/d/y') }}
+                                    </button>
+                                </div>
+
                             </div>
+                            @endforeach
                         </div>
 
-                        <!--Social Studies-->
-                        <div class="card-data-book position-relative overflow-hidden mb-2">
-                            <!-- Category Color -->
-                            <div class="categ-bar">
-                                <!-- Category Color -->
-                                <div class="soc-bar"></div>
-                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-                            <!-- Category Image -->
-                            <div class="circle">
-                                <img src="{{ asset('images/SocStud.png') }}" class="categ-img">
-                            </div>
 
-                            <!-- Book Details -->
-                            <div class="card-book-info">
-                                <p class="card-book-title">The Great Gatsby</p>
-                                <p class="card-book-author">F.Scott Fitzgerald</p>
-                            </div>
 
-                            <div class="card-book-right">
-                                <!-- Date -->
-                                <p class="card-book-date">01/01/26</p>
-                                <button type="button" class="btn-details" onclick="openDetailsModal(this)">
-                                    Details
-                                </button>
-                            </div>
+
+
+        <div class="bottom-card">
+            <div class="row g-4 mb-4">
+                <!-- UNBORROWED BOOKS -->
+                <div class="col-12">
+                    <div class="unborrowed-card" style="height: 600px; border-radius: 12px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); overflow: hidden;">
+
+                        <!-- Sticky header -->
+                        <div class="card-header sticky-top bg-white p-3" style="border-bottom: 1px solid #e2e2e2; z-index: 10;">
+                            <p class="bot-title fw-bold mb-0">Unborrowed Books</p>
                         </div>
 
-                        <!--Economics-->
-                        <div class="card-data-book position-relative overflow-hidden mb-2">
-                            <!-- Category Color -->
-                            <div class="categ-bar">
+                        <!-- Scrollable body -->
+                        <div class="card-body overflow-auto p-3" style="max-height: 540px;">
+                            @foreach ($unborrowedTransactions as $transaction)
+                            @php
+                            $book = $transaction->borrowRequest->book;
+                            $category = $book->category->category_name;
+
+                            $colorClass = $categoryMeta[$category]['color'] ?? 'default-bar';
+                            $imgFile = $categoryMeta[$category]['img'] ?? 'default.png';
+                            @endphp
+
+                            <div class="card-data-book"
+                                onclick="openUnborrowedModal('{{ $transaction->id }}')">
+
                                 <!-- Category Color -->
-                                <div class="eco-bar"></div>
-                            </div>
+                                <div class="categ-bar">
+                                    <div class="{{ $colorClass }}"></div>
+                                </div>
 
-                            <!-- Category Image -->
-                            <div class="circle">
-                                <img src="{{ asset('images/Economics.png') }}" class="categ-img">
-                            </div>
+                                <!-- Category Image -->
+                                <div class="circle">
+                                    <img src="{{ asset('images/' . $imgFile) }}" class="categ-img">
+                                </div>
 
-                            <!-- Book Details -->
-                            <div class="card-book-info">
-                                <p class="card-book-title">The Great Gatsby</p>
-                                <p class="card-book-author">F.Scott Fitzgerald</p>
-                            </div>
+                                <!-- Book Details -->
+                                <div class="card-book-info">
+                                    <p class="card-book-title">{{ $book->title }}</p>
+                                    <p class="card-book-author">{{ $book->author }}</p>
+                                </div>
 
-                            <div class="card-book-right">
-                                <!-- Date -->
-                                <p class="card-book-date">01/01/26</p>
-                                <button type="button" class="btn-details" onclick="openDetailsModal(this)">
-                                    Details
-                                </button>
-                            </div>
-                        </div>
+                                <!-- Request Date -->
+                                <div class="card-book-over">
+                                    <button type="button" class="btn-date-overdue">
+                                        {{ $transaction->borrowRequest->request_date->format('m/d/y') }}
+                                    </button>
+                                </div>
 
-                        <!--History-->
-                        <div class="card-data-book position-relative overflow-hidden mb-2">
-                            <!-- Category Color -->
-                            <div class="categ-bar">
-                                <!-- Category Color -->
-                                <div class="his-bar"></div>
                             </div>
-
-                            <!-- Category Image -->
-                            <div class="circle">
-                                <img src="{{ asset('images/History.png') }}" class="categ-img">
-                            </div>
-
-                            <!-- Book Details -->
-                            <div class="card-book-info">
-                                <p class="card-book-title">The Great Gatsby</p>
-                                <p class="card-book-author">F.Scott Fitzgerald</p>
-                            </div>
-
-                            <div class="card-book-right">
-                                <!-- Date -->
-                                <p class="card-book-date">01/01/26</p>
-                                <button type="button" class="btn-details" onclick="openDetailsModal(this)">
-                                    Details
-                                </button>
-                            </div>
-                        </div>
-
-                        <!--Philosophy-->
-                        <div class="card-data-book position-relative overflow-hidden mb-2">
-                            <!-- Category Color -->
-                            <div class="categ-bar">
-                                <!-- Category Color -->
-                                <div class="phi-bar"></div>
-                            </div>
-
-                            <!-- Category Image -->
-                            <div class="circle">
-                                <img src="{{ asset('images/Philosophy.png') }}" class="categ-img">
-                            </div>
-
-                            <!-- Book Details -->
-                            <div class="card-book-info">
-                                <p class="card-book-title">The Great Gatsby</p>
-                                <p class="card-book-author">F.Scott Fitzgerald</p>
-                            </div>
-
-                            <div class="card-book-right">
-                                <!-- Date -->
-                                <p class="card-book-date">01/01/26</p>
-                                <button type="button" class="btn-details" onclick="openDetailsModal(this)">
-                                    Details
-                                </button>
-                            </div>
+                            @endforeach
                         </div>
 
                     </div>
                 </div>
 
-                <!--OVERDUE BOOKS-->
-                <div class="col-sm-12 col-lg-4">
-                    <div class="overdue-card">
-                        <p class="bot-title fw-bold mb-0">Overdue Books</p>
 
-                        <!--Science & Technology-->
-                        <div class="card-data-book position-relative overflow-hidden mb-2" onclick="openOverdueModal(this)">
-                            <!-- Category Color -->
-                            <div class="categ-bar">
-                                <!-- Category Color -->
-                                <div class="st-bar"></div>
-                            </div>
 
-                            <!-- Category Image -->
-                            <div class="circle">
-                                <img src="{{ asset('images/SciTech.png') }}" class="categ-img">
-                            </div>
-
-                            <!-- Book Details -->
-                            <div class="card-book-info">
-                                <p class="card-book-title">The Great Gatsby</p>
-                                <p class="card-book-author">F.Scott Fitzgerald</p>
-                            </div>
-
-                            <div class="card-book-over">
-                                <!-- Date -->
-                                <button type="button" class="btn-date-overdue">
-                                    01/01/26
-                                </button>
-                            </div>
-                        </div>
-
-                        <!--Literature-->
-                        <div class="card-data-book position-relative overflow-hidden mb-2" onclick="openOverdueModal(this)">
-                            <!-- Category Color -->
-                            <div class="categ-bar">
-                                <!-- Category Color -->
-                                <div class="lit-bar"></div>
-                            </div>
-
-                            <!-- Category Image -->
-                            <div class="circle">
-                                <img src="{{ asset('images/Literature.png') }}" class="categ-img">
-                            </div>
-
-                            <!-- Book Details -->
-                            <div class="card-book-info">
-                                <p class="card-book-title">The Great Gatsby</p>
-                                <p class="card-book-author">F.Scott Fitzgerald</p>
-                            </div>
-
-                            <div class="card-book-right">
-                                <!-- Date -->
-                                <button type="button" class="btn-date-overdue">
-                                    01/01/26
-                                </button>
-                            </div>
-                        </div>
-
-                        <!--Social Studies-->
-                        <div class="card-data-book position-relative overflow-hidden mb-2" onclick="openOverdueModal(this)">
-                            <!-- Category Color -->
-                            <div class="categ-bar">
-                                <!-- Category Color -->
-                                <div class="soc-bar"></div>
-                            </div>
-
-                            <!-- Category Image -->
-                            <div class="circle">
-                                <img src="{{ asset('images/SocStud.png') }}" class="categ-img">
-                            </div>
-
-                            <!-- Book Details -->
-                            <div class="card-book-info">
-                                <p class="card-book-title">The Great Gatsby</p>
-                                <p class="card-book-author">F.Scott Fitzgerald</p>
-                            </div>
-
-                            <div class="card-book-right">
-                                <!-- Date -->
-                                <button type="button" class="btn-date-overdue">
-                                    01/01/26
-                                </button>
-                            </div>
-                        </div>
-
-                        <!--Economics-->
-                        <div class="card-data-book position-relative overflow-hidden mb-2" onclick="openOverdueModal(this)">
-                            <!-- Category Color -->
-                            <div class="categ-bar">
-                                <!-- Category Color -->
-                                <div class="eco-bar"></div>
-                            </div>
-
-                            <!-- Category Image -->
-                            <div class="circle">
-                                <img src="{{ asset('images/Economics.png') }}" class="categ-img">
-                            </div>
-
-                            <!-- Book Details -->
-                            <div class="card-book-info">
-                                <p class="card-book-title">The Great Gatsby</p>
-                                <p class="card-book-author">F.Scott Fitzgerald</p>
-                            </div>
-
-                            <div class="card-book-right">
-                                <!-- Date -->
-                                <button type="button" class="btn-date-overdue">
-                                    01/01/26
-                                </button>
-                            </div>
-                        </div>
-
-                        <!--History-->
-                        <div class="card-data-book position-relative overflow-hidden mb-2" onclick="openOverdueModal(this)">
-                            <!-- Category Color -->
-                            <div class="categ-bar">
-                                <!-- Category Color -->
-                                <div class="his-bar"></div>
-                            </div>
-
-                            <!-- Category Image -->
-                            <div class="circle">
-                                <img src="{{ asset('images/History.png') }}" class="categ-img">
-                            </div>
-
-                            <!-- Book Details -->
-                            <div class="card-book-info">
-                                <p class="card-book-title">The Great Gatsby</p>
-                                <p class="card-book-author">F.Scott Fitzgerald</p>
-                            </div>
-
-                            <div class="card-book-right">
-                                <!-- Date -->
-                                <button type="button" class="btn-date-overdue">
-                                    01/01/26
-                                </button>
-                            </div>
-                        </div>
-
-                        <!--Philosophy-->
-                        <div class="card-data-book position-relative overflow-hidden mb-2" onclick="openOverdueModal(this)">
-                            <!-- Category Color -->
-                            <div class="categ-bar">
-                                <!-- Category Color -->
-                                <div class="phi-bar"></div>
-                            </div>
-
-                            <!-- Category Image -->
-                            <div class="circle">
-                                <img src="{{ asset('images/Philosophy.png') }}" class="categ-img">
-                            </div>
-
-                            <!-- Book Details -->
-                            <div class="card-book-info">
-                                <p class="card-book-title">The Great Gatsby</p>
-                                <p class="card-book-author">F.Scott Fitzgerald</p>
-                            </div>
-
-                            <div class="card-book-right">
-                                <!-- Date -->
-                                <button type="button" class="btn-date-overdue">
-                                    01/01/26
-                                </button>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-
-                <!--RETURNED BOOKS-->
-                <div class="col-sm-12 col-lg-4">
-                    <div class="returned-card">
-                        <p class="bot-title fw-bold mb-0">Returned Books</p>
-
-                        <!--Science & Technology-->
-                        <div class="card-data-book position-relative overflow-hidden mb-2" onclick="openReturnedModal(this)">
-                            <!-- Category Color -->
-                            <div class="categ-bar">
-                                <!-- Category Color -->
-                                <div class="st-bar"></div>
-                            </div>
-
-                            <!-- Category Image -->
-                            <div class="circle">
-                                <img src="{{ asset('images/SciTech.png') }}" class="categ-img">
-                            </div>
-
-                            <!-- Book Details -->
-                            <div class="card-book-info">
-                                <p class="card-book-title">The Great Gatsby</p>
-                                <p class="card-book-author">F.Scott Fitzgerald</p>
-                            </div>
-
-                            <div class="card-book-over">
-                                <!-- Date -->
-                                <button type="button" class="btn-date-returned">
-                                    01/01/26
-                                </button>
-                            </div>
-                        </div>
-
-                        <!--Literature-->
-                        <div class="card-data-book position-relative overflow-hidden mb-2" onclick="openReturnedModal(this)">
-                            <!-- Category Color -->
-                            <div class="categ-bar">
-                                <!-- Category Color -->
-                                <div class="lit-bar"></div>
-                            </div>
-
-                            <!-- Category Image -->
-                            <div class="circle">
-                                <img src="{{ asset('images/Literature.png') }}" class="categ-img">
-                            </div>
-
-                            <!-- Book Details -->
-                            <div class="card-book-info">
-                                <p class="card-book-title">The Great Gatsby</p>
-                                <p class="card-book-author">F.Scott Fitzgerald</p>
-                            </div>
-
-                            <div class="card-book-right">
-                                <!-- Date -->
-                                <button type="button" class="btn-date-returned">
-                                    01/01/26
-                                </button>
-                            </div>
-                        </div>
-
-                        <!--Social Studies-->
-                        <div class="card-data-book position-relative overflow-hidden mb-2" onclick="openReturnedModal(this)">
-                            <!-- Category Color -->
-                            <div class="categ-bar">
-                                <!-- Category Color -->
-                                <div class="soc-bar"></div>
-                            </div>
-
-                            <!-- Category Image -->
-                            <div class="circle">
-                                <img src="{{ asset('images/SocStud.png') }}" class="categ-img">
-                            </div>
-
-                            <!-- Book Details -->
-                            <div class="card-book-info">
-                                <p class="card-book-title">The Great Gatsby</p>
-                                <p class="card-book-author">F.Scott Fitzgerald</p>
-                            </div>
-
-                            <div class="card-book-right">
-                                <!-- Date -->
-                                <button type="button" class="btn-date-returned">
-                                    01/01/26
-                                </button>
-                            </div>
-                        </div>
-
-                        <!--Economics-->
-                        <div class="card-data-book position-relative overflow-hidden mb-2" onclick="openReturnedModal(this)">
-                            <!-- Category Color -->
-                            <div class="categ-bar">
-                                <!-- Category Color -->
-                                <div class="eco-bar"></div>
-                            </div>
-
-                            <!-- Category Image -->
-                            <div class="circle">
-                                <img src="{{ asset('images/Economics.png') }}" class="categ-img">
-                            </div>
-
-                            <!-- Book Details -->
-                            <div class="card-book-info">
-                                <p class="card-book-title">The Great Gatsby</p>
-                                <p class="card-book-author">F.Scott Fitzgerald</p>
-                            </div>
-
-                            <div class="card-book-right">
-                                <!-- Date -->
-                                <button type="button" class="btn-date-returned">
-                                    01/01/26
-                                </button>
-                            </div>
-                        </div>
-
-                        <!--History-->
-                        <div class="card-data-book position-relative overflow-hidden mb-2" onclick="openReturnedModal(this)">
-                            <!-- Category Color -->
-                            <div class="categ-bar">
-                                <!-- Category Color -->
-                                <div class="his-bar"></div>
-                            </div>
-
-                            <!-- Category Image -->
-                            <div class="circle">
-                                <img src="{{ asset('images/History.png') }}" class="categ-img">
-                            </div>
-
-                            <!-- Book Details -->
-                            <div class="card-book-info">
-                                <p class="card-book-title">The Great Gatsby</p>
-                                <p class="card-book-author">F.Scott Fitzgerald</p>
-                            </div>
-
-                            <div class="card-book-right">
-                                <!-- Date -->
-                                <button type="button" class="btn-date-returned">
-                                    01/01/26
-                                </button>
-                            </div>
-                        </div>
-
-                        <!--Philosophy-->
-                        <div class="card-data-book position-relative overflow-hidden mb-2" onclick="openReturnedModal(this)">
-                            <!-- Category Color -->
-                            <div class="categ-bar">
-                                <!-- Category Color -->
-                                <div class="phi-bar"></div>
-                            </div>
-
-                            <!-- Category Image -->
-                            <div class="circle">
-                                <img src="{{ asset('images/Philosophy.png') }}" class="categ-img">
-                            </div>
-
-                            <!-- Book Details -->
-                            <div class="card-book-info">
-                                <p class="card-book-title">The Great Gatsby</p>
-                                <p class="card-book-author">F.Scott Fitzgerald</p>
-                            </div>
-
-                            <div class="card-book-right">
-                                <!-- Date -->
-                                <button type="button" class="btn-date-returned">
-                                    01/01/26
-                                </button>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
             </div>
         </div>
     </div>
@@ -682,6 +286,11 @@
         window.location = url;
     }
 
+    // For Unborrowed
+    function openUnborrowedModal(transactionId) {
+        const url = "{{ route('admin.unborrowed-book', ':id') }}".replace(':id', transactionId);
+        window.location = url;
+    }
 
     function openDetailsModal(button) {
         window.location = "{{ route('admin.borrowed-book') }}"

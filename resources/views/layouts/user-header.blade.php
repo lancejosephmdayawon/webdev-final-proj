@@ -105,7 +105,7 @@
         transform: scale(1.02);
     }
 
-        .nav-toggle {
+    .nav-toggle {
         display: none;
         font-size: 24px;
         color: var(--color-yellow);
@@ -182,52 +182,55 @@
 <link rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-<nav class="navbar">
-    <div class="navbar-iskolib container-fluid" id="iskoNavbar">
-        <a class="navbar-title" href="{{ route('admin.dashboard') }}">ISKO-LIB</a>
+<header class="sticky top-0 z-50 bg-white shadow">
+    <nav class="navbar">
+        <div class="navbar-iskolib container-fluid" id="iskoNavbar">
+            <a class="navbar-title" href="{{ route('admin.dashboard') }}">ISKO-LIB</a>
 
-        <a href="javascript:void(0);" class="nav-toggle" onclick="toggleNavbar()">
-            <i class="fa fa-bars"></i>
-        </a>
-
-        <ul class="nav-center">
-            <li class="nav-item">
-                <a class="nav-link {{ request()->routeIs('user.home') ? 'active' : '' }}"
-                    href="{{ route('user.home') }}">
-                    Home
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link {{ request()->routeIs('user.books') ? 'active' : '' }}"
-                    href="{{ route('user.books') }}">
-                    Books
-                </a>
-            </li>
-        </ul>
-
-        <div class="profile-section">
-            <a href="{{ route('user.profile') }}" class="profile-icon-link">
-                <img src="{{ asset('images/pfp_icon.png') }}" class="profile-img-top" alt="Profile">
+            <a href="javascript:void(0);" class="nav-toggle" onclick="toggleNavbar()">
+                <i class="fa fa-bars"></i>
             </a>
 
-            <!-- Logout link -->
-            <a href="#" class="logout-btn"
-                onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                Logout
-            </a>
+            <ul class="nav-center">
+                <li class="nav-item">
+                    <a class="nav-link {{ request()->routeIs('user.home') ? 'active' : '' }}"
+                        href="{{ route('user.home') }}">
+                        Home
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link {{ request()->routeIs('user.books') ? 'active' : '' }}"
+                        href="{{ route('user.books') }}">
+                        Books
+                    </a>
+                </li>
+            </ul>
 
-            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                @csrf
-            </form>
-        </div>
+            <div class="profile-section">
+                <a href="{{ route('user.profile') }}" class="profile-icon-link">
+                    <img src="{{ asset('images/pfp_icon.png') }}" class="profile-img-top" alt="Profile">
+                </a>
 
-        <!-- <a href="javascript:void(0);" class="nav-toggle" onclick="toggleNavbar()">
+                <!-- Logout link -->
+                <a href="#" class="logout-btn"
+                    onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                    Logout
+                </a>
+
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                    @csrf
+                </form>
+            </div>
+
+            <!-- <a href="javascript:void(0);" class="nav-toggle" onclick="toggleNavbar()">
             <i class="fa fa-bars"></i>
         </a> -->
 
 
-    </div>
-</nav>
+        </div>
+    </nav>
+</header>
+
 
 <script>
     function toggleNavbar() {

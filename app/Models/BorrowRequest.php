@@ -56,4 +56,5 @@ class BorrowRequest extends Model
     {
         return $this->belongsTo(Book::class);
     }
+    
 }
