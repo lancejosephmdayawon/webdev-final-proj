@@ -57,7 +57,7 @@ class AdminTransactionController extends Controller
 
     public function showBorrowedBook()
     {
-        return view('iskolib.admin.borrowed-form');
+        return view('admin.borrowed-form');
     }
 
     public function showBorrowDecline($id)
@@ -71,11 +71,11 @@ class AdminTransactionController extends Controller
 
     public function showOverdueBook()
     {
-        return view('iskolib.admin.overdue-form');
+        return view('admin.overdue-form');
     }
 
     public function showReturnedBook()
     {
-        return view('iskolib.admin.returned-book');
+        return view('admin.returned-book');
     }
 }

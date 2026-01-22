@@ -21,10 +21,10 @@
   @include('layouts.admin-header')
   @yield('content')
 
-  @include('iskolib.modals.admin-borrowed-confirm')
+  @include('modals.admin-borrowed-confirm')
   @stack('scripts')
 
-  @include('iskolib.modals.admin-borrowed-success')
+  @include('modals.admin-borrowed-success')
   @stack('scripts')
 
   @stack('scripts')

@@ -21,10 +21,10 @@
   @include('layouts.admin-header')
   @yield('content')
 
-  @include('iskolib.modals.admin-overdue-confirm')
+  @include('modals.admin-overdue-confirm')
   @stack('scripts')
 
-  @include('iskolib.modals.admin-overdue-success')
+  @include('modals.admin-overdue-success')
   @stack('scripts')
 
   @stack('scripts')

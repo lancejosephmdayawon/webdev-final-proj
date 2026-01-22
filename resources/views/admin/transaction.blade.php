@@ -56,7 +56,7 @@
                                         <!-- Status Banner -->
                                         <div class="book-card-details mb-2">
                                             <span class="pending-label">Pending</span>
-                                            <span><b>{{ $request->request_date->format('d/m/y') }}</b></span>
+                                            <span><b>{{ $request->request_date->format('m/d/y') }}</b></span>
                                         </div>
 
                                         <!-- Book Content -->
@@ -83,44 +83,55 @@
                     </div>
                 </div>
                 <div class="col-sm-12 col-lg-4 mb-4">
+
                     <!-- Declined Requests -->
                     <div class="decline-card">
-                        <div class="top-card d-flex justify-content-between align-items-center mb-2">
-                            <p class="top-title-decline fw-bold mb-0">Declined Request</p>
+
+                        <!-- Sticky Header -->
+                        <div class="top-card decline-header">
+                            <p class="top-title-decline fw-bold mb-0">Declined Requests</p>
                         </div>
 
-                        @if($declinedRequests->count())
-                        @foreach($declinedRequests as $req)
-                        @php
-                        // Get category name from category_id
-                        $catName = $categories[$req->book->category_id] ?? 'Unknown';
-                        // Get metadata from categoryMeta array
-                        $meta = $categoryMeta[$catName] ?? ['color'=>'default-bar','img'=>'default.png'];
-                        @endphp
+                        <!-- Scrollable Content -->
+                        <div class="decline-body">
+                            @forelse($declinedRequests as $req)
+                            @php
+                            $catName = $categories[$req->book->category_id] ?? 'Unknown';
+                            $meta = $categoryMeta[$catName] ?? [
+                            'color' => 'default-bar',
+                            'img' => 'default.png'
+                            ];
+                            @endphp
 
-                        <div class="card-data-book" data-id="{{ $req->id }}" onclick="openDeclineModal(this)">
+                            <div class="card-data-book" data-id="{{ $req->id }}">
 
-                            <div class="categ-bar">
-                                <div class="{{ $meta['color'] }}"></div>
+                                <div class="categ-bar">
+                                    <div class="{{ $meta['color'] }}"></div>
+                                </div>
+
+                                <div class="circle">
+                                    <img src="{{ asset('images/' . $meta['img']) }}" class="categ-img">
+                                </div>
+
+                                <div class="card-book-info">
+                                    <p class="card-book-title">{{ $req->book->title }}</p>
+                                    <p class="card-book-author">{{ $req->book->author }}</p>
+                                </div>
+
+                                <div class="card-b-r-decline">
+                                    <p class="card-book-date">
+                                        {{ $req->request_date->format('m/d/y') }}
+                                    </p>
+                                </div>
+
                             </div>
-
-                            <div class="circle">
-                                <img src="{{ asset('images/' . $meta['img']) }}" class="categ-img">
-                            </div>
-
-                            <div class="card-book-info">
-                                <p class="card-book-title">{{ $req->book->title }}</p>
-                                <p class="card-book-author">{{ $req->book->author }}</p>
-                            </div>
-
-                            <div class="card-b-r-decline">
-                                <p class="card-book-date">{{ \Carbon\Carbon::parse($req->request_date)->format('m/d/y') }}</p>
-                            </div>
+                            @empty
+                            <p class="text-muted text-center mt-3">
+                                No declined requests.
+                            </p>
+                            @endforelse
                         </div>
-                        @endforeach
-                        @else
-                        <p class="text-muted">No declined requests.</p>
-                        @endif
+
                     </div>
                 </div>
 

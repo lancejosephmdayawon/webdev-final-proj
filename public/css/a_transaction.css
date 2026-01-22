@@ -256,6 +256,7 @@ body {
     color: var(--color-yellow);
 }
 
+
 .decline-card {
     background-color: var(--color-maroon);
     height: 320px;
@@ -263,9 +264,29 @@ body {
     border-radius: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
 
-    overflow-x: auto;
-    overflow-y: auto;
+    /* overflow-x: auto;
+    overflow-y: auto; */
+    display: flex;
+    flex-direction: column;
+
+    overflow: hidden;
 }
+
+.decline-header {
+    position: sticky;
+    top: 0;
+    background-color: var(--color-maroon);
+    z-index: 10;
+    padding: 0.5rem 1rem;
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+}
+
+.decline-body {
+    flex: 1;
+    overflow-y: auto;
+    padding: 0.5rem 1rem;
+}
+
 
 .borrow-card,
 .overdue-card,
