@@ -14,7 +14,12 @@ class AdminTransactionController extends Controller
             ->orderBy('request_date') // Oldest First - First Come First Serve
             ->get();
 
-        return view('admin.transaction', compact('borrowRequests'));
+        $declinedRequests = BorrowRequest::with('book.category')
+            ->where('status', 'declined')
+            ->orderBy('request_date', 'desc')
+            ->get();
+
+        return view('admin.transaction', compact('borrowRequests', 'declinedRequests'));
     }
 
     // Showing Barrow Requests
@@ -55,9 +60,13 @@ class AdminTransactionController extends Controller
         return view('iskolib.admin.borrowed-form');
     }
 
-    public function showBorrowDecline()
+    public function showBorrowDecline($id)
     {
-        return view('iskolib.admin.borrow-decline');
+        $req = BorrowRequest::with(['user', 'book'])
+            ->where('status', 'declined') 
+            ->findOrFail($id);
+
+        return view('admin.borrow-decline', compact('req'));
     }
 
     public function showOverdueBook()

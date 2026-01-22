@@ -18,6 +18,15 @@
                 'History' => ['color' => 'his-bar', 'img' => 'History.png'],
                 'Philosophy' => ['color' => 'phi-bar', 'img' => 'Philosophy.png'],
                 ];
+
+                $categories = [
+                1 => 'Science & Technology',
+                2 => 'Literature',
+                3 => 'Social Studies',
+                4 => 'Economics',
+                5 => 'History',
+                6 => 'Philosophy',
+                ];
                 @endphp
 
                 <!--REQUEST TO BORROW-->
@@ -73,167 +82,49 @@
                         </div>
                     </div>
                 </div>
-
-
-
-                <!--DECLINE REQUEST-->
                 <div class="col-sm-12 col-lg-4 mb-4">
+                    <!-- Declined Requests -->
                     <div class="decline-card">
                         <div class="top-card d-flex justify-content-between align-items-center mb-2">
-                            <p class="top-title-decline fw-bold mb-0">Decline Request</p>
+                            <p class="top-title-decline fw-bold mb-0">Declined Request</p>
                         </div>
 
-                        <!--Science & Technology-->
-                        <div class="card-data-book position-relative overflow-hidden mb-2" onclick="openDeclineModal(this)">
-                            <!-- Category Color -->
+                        @if($declinedRequests->count())
+                        @foreach($declinedRequests as $req)
+                        @php
+                        // Get category name from category_id
+                        $catName = $categories[$req->book->category_id] ?? 'Unknown';
+                        // Get metadata from categoryMeta array
+                        $meta = $categoryMeta[$catName] ?? ['color'=>'default-bar','img'=>'default.png'];
+                        @endphp
+
+                        <div class="card-data-book" data-id="{{ $req->id }}" onclick="openDeclineModal(this)">
+
                             <div class="categ-bar">
-                                <!-- Category Color -->
-                                <div class="st-bar"></div>
+                                <div class="{{ $meta['color'] }}"></div>
                             </div>
 
-                            <!-- Category Image -->
                             <div class="circle">
-                                <img src="{{ asset('images/SciTech.png') }}" class="categ-img">
+                                <img src="{{ asset('images/' . $meta['img']) }}" class="categ-img">
                             </div>
 
-                            <!-- Book Details -->
                             <div class="card-book-info">
-                                <p class="card-book-title">The Great Gatsby</p>
-                                <p class="card-book-author">F.Scott Fitzgerald</p>
+                                <p class="card-book-title">{{ $req->book->title }}</p>
+                                <p class="card-book-author">{{ $req->book->author }}</p>
                             </div>
 
                             <div class="card-b-r-decline">
-                                <!-- Date -->
-                                <p class="card-book-date">01/01/26</p>
+                                <p class="card-book-date">{{ \Carbon\Carbon::parse($req->request_date)->format('m/d/y') }}</p>
                             </div>
                         </div>
-
-                        <!--Literature-->
-                        <div class="card-data-book position-relative overflow-hidden mb-2" onclick="openDeclineModal(this)">
-                            <!-- Category Color -->
-                            <div class="categ-bar">
-                                <!-- Category Color -->
-                                <div class="lit-bar"></div>
-                            </div>
-
-                            <!-- Category Image -->
-                            <div class="circle">
-                                <img src="{{ asset('images/Literature.png') }}" class="categ-img">
-                            </div>
-
-                            <!-- Book Details -->
-                            <div class="card-book-info">
-                                <p class="card-book-title">The Great Gatsby</p>
-                                <p class="card-book-author">F.Scott Fitzgerald</p>
-                            </div>
-
-                            <div class="card-b-r-decline">
-                                <!-- Date -->
-                                <p class="card-book-date">01/01/26</p>
-                            </div>
-                        </div>
-
-                        <!--Social Studies-->
-                        <div class="card-data-book position-relative overflow-hidden mb-2" onclick="openDeclineModal(this)">
-                            <!-- Category Color -->
-                            <div class="categ-bar">
-                                <!-- Category Color -->
-                                <div class="soc-bar"></div>
-                            </div>
-
-                            <!-- Category Image -->
-                            <div class="circle">
-                                <img src="{{ asset('images/SocStud.png') }}" class="categ-img">
-                            </div>
-
-                            <!-- Book Details -->
-                            <div class="card-book-info">
-                                <p class="card-book-title">The Great Gatsby</p>
-                                <p class="card-book-author">F.Scott Fitzgerald</p>
-                            </div>
-
-                            <div class="card-b-r-decline">
-                                <!-- Date -->
-                                <p class="card-book-date">01/01/26</p>
-                            </div>
-                        </div>
-
-                        <!--Economics-->
-                        <div class="card-data-book position-relative overflow-hidden mb-2" onclick="openDeclineModal(this)">
-                            <!-- Category Color -->
-                            <div class="categ-bar">
-                                <!-- Category Color -->
-                                <div class="eco-bar"></div>
-                            </div>
-
-                            <!-- Category Image -->
-                            <div class="circle">
-                                <img src="{{ asset('images/Economics.png') }}" class="categ-img">
-                            </div>
-
-                            <!-- Book Details -->
-                            <div class="card-book-info">
-                                <p class="card-book-title">The Great Gatsby</p>
-                                <p class="card-book-author">F.Scott Fitzgerald</p>
-                            </div>
-
-                            <div class="card-b-r-decline">
-                                <!-- Date -->
-                                <p class="card-book-date">01/01/26</p>
-                            </div>
-                        </div>
-
-                        <!--History-->
-                        <div class="card-data-book position-relative overflow-hidden mb-2" onclick="openDeclineModal(this)">
-                            <!-- Category Color -->
-                            <div class="categ-bar">
-                                <!-- Category Color -->
-                                <div class="his-bar"></div>
-                            </div>
-
-                            <!-- Category Image -->
-                            <div class="circle">
-                                <img src="{{ asset('images/History.png') }}" class="categ-img">
-                            </div>
-
-                            <!-- Book Details -->
-                            <div class="card-book-info">
-                                <p class="card-book-title">The Great Gatsby</p>
-                                <p class="card-book-author">F.Scott Fitzgerald</p>
-                            </div>
-
-                            <div class="card-b-r-decline">
-                                <!-- Date -->
-                                <p class="card-book-date">01/01/26</p>
-                            </div>
-                        </div>
-
-                        <!--Philosophy-->
-                        <div class="card-data-book position-relative overflow-hidden mb-2" onclick="openDeclineModal(this)">
-                            <!-- Category Color -->
-                            <div class="categ-bar">
-                                <!-- Category Color -->
-                                <div class="phi-bar"></div>
-                            </div>
-
-                            <!-- Category Image -->
-                            <div class="circle">
-                                <img src="{{ asset('images/Philosophy.png') }}" class="categ-img">
-                            </div>
-
-                            <!-- Book Details -->
-                            <div class="card-book-info">
-                                <p class="card-book-title">The Great Gatsby</p>
-                                <p class="card-book-author">F.Scott Fitzgerald</p>
-                            </div>
-
-                            <div class="card-b-r-decline">
-                                <!-- Date -->
-                                <p class="card-book-date">01/01/26</p>
-                            </div>
-                        </div>
+                        @endforeach
+                        @else
+                        <p class="text-muted">No declined requests.</p>
+                        @endif
                     </div>
                 </div>
+
+
             </div>
         </div>
 
@@ -412,7 +303,7 @@
                             </div>
                         </div>
 
-                    </div>  
+                    </div>
                 </div>
 
                 <!--OVERDUE BOOKS-->
@@ -769,9 +660,17 @@
         window.location = url;
     }
 
-    function openDeclineModal(button) {
-        window.location = "{{ route('admin.borrow-decline') }}"
+    function openDeclineModal(el) {
+        const id = el.dataset.id;
+        if (!id) {
+            console.error('No ID found for this declined request.');
+            return;
+        }
+        // Redirect to the borrow-decline page
+        const url = "{{ route('admin.borrow-decline', ':id') }}".replace(':id', id);
+        window.location = url;
     }
+
 
     function openDetailsModal(button) {
         window.location = "{{ route('admin.borrowed-book') }}"

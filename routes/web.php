@@ -78,7 +78,7 @@ Route::prefix('librarian')->middleware([Authenticate::class, RoleMiddleware::cla
 
 
     // BOOK BORROW DECLINE
-    Route::get('/borrow-decline', [AdminTransactionController::class, 'showBorrowDecline'])->name('admin.borrow-decline');
+    Route::get('/borrow-decline/{id}', [AdminTransactionController::class, 'showBorrowDecline'])->name('admin.borrow-decline');
 
     // BORROWED BOOK
     Route::get('/borrowed-book', [AdminTransactionController::class, 'showBorrowedBook'])->name('admin.borrowed-book');
