@@ -10,9 +10,13 @@ class AdminInventoryController extends Controller
 {
     public function showInventory()
     {
-        $categories = Category::with('books')->get();
-        return view('admin.inventory', compact('categories'));
+        $books = Book::with('category')
+            ->orderBy('created_at', 'desc')
+            ->get();
+
+        return view('admin.inventory', compact('books'));
     }
+
 
     public function showAddBook()
     {
@@ -81,6 +85,9 @@ class AdminInventoryController extends Controller
         $book = Book::findOrFail($id);
         $book->delete();
 
-        return redirect()->route('admin.inventory')->with('success', 'Book deleted successfully.');
+        return response()->json([
+            'success' => true,
+            'message' => 'Book deleted successfully'
+        ]);
     }
 }

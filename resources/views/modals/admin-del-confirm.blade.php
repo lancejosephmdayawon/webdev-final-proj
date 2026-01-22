@@ -122,12 +122,7 @@
 </style>
 
 <script>
-    function confirmDel() {
-        document.getElementById('delConModal').style.display = 'none';
-        document.getElementById('delSuccessModal').style.display = 'flex';
-    }
-
-    function closeDeleteModal() {
-        window.location = "{{ route('admin.inventory') }}";
-    }
+function closeDeleteModal() {
+    document.getElementById('delConModal').style.display = 'none';
+}
 </script>

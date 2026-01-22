@@ -198,6 +198,12 @@ body {
     overflow: hidden;
 }
 
+.category-filter.active {
+    outline: 3px solid #000;
+    transform: scale(1.05);
+    font-weight: bold;
+}
+
 .st-bar,
 .lit-bar,
 .soc-bar,
