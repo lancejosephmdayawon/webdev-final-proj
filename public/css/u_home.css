@@ -22,7 +22,6 @@ body {
 }
 
 .inner-container {
-    width: 70%;
     margin: 0 auto;
 }
 
@@ -45,20 +44,63 @@ body {
 }
 
 .greet-card {
-    max-height: auto;
+    position: relative;
+    width: 100%;
     padding: 32px;
+    margin: 12px 0;
 
-    /*background: linear-gradient(to top, var(--color-maroon), var(--color-light-maroon));*/
+    background-color: #ffffff;
     border-radius: 10px;
-    border: 2px solid;
+    border: 2px solid var(--color-maroon);
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+
+    text-align: justify;
+    text-justify: inter-word;
+
+    overflow: hidden;
+    z-index: 0;
+    transition: transform 0.3s ease-out;
+}
+
+.greet-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+
+    background: linear-gradient(to top, #800000, #B30000);
+    border-radius: 5px;
+
+    transform: scale(0);
+    transform-origin: center center;
+    transition: transform 0.25s ease-out;
+}
+
+.greet-card:hover::before {
+    transform: scale(1);
+}
+
+.greet-card:hover .top-title,
+.greet-card:hover .top-detail {
+    color: #ffffff;
+}
+
+.greet-card:hover {
+    transform: scale(1.02);
 }
 
 .top-title {
+    color: var(--color-maroon);
     font-size: 32px;
 }
 
 .top-detail {
+    color: var(--color-maroon);
     font-size: 16px;
 }
 
@@ -128,27 +170,27 @@ body {
 }
 
 .st-btn:hover {
-    background: linear-gradient(to top, var(--color-st), #FFFFFF);
+    background: linear-gradient(to top, var(--color-st), #ffffff);
 }
 
 .lit-btn:hover {
-    background: linear-gradient(to top, var(--color-lit), #FFFFFF);
+    background: linear-gradient(to top, var(--color-lit), #ffffff);
 }
 
 .soc-btn:hover {
-    background: linear-gradient(to top, var(--color-soc), #FFFFFF);
+    background: linear-gradient(to top, var(--color-soc), #ffffff);
 }
 
 .eco-btn:hover {
-    background: linear-gradient(to top, var(--color-eco), #FFFFFF);
+    background: linear-gradient(to top, var(--color-eco), #ffffff);
 }
 
 .his-btn:hover {
-    background: linear-gradient(to top, var(--color-his), #FFFFFF);
+    background: linear-gradient(to top, var(--color-his), #ffffff);
 }
 
 .phi-btn:hover {
-    background: linear-gradient(to top, var(--color-phi), #FFFFFF);
+    background: linear-gradient(to top, var(--color-phi), #ffffff);
 }
 
 .book-card {
@@ -168,7 +210,7 @@ body {
 }
 
 .st-card {
-    background-color: #FFFFFF;
+    background-color: #ffffff;
     height: 260px;
     width: auto;
     padding: 0.25rem 1rem 0.75rem 1.5rem;
@@ -177,7 +219,7 @@ body {
 
     display: flex;
     flex-direction: column;
-    
+
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.25);
 }
 
@@ -247,7 +289,7 @@ body {
 }
 
 .notavail-label {
-    background-color: #FF8A8A;
+    background-color: #ff8a8a;
     color: #8b0000;
 }
 
@@ -262,7 +304,7 @@ body {
     -webkit-line-clamp: 2;
     overflow: hidden;
     text-overflow: ellipsis;
-    word-break: break-word
+    word-break: break-word;
 }
 
 .book-data p:not(.book-data-title) {

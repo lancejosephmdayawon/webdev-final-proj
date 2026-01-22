@@ -27,9 +27,17 @@ Route::get('/', [IskoLibAuthController::class, 'showWelcome'])->name('welcome');
 // LOGIN
 Route::get('/login', [IskoLibAuthController::class, 'showLogin'])->name('login');
 
+<<<<<<< HEAD
+=======
+// CHANGE PASSWORD
+Route::get('/change-password', [IskoLibAuthController::class, 'showChangePass'])->name('change-pass');
+>>>>>>> 698e4bdd9c85f5c502e67247c69bc7bb72137b07
 
 // ADMIN ROUTE
 Route::prefix('librarian')->group(function () {
+    // PROFILE
+    Route::get('/profile', [IskoLibAuthController::class, 'showAdminProfile'])->name('admin.profile');
+
     // DASHBOARD
     Route::get('/dashboard', [AdminDashboardController::class, 'showDashboard'])->name('admin.dashboard');
 
@@ -48,6 +56,9 @@ Route::prefix('librarian')->group(function () {
     // BOOK BORROW REQUEST
     Route::get('/borrow-request', [AdminTransactionController::class, 'showBorrowRequest'])->name('admin.borrow-request');
 
+    // BOOK BORROW DECLINE
+    Route::get('/borrow-decline', [AdminTransactionController::class, 'showBorrowDecline'])->name('admin.borrow-decline');
+
     // BORROWED BOOK
     Route::get('/borrowed-book', [AdminTransactionController::class, 'showBorrowedBook'])->name('admin.borrowed-book');
 
@@ -60,6 +71,9 @@ Route::prefix('librarian')->group(function () {
 
 // USER ROUTE
 Route::prefix('student')->group(function () {
+    // PROFILE
+    Route::get('/profile', [IskoLibAuthController::class, 'showUserProfile'])->name('user.profile');
+
     // HOME
     Route::get('/home', [UserHomeController::class, 'showHome'])->name('user.home');
 
@@ -80,4 +94,10 @@ Route::prefix('student')->group(function () {
 
     // OVERDUE BOOK
     Route::get('/overdue-book', [UserBookController::class, 'showOverdueBook'])->name('user.overdue-book');
+
+    // BOOK BORROW FORM
+    Route::get('/borrow-form', [UserBookController::class, 'showBorrowForm'])->name('user.borrow-form');
+
+    // BOOK HISTORY DETAILS
+    Route::get('/book-history', [UserBookController::class, 'showBookHistory'])->name('user.book-history');
 });

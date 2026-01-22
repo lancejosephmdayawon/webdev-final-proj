@@ -22,7 +22,6 @@ body {
 }
 
 .inner-container {
-    width: 70%;
     margin: 0 auto;
 }
 
@@ -43,7 +42,6 @@ body {
         width: 100%;
     }
 }
-
 
 .top-title {
     font-size: 32px;
@@ -69,7 +67,6 @@ body {
     flex-wrap: nowrap;
 }
 
-
 .book-card:hover {
     scrollbar-width: thin;
     scrollbar-color: var(--color-maroon) transparent;
@@ -84,7 +81,6 @@ body {
     width: 6px;
     height: 6px;
 }
-
 
 .book-card-details {
     display: flex;
@@ -101,7 +97,7 @@ body {
     background-color: #ffffff;
     height: 260px;
     width: auto;
-    padding: 0.25rem 0.75rem 0.75rem 1.60rem;
+    padding: 0.25rem 0.75rem 0.75rem 1.6rem;
     border: 1px solid;
     border-radius: 10px;
     font-size: 14px;
@@ -194,7 +190,7 @@ body {
     -webkit-line-clamp: 2;
     overflow: hidden;
     text-overflow: ellipsis;
-    word-break: break-word
+    word-break: break-word;
 }
 
 .book-data p:not(.book-data-title) {
@@ -235,9 +231,28 @@ body {
     transform: scale(1.05);
 }
 
-.bot-title {
+.bot-title,
+.top-title-decline {
     font-size: 32px;
+}
+
+.bot-title {
     color: var(--color-maroon);
+}
+
+.top-title-decline {
+    color: var(--color-yellow);
+}
+
+.decline-card {
+    background-color: var(--color-maroon);
+    height: 320px;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+
+    overflow-x: auto;
+    overflow-y: auto;
 }
 
 .borrow-card,
@@ -252,11 +267,17 @@ body {
     overflow-y: auto;
 }
 
+.decline-card,
 .borrow-card,
 .overdue-card,
 .returned-card {
     overflow: auto;
     scrollbar-width: none;
+}
+
+.decline-card:hover {
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-yellow) transparent;
 }
 
 .borrow-card:hover,
@@ -266,6 +287,7 @@ body {
     scrollbar-color: var(--color-maroon) transparent;
 }
 
+.decline-card::-webkit-scrollbar,
 .borrow-card::-webkit-scrollbar,
 .overdue-card::-webkit-scrollbar,
 .returned-card::-webkit-scrollbar {
@@ -273,6 +295,7 @@ body {
     height: 0;
 }
 
+.decline-card:hover::-webkit-scrollbar,
 .borrow-card:hover::-webkit-scrollbar,
 .overdue-card:hover::-webkit-scrollbar,
 .returned-card:hover::-webkit-scrollbar {
@@ -337,7 +360,7 @@ body {
     display: flex;
     flex-direction: row;
     align-items: center;
-    overflow: hidden;   
+    overflow: hidden;
     gap: 1rem;
 
     box-sizing: border-box;
@@ -376,6 +399,12 @@ body {
     font-size: 14px;
 }
 
+.card-b-r-decline {
+    align-self: flex-start;
+    margin-left: auto;
+    text-align: center;
+}
+
 .card-book-right {
     display: flex;
     flex-direction: column;
@@ -407,7 +436,7 @@ body {
 
 .btn-date-overdue {
     font-size: 12px;
-    background-color: #FF8A8A;
+    background-color: #ff8a8a;
     color: #8b0000;
     border: 1px solid #8b0000;
 
@@ -426,7 +455,6 @@ body {
     height: 20px;
     border-radius: 10px;
 }
-
 
 .btn-details:hover,
 .btn-date-overdue:hover,

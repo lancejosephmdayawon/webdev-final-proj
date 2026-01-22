@@ -1,17 +1,17 @@
-@extends('layouts.user-overdue')
-@section('title', 'ISKO-LIB: Student Overdue Book')
+@extends('layouts.user-book-history')
+@section('title', 'ISKO-LIB: User Book History')
 @section('content')
 
 <div class="main-container">
     <div class="inner-container">
         <div class="form-card">
             <div class="action-close">
-                <button class="close-btn" onclick="closeOverdueModal()">&times;</button>
+                <button class="close-btn" onclick="closeBorrowedModal()">&times;</button>
             </div>
 
             <div class="book-info-card row justify-content-center text-center mb-4">
-                <img src="{{ asset('images/book-overdue.png') }}" class="book-overdue-img mb-2">
-                <h2 class="font-extrabold">Overdue Book</h2>
+                <img src="{{ asset('images/book-history.png') }}" class="book-history-img mb-2">
+                <h2 class="font-extrabold">Book Detail</h2>
             </div>
 
             <div class="card-field mb-2">
@@ -53,9 +53,13 @@
                 </div>
 
                 <div class="col-md-6">
-                    <label>Expected Return</label>
+                    <label>Date Returned</label>
                     <input id="date_return" type="date" class="form-control" readonly>
                 </div>
+            </div>
+
+            <div class="action-buttons">
+                <button type="button" class="btn-save" onclick="openBorrowModal(this)">Borrow Again?</button>
             </div>
 
         </div>
@@ -65,8 +69,12 @@
 
 @push('scripts')
 <script>
-    function closeOverdueModal() {
+    function closeBorrowedModal() {
         window.location = "{{ route('user.books') }}";
+    }
+
+    function openBorrowModal() {
+        window.location = "{{ route('user.borrow-book') }}";
     }
 </script>
 @endpush

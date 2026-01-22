@@ -1,11 +1,11 @@
 @extends('layouts.lay-welcome')
-@section('title', 'Welcome to ISKO-LIB!')
+@section('title', 'Change Password')
 @section('content')
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 <div class="page-wrapper">
-    <div class="login-form">
+    <div class="changepass-form">
         <div class="log-header mb-4">
             <img src="{{ asset('images/PUPLogo.png') }}" class="pup-logo-log">
             <h1 class="text-4xl font-extrabold">ISKO-LIB</h1>
@@ -14,31 +14,35 @@
         <form method="POST" action="#">
             @csrf
             <div class="form-content mb-0">
-                <!-- EMAIL -->
-
-                <div class="form-input-group mb-2">
-                    <input id="email" type="email" name="email" placeholder="Email" required>
-                </div>
-
-                <!-- PASSWORD -->
+                <!-- OLD PASSWORD -->
                 <div class="form-input-group mb-2 password-group">
-                    <input id="password" type="password" name="password" placeholder="Password" required>
+                    <input id="password" type="password" name="password" placeholder="Old Password" required>
                     <button type="button" class="password-toggle" onclick="togglePassword()">
                         <i class="fa fa-eye"></i>
                     </button>
                 </div>
 
+                <!-- NEW PASSWORD -->
+                <div class="form-input-group mb-2 password-group">
+                    <input id="password" type="password" name="password" placeholder="New Password" required>
+                    <button type="button" class="password-toggle" onclick="togglePassword()">
+                        <i class="fa fa-eye"></i>
+                    </button>
+                </div>
 
-                <!-- FORGOT PASSWORD -->
-                <div class="forgot-link mb-8">
-                    <a href="{{ route('change-pass') }}" class="forgot-link">Forgot Password?</a>
+                <!-- CONFIRM PASSWORD -->
+                <div class="form-input-group mb-2 password-group">
+                    <input id="password" type="password" name="password" placeholder="Confirm Password" required>
+                    <button type="button" class="password-toggle" onclick="togglePassword()">
+                        <i class="fa fa-eye"></i>
+                    </button>
                 </div>
             </div>
 
             <!-- LOGIN BUTTON -->
             <div class="action-btn">
                 <button type="submit" class="login-btn w-full">
-                    LOGIN
+                    Save Changes
                 </button>
             </div>
         </form>
