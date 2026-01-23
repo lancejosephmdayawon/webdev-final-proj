@@ -234,6 +234,13 @@ body {
     overflow: hidden;
 }
 
+.category-filter.active {
+    outline: 1px solid #0000004e;
+    transform: scale(1.1);
+    font-weight: bold;
+    box-shadow: 5px 5px 10px rgb(0, 0, 0);
+}
+
 .st-bar,
 .lit-bar,
 .soc-bar,

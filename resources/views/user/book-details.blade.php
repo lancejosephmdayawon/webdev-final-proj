@@ -11,6 +11,7 @@
                 <h2 class="font-extrabold">Book Details</h2>
             </div>
 
+
             <div class="card-field mb-2">
                 <label>ISBN</label>
                 <input id="name" type="text" class="form-control" value="978-0743273565" readonly>

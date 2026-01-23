@@ -103,7 +103,7 @@
     </div>
 </div>
 
-{{-- Include modals --}}
+
 @include('modals.admin-del-confirm')
 @include('modals.admin-del-success')
 
