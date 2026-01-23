@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Book;
 use App\Models\BorrowRequest;
 use App\Models\Category;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
 class UserHomeController extends Controller
@@ -43,7 +44,7 @@ class UserHomeController extends Controller
         ]);
 
         BorrowRequest::create([
-            'user_id' => auth()->id(),
+            'user_id' => Auth::id(),
             'book_id' => $id,
             'request_date' => now()->toDateString(),
             'borrow_date' => $validated['borrow_date'],
