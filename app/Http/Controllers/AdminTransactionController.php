@@ -36,12 +36,21 @@ class AdminTransactionController extends Controller
             ->orderBy('date_borrowed')
             ->get();
 
+        $returnedTransactions = BorrowTransaction::with([
+            'borrowRequest.book.category',
+            'borrowRequest.user'
+        ])
+            ->where('status', 'returned')
+            ->orderBy('date_borrowed')
+            ->get();
+
         return view('admin.transaction', compact(
-                                                'borrowRequests', 
-                                                'declinedRequests', 
-                                                'unborrowedTransactions', 
-                                                'borrowedTransactions'
-                                                ));
+            'borrowRequests',
+            'declinedRequests',
+            'unborrowedTransactions',
+            'borrowedTransactions',
+            'returnedTransactions'
+        ));
     }
 
     // Showing Barrow Requests
@@ -74,6 +83,15 @@ class AdminTransactionController extends Controller
             'success' => true,
             'message' => 'Borrow request declined!'
         ]);
+    }
+
+    public function showBorrowDecline($id)
+    {
+        $req = BorrowRequest::with(['user', 'book'])
+            ->where('status', 'declined')
+            ->findOrFail($id);
+
+        return view('admin.borrow-decline', compact('req'));
     }
 
     // Show details for a specific unborrowed book
@@ -113,7 +131,7 @@ class AdminTransactionController extends Controller
         return view('admin.borrowed-form', compact('transaction'));
     }
 
-        public function returnBook($id)
+    public function returnBook($id)
     {
         $transaction = BorrowTransaction::findOrFail($id);
         $transaction->status = 'returned';
@@ -127,22 +145,19 @@ class AdminTransactionController extends Controller
         ]);
     }
 
-    public function showBorrowDecline($id)
+    public function showReturnedBook($id)
     {
-        $req = BorrowRequest::with(['user', 'book'])
-            ->where('status', 'declined')
-            ->findOrFail($id);
+        $transaction = BorrowTransaction::with([
+            'borrowRequest.book.category',
+            'borrowRequest.user'
+        ])->findOrFail($id);
 
-        return view('admin.borrow-decline', compact('req'));
+        return view('admin.returned-form', compact('transaction'));
     }
+
 
     public function showOverdueBook()
     {
         return view('admin.overdue-form');
-    }
-
-    public function showReturnedBook()
-    {
-        return view('admin.returned-book');
     }
 }
