@@ -46,7 +46,7 @@
 
             <div class="card-field mb-4">
                 <label>LRN</label>
-                <input type="text" class="form-control" value="{{ auth()->user()->lrn }}" readonly>
+                <input type="text" class="form-control" value="{{ auth()->user()->student_id }}" readonly>
             </div>
 
             <hr class="my-2">
@@ -68,7 +68,7 @@
             </div>
 
             <div class="action-buttons">
-                <button type="button" class="btn-save" onclick="openBorrowModal('{{ $book->id }}')">Borrow Again?</button>
+                <button type="button" class="btn-save w-auto" onclick="openBorrowModal('{{ $book->id }}')">Borrow Again?</button>
             </div>
 
         </div>

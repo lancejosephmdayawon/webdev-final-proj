@@ -48,18 +48,25 @@ class UserBookController extends Controller
     {
         $userId = Auth::id();
 
-        $books = Book::with([
-            'category',
-            'borrowRequests.transaction.returnLog'
-        ])
-            ->whereHas('borrowRequests.transaction', function ($q) use ($userId) {
-                $q->where('status', 'returned')
-                    ->where('user_id', $userId);
+        // Get all borrow requests of the user that have been returned
+        $history = BorrowRequest::with(['book.category', 'transaction.returnLog'])
+            ->where('user_id', $userId)
+            ->whereHas('transaction', function ($q) {
+                $q->where('status', 'returned');
             })
-            ->orderBy('title')
+            ->get()
+            ->sortByDesc(fn($borrow) => $borrow->transaction?->returnLog?->date_returned); // sort in PHP
+
+        $books = Book::with(['category'])->orderBy('title')->get();
+
+        $borrowRequests = BorrowRequest::with(['book.category', 'transaction.returnLog'])
+            ->where('user_id', $userId)
+            ->whereIn('status', ['pending', 'approved', 'declined'])
+            ->orderBy('request_date', 'desc')
             ->get();
 
-        return view('user.books', compact('books'));
+
+        return view('user.books', compact('history', 'books', 'borrowRequests'));
     }
 
     public function showBookHistory($id)
@@ -84,9 +91,17 @@ class UserBookController extends Controller
 
 
 
-    public function showBorrowRequest()
+    public function showBorrowRequest($id)
     {
-        return view('user.borrowreq-form');
+        $borrowRequest = BorrowRequest::with([
+            'book.category',
+            'transaction.returnLog',
+            'user'
+        ])
+            ->where('user_id', Auth::id())
+            ->findOrFail($id);
+
+        return view('user.borrowreq-form', compact('borrowRequest'));
     }
 
     public function showBorrowedBook()

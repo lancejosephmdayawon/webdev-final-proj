@@ -108,6 +108,9 @@ Route::prefix('student')->middleware([Authenticate::class, RoleMiddleware::class
     // HOME
     Route::get('/home', [UserHomeController::class, 'showHome'])->name('user.home');
 
+    // BOOKS
+    Route::get('/books', [UserBookController::class, 'showBooks'])->name('user.books');
+
     // BOOK INFO
     // Route::get('/book-details', [UserHomeController::class, 'showBookDetails'])->name('user.book-details');
     Route::get('/book-details/{id}', [UserHomeController::class, 'showBookDetails'])->name('user.book-details');
@@ -128,11 +131,12 @@ Route::prefix('student')->middleware([Authenticate::class, RoleMiddleware::class
     // BOOK HISTORY DETAILS
     Route::get('/book-history/{id}', [UserBookController::class, 'showBookHistory'])->name('user.book-history');
 
-    // BOOKS
-    Route::get('/books', [UserBookController::class, 'showBooks'])->name('user.books');
-
     // BOOK BORROW REQUEST
-    Route::get('/borrow-request', [UserBookController::class, 'showBorrowRequest'])->name('user.borrow-request');
+    Route::get('/borrow-request/{id}', [UserBookController::class, 'showBorrowRequest'])->name('user.borrow-request');
+
+
+    // UNBORROWED BOOK
+    Route::get('/unborrowed-book', [UserBookController::class, 'showUnborrowedBook'])->name('user.unborrowed-book');
 
     // BORROWED BOOK
     Route::get('/borrowed-book', [UserBookController::class, 'showBorrowedBook'])->name('user.borrowed-book');
