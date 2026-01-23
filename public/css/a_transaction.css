@@ -467,6 +467,28 @@ body {
     text-align: center;
 }
 
+.btn-date-unborrowed {
+    font-size: 12px;
+    background-color: #f1f1f1;
+    color: #595959;
+    border: 1px solid #595959;
+
+    width: 100px;
+    height: 20px;
+    border-radius: 10px;
+}
+
+.btn-date-borrowed {
+    font-size: 12px;
+    background-color: #b0d1ff;
+    color: #00238b;
+    border: 1px solid #00238b;
+
+    width: 100px;
+    height: 20px;
+    border-radius: 10px;
+}
+
 .btn-date-overdue {
     font-size: 12px;
     background-color: #ff8a8a;
@@ -489,8 +511,6 @@ body {
     border-radius: 10px;
 }
 
-.btn-details:hover,
-.btn-date-overdue:hover,
-.btn-date-returned:hover {
+.btn-details:hover {
     transform: scale(1.05);
 }

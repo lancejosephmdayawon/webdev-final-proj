@@ -185,7 +185,7 @@
 
                                 <!-- Request Date -->
                                 <div class="card-book-over">
-                                    <button type="button" class="btn-date-overdue">
+                                    <button type="button" class="btn-date-unborrowed">
                                         {{ $transaction->borrowRequest->request_date->format('m/d/y') }}
                                     </button>
                                 </div>
@@ -237,7 +237,7 @@
 
                                 <!-- Request Date -->
                                 <div class="card-book-over">
-                                    <button type="button" class="btn-date-overdue">
+                                    <button type="button" class="btn-date-borrowed">
                                         {{ $transaction->borrowRequest->request_date->format('m/d/y') }}
                                     </button>
                                 </div>
@@ -350,7 +350,7 @@
 
                                 <!-- Request Date -->
                                 <div class="card-book-over">
-                                    <button type="button" class="btn-date-overdue">
+                                    <button type="button" class="btn-date-returned" disabled>
                                         {{ $transaction->borrowRequest->request_date->format('m/d/y') }}
                                     </button>
                                 </div>
