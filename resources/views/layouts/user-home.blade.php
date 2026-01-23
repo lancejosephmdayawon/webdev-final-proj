@@ -7,7 +7,7 @@
   <title>@yield('title', 'ISKO-LIB')</title>
   @vite(['resources/sass/app.scss', 'resources/js/app.js'])
   <link rel="stylesheet" href="{{ asset('css/u_home.css') }}">
-
+  <link rel="icon" type="image/png" href="{{ asset('images/PUPLogo.png') }}">
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     body {

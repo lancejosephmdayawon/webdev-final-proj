@@ -4,7 +4,6 @@
         color: #FFFFFF;
         text-align: center;
         padding: 0;
-        position: fixed;
         bottom: 0;
         height: 60px;
         width: 100%;
@@ -28,7 +27,7 @@
     }
 </style>
 
-<footer class="footer-iskolib">
+<footer class="footer-iskolib sticky bottom-0 z-50 shadow">
     <div class="text-center">
         <a href="#">© All rights reserved.</a>
     </div>
