@@ -44,11 +44,37 @@ class UserBookController extends Controller
         return response()->json(['success' => true]);
     }
 
+    public function showBookHistory($id)
+    {
+        $userId = Auth::id();
+
+        $book = Book::with('category')->findOrFail($id);
+
+        // Get borrow history of this book for this user
+        $history = BorrowRequest::where('user_id', $userId)
+            ->where('book_id', $id)
+            ->orderBy('borrow_date', 'desc')
+            ->get();
+
+        return view('user.book-history', compact('book', 'history'));
+    }
 
     public function showBooks()
     {
-        return view('user.books');
+        $userId = Auth::id();
+
+        // Get all books
+        $books = Book::with('category')->orderBy('title')->get();
+
+        // Optional: Get user's borrow history if you want to show some of it in books.blade
+        $history = BorrowRequest::with('book.category')
+            ->where('user_id', $userId)
+            ->orderBy('borrow_date', 'desc')
+            ->get();
+
+        return view('user.books', compact('books', 'history'));
     }
+
 
     public function showBorrowRequest()
     {
@@ -63,10 +89,5 @@ class UserBookController extends Controller
     public function showOverdueBook()
     {
         return view('user.overdue-form');
-    }
-
-    public function showBookHistory()
-    {
-        return view('user.book-history');
     }
 }

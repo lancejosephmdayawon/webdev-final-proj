@@ -15,8 +15,8 @@
                             <div class="card">
                                 <span class="card__title">Borrow Form</span>
                                 <p class="card__content">
-                                    Access the library's collection through a simplified borrowing system designed to facilitate student, 
-                                    instructional and research activities. Library users are welcomed to discover the resources on shelf 
+                                    Access the library's collection through a simplified borrowing system designed to facilitate student,
+                                    instructional and research activities. Library users are welcomed to discover the resources on shelf
                                     and use the lending services in an efficient way complying with the rules of the library.
                                 </p>
                                 <form class="card__form">
@@ -25,165 +25,62 @@
                             </div>
                         </div>
 
+                        @php
+                        $categoryMeta = [
+                        'Science & Technology' => ['color' => 'st-bar', 'img' => 'SciTech.png'],
+                        'Literature' => ['color' => 'lit-bar', 'img' => 'Literature.png'],
+                        'Social Studies' => ['color' => 'soc-bar', 'img' => 'SocStud.png'],
+                        'Economics' => ['color' => 'eco-bar', 'img' => 'Economics.png'],
+                        'History' => ['color' => 'his-bar', 'img' => 'History.png'],
+                        'Philosophy' => ['color' => 'phi-bar', 'img' => 'Philosophy.png'],
+                        ];
+                        @endphp
+
                         <!--BOOK HISTORY-->
                         <div class="row-sm-12 row-lg-8 mb-8">
                             <div class="col-sm-12 col-lg-12">
                                 <div class="history-card">
-                                    <p class="bot-title fw-bold mb-0">Book History</p>
-
-                                    <!--Science & Technology-->
-                                    <div class="card-data-book position-relative overflow-hidden mb-2" onclick="openBookHistoryModal(this)">
-                                        <!-- Category Color -->
-                                        <div class="categ-bar">
-                                            <!-- Category Color -->
-                                            <div class="st-bar"></div>
-                                        </div>
-
-                                        <!-- Category Image -->
-                                        <div class="circle">
-                                            <img src="{{ asset('images/SciTech.png') }}" class="categ-img">
-                                        </div>
-
-                                        <!-- Book Details -->
-                                        <div class="card-book-info">
-                                            <p class="card-book-title">The Great Gatsby</p>
-                                            <p class="card-book-author">F.Scott Fitzgerald</p>
-                                        </div>
-
-                                        <div class="card-book-right">
-                                            <!-- Date -->
-                                            <p class="card-book-date">01/01/26</p>
-                                        </div>
+                                    <!-- Sticky header -->
+                                    <div class="card-header sticky-top bg-white p-3" style="border-bottom: 1px solid #e2e2e2; z-index: 10;">
+                                        <p class="bot-title fw-bold mb-0">Book History</p>
                                     </div>
 
-                                    <!--Literature-->
-                                    <div class="card-data-book position-relative overflow-hidden mb-2" onclick="openBookHistoryModal(this)">
-                                        <!-- Category Color -->
-                                        <div class="categ-bar">
+                                    <div class="card-body overflow-auto p-3" style="max-height: 540px;">
+                                        @foreach($books as $book)
+                                        @php
+                                        $meta = $categoryMeta[$book->category->category_name ?? ''] ?? ['color' => 'default-bar', 'img' => 'default.png'];
+                                        @endphp
+
+                                        <div class="card-data-book position-relative overflow-hidden mb-2"
+                                            onclick="openBookHistoryModal('{{ $book->id }}')">
+
                                             <!-- Category Color -->
-                                            <div class="lit-bar"></div>
-                                        </div>
+                                            <div class="categ-bar">
+                                                <div class="{{ $meta['color'] }}"></div>
+                                            </div>
 
-                                        <!-- Category Image -->
-                                        <div class="circle">
-                                            <img src="{{ asset('images/Literature.png') }}" class="categ-img">
-                                        </div>
+                                            <!-- Category Image -->
+                                            <div class="circle">
+                                                <img src="{{ asset('images/' . $meta['img']) }}" class="categ-img">
+                                            </div>
 
-                                        <!-- Book Details -->
-                                        <div class="card-book-info">
-                                            <p class="card-book-title">The Great Gatsby</p>
-                                            <p class="card-book-author">F.Scott Fitzgerald</p>
-                                        </div>
+                                            <!-- Book Details -->
+                                            <div class="card-book-info">
+                                                <p class="card-book-title">{{ $book->title }}</p>
+                                                <p class="card-book-author">{{ $book->author }}</p>
+                                            </div>
 
-                                        <div class="card-book-right">
-                                            <!-- Date -->
-                                            <p class="card-book-date">01/01/26</p>
+                                            <div class="card-book-right">
+                                                <p class="card-book-date">{{ \Carbon\Carbon::parse($book->created_at)->format('m/d/y') }}</p>
+                                            </div>
                                         </div>
-                                    </div>
-
-                                    <!--Social Studies-->
-                                    <div class="card-data-book position-relative overflow-hidden mb-2" onclick="openBookHistoryModal(this)">
-                                        <!-- Category Color -->
-                                        <div class="categ-bar">
-                                            <!-- Category Color -->
-                                            <div class="soc-bar"></div>
-                                        </div>
-
-                                        <!-- Category Image -->
-                                        <div class="circle">
-                                            <img src="{{ asset('images/SocStud.png') }}" class="categ-img">
-                                        </div>
-
-                                        <!-- Book Details -->
-                                        <div class="card-book-info">
-                                            <p class="card-book-title">The Great Gatsby</p>
-                                            <p class="card-book-author">F.Scott Fitzgerald</p>
-                                        </div>
-
-                                        <div class="card-book-right">
-                                            <!-- Date -->
-                                            <p class="card-book-date">01/01/26</p>
-                                        </div>
-                                    </div>
-
-                                    <!--Economics-->
-                                    <div class="card-data-book position-relative overflow-hidden mb-2" onclick="openBookHistoryModal(this)">
-                                        <!-- Category Color -->
-                                        <div class="categ-bar">
-                                            <!-- Category Color -->
-                                            <div class="eco-bar"></div>
-                                        </div>
-
-                                        <!-- Category Image -->
-                                        <div class="circle">
-                                            <img src="{{ asset('images/Economics.png') }}" class="categ-img">
-                                        </div>
-
-                                        <!-- Book Details -->
-                                        <div class="card-book-info">
-                                            <p class="card-book-title">The Great Gatsby</p>
-                                            <p class="card-book-author">F.Scott Fitzgerald</p>
-                                        </div>
-
-                                        <div class="card-book-right">
-                                            <!-- Date -->
-                                            <p class="card-book-date">01/01/26</p>
-                                        </div>
-                                    </div>
-
-                                    <!--History-->
-                                    <div class="card-data-book position-relative overflow-hidden mb-2" onclick="openBookHistoryModal(this)">
-                                        <!-- Category Color -->
-                                        <div class="categ-bar">
-                                            <!-- Category Color -->
-                                            <div class="his-bar"></div>
-                                        </div>
-
-                                        <!-- Category Image -->
-                                        <div class="circle">
-                                            <img src="{{ asset('images/History.png') }}" class="categ-img">
-                                        </div>
-
-                                        <!-- Book Details -->
-                                        <div class="card-book-info">
-                                            <p class="card-book-title">The Great Gatsby</p>
-                                            <p class="card-book-author">F.Scott Fitzgerald</p>
-                                        </div>
-
-                                        <div class="card-book-right">
-                                            <!-- Date -->
-                                            <p class="card-book-date">01/01/26</p>
-                                        </div>
-                                    </div>
-
-                                    <!--Philosophy-->
-                                    <div class="card-data-book position-relative overflow-hidden mb-2" onclick="openBookHistoryModal(this)">
-                                        <!-- Category Color -->
-                                        <div class="categ-bar">
-                                            <!-- Category Color -->
-                                            <div class="phi-bar"></div>
-                                        </div>
-
-                                        <!-- Category Image -->
-                                        <div class="circle">
-                                            <img src="{{ asset('images/Philosophy.png') }}" class="categ-img">
-                                        </div>
-
-                                        <!-- Book Details -->
-                                        <div class="card-book-info">
-                                            <p class="card-book-title">The Great Gatsby</p>
-                                            <p class="card-book-author">F.Scott Fitzgerald</p>
-                                        </div>
-
-                                        <div class="card-book-right">
-                                            <!-- Date -->
-                                            <p class="card-book-date">01/01/26</p>
-                                        </div>
+                                        @endforeach
                                     </div>
 
                                 </div>
                             </div>
                         </div>
+
                     </div>
                 </div>
             </div>
@@ -871,8 +768,8 @@
         window.location = "{{ route('user.borrow-form') }}"
     }
 
-    function openBookHistoryModal(button) {
-        window.location = "{{ route('user.book-history') }}"
+    function openBookHistoryModal(bookId) {
+        window.location = `/student/book-history/${bookId}`;
     }
 </script>
 @endpush

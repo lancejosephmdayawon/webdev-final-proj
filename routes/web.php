@@ -125,6 +125,8 @@ Route::prefix('student')->middleware([Authenticate::class, RoleMiddleware::class
     // AJAX route to fetch book info by ID
     Route::get('/book-info/{id}', [UserBookController::class, 'getBookInfo'])->name('student.book-info');
 
+    // BOOK HISTORY DETAILS
+    Route::get('/book-history/{id}', [UserBookController::class, 'showBookHistory'])->name('user.book-history');
 
     // BOOKS
     Route::get('/books', [UserBookController::class, 'showBooks'])->name('user.books');
@@ -137,7 +139,4 @@ Route::prefix('student')->middleware([Authenticate::class, RoleMiddleware::class
 
     // OVERDUE BOOK
     Route::get('/overdue-book', [UserBookController::class, 'showOverdueBook'])->name('user.overdue-book');
-
-    // BOOK HISTORY DETAILS
-    Route::get('/book-history', [UserBookController::class, 'showBookHistory'])->name('user.book-history');
 });
