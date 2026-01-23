@@ -36,7 +36,7 @@
 
             {{-- Assuming $history contains user borrow requests for this book --}}
             @php
-                $lastBorrow = $history->first();
+            $lastBorrow = $history->first();
             @endphp
 
             <div class="card-field mb-2">
@@ -52,20 +52,29 @@
             <hr class="my-2">
 
             <div class="card-field row mb-10">
-                <div class="col-md-6">
+                <div class="col-md-4">
                     <label>Date Borrowed</label>
-                    <input type="date" class="form-control" 
-                        value="{{ optional($lastBorrow)->borrow_date }}" readonly>
+                    <input type="text" class="form-control"
+                        value="{{ optional($lastBorrow)->borrow_date ? \Carbon\Carbon::parse($lastBorrow->borrow_date)->format('F j, Y') : '' }}"
+                        readonly>
                 </div>
-
-                <div class="col-md-6">
+                <div class="col-md-4">
+                    <label>Expected Return</label>
+                    <input type="text" class="form-control"
+                        value="{{ optional($lastBorrow)->return_date ? \Carbon\Carbon::parse($lastBorrow->return_date)->format('F j, Y') : '' }}"
+                        readonly>
+                </div>
+                <div class="col-md-4">
                     <label>Date Returned</label>
                     @php
-                        $returnDate = optional($lastBorrow?->transaction?->returnLog)->date_returned;
+                    $returnDate = optional($lastBorrow?->transaction?->returnLog)->date_returned;
                     @endphp
-                    <input type="date" class="form-control" value="{{ $returnDate ?? '' }}" readonly>
+                    <input type="text" class="form-control"
+                        value="{{ $returnDate ? \Carbon\Carbon::parse($returnDate)->format('F j, Y') : '' }}"
+                        readonly>
                 </div>
             </div>
+
 
             <div class="action-buttons">
                 <button type="button" class="btn-save w-auto" onclick="openBorrowModal('{{ $book->id }}')">Borrow Again?</button>

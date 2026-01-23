@@ -136,23 +136,26 @@ Route::prefix('student')->middleware([Authenticate::class, RoleMiddleware::class
 
 
 
-    // TESTERS
-    // UNBORROWED BOOK
-    Route::get('/unborrowed-book', [UserBookController::class, 'showUnborrowedBook'])->name('user.unborrowed-book');
 
-    // BORROWED BOOK
-    Route::get('/borrowed-book', [UserBookController::class, 'showBorrowedBook'])->name('user.borrowed-book');
-
-    // OVERDUE BOOK
-    Route::get('/overdue-book', [UserBookController::class, 'showOverdueBook'])->name('user.overdue-book');
 
 
     // UNBORROWED BOOK
-    // Route::get('/unborrowed-book/{id}', [UserBookController::class, 'showUnborrowedBook'])->name('user.unborrowed-book');
+    Route::get('/unborrowed-book/{id}', [UserBookController::class, 'showUnborrowedBook'])->name('user.unborrowed-book');
 
     // BORROWED BOOK
-    // Route::get('/borrowed-book/{id}', [UserBookController::class, 'showBorrowedBook'])->name('user.borrowed-book');
+    Route::get('/borrowed-book/{id}', [UserBookController::class, 'showBorrowedBook'])->name('user.borrowed-book');
 
     // OVERDUE BOOK
-    // Route::get('/overdue-book/{id}', [UserBookController::class, 'showOverdueBook'])->name('user.overdue-book');
+    Route::get('/overdue-book/{id}', [UserBookController::class, 'showOverdueBook'])->name('user.overdue-book');
+
+
+        // TESTERS
+    // UNBORROWED BOOK
+    // Route::get('/unborrowed-book', [UserBookController::class, 'showUnborrowedBook'])->name('user.unborrowed-book');
+
+    // BORROWED BOOK
+    // Route::get('/borrowed-book', [UserBookController::class, 'showBorrowedBook'])->name('user.borrowed-book');
+
+    // OVERDUE BOOK
+    // Route::get('/overdue-book', [UserBookController::class, 'showOverdueBook'])->name('user.overdue-book');
 });

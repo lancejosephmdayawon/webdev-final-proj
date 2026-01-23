@@ -209,7 +209,7 @@
                                             </div>
 
                                             <div class="book-actions">
-                                                <button type="button" class="btn-view" onclick="openBorReqModal('{{ $req->id }}')">View Details</button>
+                                                <button type="button" class="btn-view" onclick="openUnborBookModal('{{ $req->id }}')">View Details</button>
                                             </div>
                                         </div>
                                     </div>
@@ -276,7 +276,7 @@
                                             </div>
 
                                             <div class="book-actions">
-                                                <button type="button" class="btn-view" onclick="openBorReqModal('{{ $req->id }}')">View Details</button>
+                                                <button type="button" class="btn-view" onclick="openBorBookModal('{{ $req->id }}')">View Details</button>
                                             </div>
                                         </div>
                                     </div>
@@ -346,7 +346,7 @@
                                             </div>
 
                                             <div class="book-actions">
-                                                <button type="button" class="btn-view" onclick="openBorReqModal('{{ $req->id }}')">View Details</button>
+                                                <button type="button" class="btn-view" onclick="openOverBookModal('{{ $req->id }}')">View Details</button>
                                             </div>
                                         </div>
                                     </div>
@@ -374,16 +374,16 @@
                         window.location = "{{ url('student/borrow-request') }}/" + requestId;
                     }
 
-                    function openUnborBookModal(button) {
-                        window.location = "{{ route('user.unborrowed-book') }}"
+                    function openUnborBookModal(requestId) {
+                        window.location = "{{ url('student/unborrowed-book') }}/" + requestId;
                     }
 
-                    function openBorBookModal(button) {
-                        window.location = "{{ route('user.borrowed-book') }}"
+                    function openBorBookModal(requestId) {
+                        window.location = "{{ url('student/borrowed-book') }}/" + requestId;
                     }
 
-                    function openOverBookModal(button) {
-                        window.location = "{{ route('user.overdue-book') }}"
+                    function openOverBookModal(requestId) {
+                        window.location = "{{ url('student/overdue-book') }}/" + requestId;
                     }
 
                     function openBorrowFormModal(button) {

@@ -135,13 +135,45 @@ class UserBookController extends Controller
         return view('user.borrowreq-form', compact('borrowRequest'));
     }
 
-    public function showBorrowedBook()
+    public function showUnborrowedBook($id)
     {
-        return view('user.borrowed-form');
+        $unborrowedBook = BorrowRequest::with([
+            'book.category',
+            'transaction.returnLog',
+            'user'
+        ])
+            ->where('user_id', Auth::id())
+            ->findOrFail($id);
+
+        return view('user.unborrowed-form', compact('unborrowedBook'));
     }
 
-    public function showOverdueBook()
+    public function showBorrowedBook($id)
     {
-        return view('user.overdue-form');
+        $borrowedBook = BorrowRequest::with([
+            'book.category',
+            'transaction.returnLog',
+            'user'
+        ])
+            ->where('user_id', Auth::id())
+            ->findOrFail($id);
+
+        return view('user.borrowed-form', compact('borrowedBook'));
+    }
+
+    public function showOverdueBook($id)
+    {
+        $today = now()->toDateString();
+
+        $overdueBook = BorrowRequest::with([
+            'book.category',
+            'transaction.returnLog',
+            'user'
+        ])
+            ->where('user_id', Auth::id())
+            ->whereDate('return_date', '<', $today) // only overdue
+            ->findOrFail($id);
+
+        return view('user.overdue-form', compact('overdueBook'));
     }
 }
