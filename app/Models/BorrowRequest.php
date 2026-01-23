@@ -56,5 +56,9 @@ class BorrowRequest extends Model
     {
         return $this->belongsTo(Book::class);
     }
-    
+
+    public function transaction()
+    {
+        return $this->hasOne(BorrowTransaction::class, 'request_id');
+    }
 }

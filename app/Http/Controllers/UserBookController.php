@@ -50,9 +50,13 @@ class UserBookController extends Controller
 
         $book = Book::with('category')->findOrFail($id);
 
-        // Get borrow history of this book for this user
-        $history = BorrowRequest::where('user_id', $userId)
+        // Get borrow history of this book for this user, only returned
+        $history = BorrowRequest::with('transaction')
+            ->where('user_id', $userId)
             ->where('book_id', $id)
+            ->whereHas('transaction', function ($query) {
+                $query->where('status', 'returned');
+            })
             ->orderBy('borrow_date', 'desc')
             ->get();
 
@@ -63,17 +67,20 @@ class UserBookController extends Controller
     {
         $userId = Auth::id();
 
-        // Get all books
-        $books = Book::with('category')->orderBy('title')->get();
-
-        // Optional: Get user's borrow history if you want to show some of it in books.blade
-        $history = BorrowRequest::with('book.category')
-            ->where('user_id', $userId)
-            ->orderBy('borrow_date', 'desc')
+        $books = Book::with([
+            'category',
+            'borrowRequests.transaction.returnLog'
+        ])
+            ->whereHas('borrowRequests.transaction', function ($q) use ($userId) {
+                $q->where('status', 'returned')
+                    ->where('user_id', $userId);
+            })
+            ->orderBy('title')
             ->get();
 
-        return view('user.books', compact('books', 'history'));
+        return view('user.books', compact('books'));
     }
+
 
 
     public function showBorrowRequest()

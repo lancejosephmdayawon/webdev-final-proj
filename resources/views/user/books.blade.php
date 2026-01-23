@@ -70,9 +70,16 @@
                                                 <p class="card-book-author">{{ $book->author }}</p>
                                             </div>
 
-                                            <div class="card-book-right">
-                                                <p class="card-book-date">{{ \Carbon\Carbon::parse($book->created_at)->format('m/d/y') }}</p>
-                                            </div>
+                                            @php
+                                            $lastReturned = $book->borrowRequests
+                                            ->filter(fn($r) => $r->transaction && $r->transaction->status === 'returned')
+                                            ->first();
+                                            $returnDate = $lastReturned?->transaction?->returnLog?->date_returned;
+                                            @endphp
+
+                                            <p class="card-book-date">
+                                                {{ $returnDate ? \Carbon\Carbon::parse($returnDate)->format('m/d/y') : '-' }}
+                                            </p>
                                         </div>
                                         @endforeach
                                     </div>
