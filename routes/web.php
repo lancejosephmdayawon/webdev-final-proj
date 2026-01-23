@@ -117,6 +117,15 @@ Route::prefix('student')->middleware([Authenticate::class, RoleMiddleware::class
     // Submit borrow request
     Route::post('/borrow-book/{id}', [UserHomeController::class, 'submitBorrowForm'])->name('user.submit-borrow');
 
+    // BOOK BORROW FORM (Manual input of book)
+    // Show borrow form
+    Route::get('/borrow-form', [UserBookController::class, 'showBorrowForm'])->name('user.borrow-form');
+    // Submit borrow request
+    Route::post('/borrow-form', [UserBookController::class, 'submitBorrowForm'])->name('user.submit-borrow-form');
+    // AJAX route to fetch book info by ID
+    Route::get('/book-info/{id}', [UserBookController::class, 'getBookInfo'])->name('student.book-info');
+
+
     // BOOKS
     Route::get('/books', [UserBookController::class, 'showBooks'])->name('user.books');
 
@@ -128,9 +137,6 @@ Route::prefix('student')->middleware([Authenticate::class, RoleMiddleware::class
 
     // OVERDUE BOOK
     Route::get('/overdue-book', [UserBookController::class, 'showOverdueBook'])->name('user.overdue-book');
-
-    // BOOK BORROW FORM
-    Route::get('/borrow-form', [UserBookController::class, 'showBorrowForm'])->name('user.borrow-form');
 
     // BOOK HISTORY DETAILS
     Route::get('/book-history', [UserBookController::class, 'showBookHistory'])->name('user.book-history');

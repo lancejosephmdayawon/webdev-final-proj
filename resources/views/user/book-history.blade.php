@@ -59,7 +59,7 @@
             </div>
 
             <div class="action-buttons">
-                <button type="button" class="btn-save" onclick="openBorrowModal(this)">Borrow Again?</button>
+                <button type="button" class="btn-save" onclick="openBorrowModal()">Borrow Again?</button>
             </div>
 
         </div>
@@ -74,7 +74,7 @@
     }
 
     function openBorrowModal() {
-        window.location = "{{ route('user.borrow-book') }}";
+        window.location = "{{ route('user.borrowed-book') }}";
     }
 </script>
 @endpush

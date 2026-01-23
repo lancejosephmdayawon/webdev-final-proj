@@ -93,6 +93,7 @@
 
 @push('scripts')
 <script>
+    
     function openConfirmModal() {
         document.getElementById('userBorrowConModal').style.display = 'flex';
     }

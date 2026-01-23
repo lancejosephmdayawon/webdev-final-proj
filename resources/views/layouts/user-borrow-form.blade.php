@@ -20,10 +20,10 @@
   @include('layouts.user-header')
   @yield('content')
 
-  @include('iskolib.modals.user-borrowform-confirm')
+  @include('modals.user-borrowform-confirm')
   @stack('scripts')
 
-  @include('iskolib.modals.user-borrowform-success')
+  @include('modals.user-borrowform-success')
   @stack('scripts')
 
   @stack('scripts')
