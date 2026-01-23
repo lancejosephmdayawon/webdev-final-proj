@@ -14,34 +14,39 @@
                 <h2 class="font-extrabold">Book Detail</h2>
             </div>
 
+            {{-- Book Details --}}
             <div class="card-field mb-2">
                 <label>Book Title</label>
-                <input id="author" type="text" class="form-control" value="The Great Gatsby" readonly>
+                <input type="text" class="form-control" value="{{ $book->title }}" readonly>
             </div>
 
             <div class="card-field mb-2">
                 <label>Author</label>
-                <input id="author" type="text" class="form-control" value="F.Scott Fitzgerald" readonly>
+                <input type="text" class="form-control" value="{{ $book->author }}" readonly>
             </div>
 
             <div class="card-area mb-4">
                 <label>Description <i>(Optional)</i></label>
-                <textarea rows="4" class="form-control rounded-textarea" value="" readonly> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                </textarea>
+                <textarea rows="4" class="form-control rounded-textarea" readonly>{{ $book->description }}</textarea>
             </div>
 
             <hr class="my-2">
 
-            <label class="font-extrabold" readonly>Student Information</label>
+            <label class="font-extrabold">Student Information</label>
+
+            {{-- Assuming $history contains user borrow requests for this book --}}
+            @php
+                $lastBorrow = $history->first();
+            @endphp
 
             <div class="card-field mb-2">
                 <label>Name</label>
-                <input id="name" type="text" class="form-control" readonly>
+                <input type="text" class="form-control" value="{{ auth()->user()->first_name.' '.auth()->user()->middle_name.' '.auth()->user()->last_name }}" readonly>
             </div>
 
             <div class="card-field mb-4">
                 <label>LRN</label>
-                <input id="title" type="text" class="form-control" readonly>
+                <input type="text" class="form-control" value="{{ auth()->user()->lrn }}" readonly>
             </div>
 
             <hr class="my-2">
@@ -49,12 +54,16 @@
             <div class="card-field row mb-10">
                 <div class="col-md-6">
                     <label>Date Borrowed</label>
-                    <input id="date_borrowed" type="date" class="form-control" value="2026-01-10" readonly>
+                    <input type="date" class="form-control" 
+                        value="{{ optional($lastBorrow)->borrow_date }}" readonly>
                 </div>
 
                 <div class="col-md-6">
                     <label>Date Returned</label>
-                    <input id="date_return" type="date" class="form-control" readonly>
+                    @php
+                        $returnDate = optional($lastBorrow?->transaction?->returnLog)->date_returned;
+                    @endphp
+                    <input type="date" class="form-control" value="{{ $returnDate ?? '' }}" readonly>
                 </div>
             </div>
 
@@ -62,10 +71,10 @@
                 <button type="button" class="btn-save" onclick="openBorrowModal('{{ $book->id }}')">Borrow Again?</button>
             </div>
 
-
         </div>
     </div>
 </div>
+
 @endsection
 
 @push('scripts')
@@ -75,7 +84,6 @@
     }
 
     function openBorrowModal(bookId) {
-        // window.location = `/student/borrow-book/${bookId}`;
         window.location = "{{ url('student/borrow-book') }}/" + bookId;
     }
 </script>

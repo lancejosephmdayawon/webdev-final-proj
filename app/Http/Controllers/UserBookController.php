@@ -44,6 +44,24 @@ class UserBookController extends Controller
         return response()->json(['success' => true]);
     }
 
+    public function showBooks()
+    {
+        $userId = Auth::id();
+
+        $books = Book::with([
+            'category',
+            'borrowRequests.transaction.returnLog'
+        ])
+            ->whereHas('borrowRequests.transaction', function ($q) use ($userId) {
+                $q->where('status', 'returned')
+                    ->where('user_id', $userId);
+            })
+            ->orderBy('title')
+            ->get();
+
+        return view('user.books', compact('books'));
+    }
+
     public function showBookHistory($id)
     {
         $userId = Auth::id();
@@ -63,23 +81,6 @@ class UserBookController extends Controller
         return view('user.book-history', compact('book', 'history'));
     }
 
-    public function showBooks()
-    {
-        $userId = Auth::id();
-
-        $books = Book::with([
-            'category',
-            'borrowRequests.transaction.returnLog'
-        ])
-            ->whereHas('borrowRequests.transaction', function ($q) use ($userId) {
-                $q->where('status', 'returned')
-                    ->where('user_id', $userId);
-            })
-            ->orderBy('title')
-            ->get();
-
-        return view('user.books', compact('books'));
-    }
 
 
 
