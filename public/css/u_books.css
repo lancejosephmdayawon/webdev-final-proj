@@ -110,6 +110,23 @@ body {
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.25);
 }
 
+.no-data-card {
+    background-color: #ffffff;
+    height: 260px;
+    width: auto;
+    border: 1px solid;
+    border-radius: 10px;
+    font-size: 14px;
+
+    display: flex;
+    flex-direction: column;
+
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.25);
+}
+
 .categ-bar {
     position: absolute;
     top: 0;
@@ -158,7 +175,7 @@ body {
 .approved-label,
 .pending-label,
 .declined-label,
-.unborrowed-label
+.unborrowed-label,
 .borrowed-label,
 .overdue-label {
     position: absolute;
@@ -259,7 +276,7 @@ body {
 }
 
 .history-card {
-    height: 640;
+    height: 680px;
     padding: 0.5rem 1rem;
     border-radius: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
@@ -268,11 +285,6 @@ body {
     overflow-y: auto;
 }
 
-@media (min-width: 992px) {
-    .history-card {
-        height: 980px;
-    }
-}
 
 .historycard {
     overflow: auto;

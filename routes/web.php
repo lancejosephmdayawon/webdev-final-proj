@@ -135,6 +135,8 @@ Route::prefix('student')->middleware([Authenticate::class, RoleMiddleware::class
     Route::get('/borrow-request/{id}', [UserBookController::class, 'showBorrowRequest'])->name('user.borrow-request');
 
 
+
+    // TESTERS
     // UNBORROWED BOOK
     Route::get('/unborrowed-book', [UserBookController::class, 'showUnborrowedBook'])->name('user.unborrowed-book');
 
@@ -143,4 +145,14 @@ Route::prefix('student')->middleware([Authenticate::class, RoleMiddleware::class
 
     // OVERDUE BOOK
     Route::get('/overdue-book', [UserBookController::class, 'showOverdueBook'])->name('user.overdue-book');
+
+
+    // UNBORROWED BOOK
+    // Route::get('/unborrowed-book/{id}', [UserBookController::class, 'showUnborrowedBook'])->name('user.unborrowed-book');
+
+    // BORROWED BOOK
+    // Route::get('/borrowed-book/{id}', [UserBookController::class, 'showBorrowedBook'])->name('user.borrowed-book');
+
+    // OVERDUE BOOK
+    // Route::get('/overdue-book/{id}', [UserBookController::class, 'showOverdueBook'])->name('user.overdue-book');
 });

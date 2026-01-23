@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Book;
 use App\Models\BorrowRequest;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
 
 class UserBookController extends Controller
@@ -59,14 +60,44 @@ class UserBookController extends Controller
 
         $books = Book::with(['category'])->orderBy('title')->get();
 
+        // BORROW REQUESTS
         $borrowRequests = BorrowRequest::with(['book.category', 'transaction.returnLog'])
             ->where('user_id', $userId)
             ->whereIn('status', ['pending', 'approved', 'declined'])
             ->orderBy('request_date', 'desc')
             ->get();
 
+        // UNBORROWED BOOKS
+        $unborrowedBooks = BorrowRequest::with(['book.category', 'transaction.returnLog'])
+            ->where('user_id', $userId)
+            ->whereHas('transaction', function ($q) {
+                $q->where('status', 'unborrowed');
+            })
+            ->orderBy('request_date', 'desc')
+            ->get();
 
-        return view('user.books', compact('history', 'books', 'borrowRequests'));
+        // BORROWED BOOKS
+        $borrowedBooks = BorrowRequest::with(['book.category', 'transaction.returnLog'])
+            ->where('user_id', $userId)
+            ->whereHas('transaction', function ($q) {
+                $q->where('status', 'borrowed');
+            })
+            ->orderBy('request_date', 'desc')
+            ->get();
+
+        // OVERDUE BOOKS
+        $today = Carbon::today();
+
+        $overdueBooks = BorrowRequest::with(['book.category', 'transaction.returnLog'])
+            ->where('user_id', $userId)
+            ->whereHas('transaction', fn($q) => $q->where('status', 'borrowed')) // only borrowed books can be overdue
+            ->whereDate('return_date', '<', $today) // BorrowRequest.return_date before today
+            ->orderBy('return_date', 'asc')
+            ->get();
+
+
+
+        return view('user.books', compact('history', 'books', 'borrowRequests', 'unborrowedBooks', 'borrowedBooks', 'overdueBooks'));
     }
 
     public function showBookHistory($id)
