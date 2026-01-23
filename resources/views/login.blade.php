@@ -17,8 +17,6 @@
             <form method="POST" action="{{ route('login.process') }}">
                 @csrf
 
-
-
                 <!-- EMAIL -->
                 <div class="form-input-group mb-3">
                     <input

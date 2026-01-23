@@ -34,8 +34,15 @@ Route::post('/login', [IskoLibAuthController::class, 'processLogin'])->name('log
 Route::middleware(Authenticate::class)->post('/logout', [IskoLibAuthController::class, 'logout'])->name('logout');
 
 
-// CHANGE PASSWORD
-Route::get('/change-password', [IskoLibAuthController::class, 'showChangePass'])->name('change-pass');
+Route::middleware(['auth'])->group(function () {
+    // Show the change password form
+    Route::get('/change-password', [IskoLibAuthController::class, 'showChangePass'])
+        ->name('change-pass');
+
+    // Update the password
+    Route::put('/change-password', [IskoLibAuthController::class, 'updatePassword'])
+        ->name('change-pass.update');
+});
 
 
 // ADMIN ROUTE
@@ -134,11 +141,6 @@ Route::prefix('student')->middleware([Authenticate::class, RoleMiddleware::class
     // BOOK BORROW REQUEST
     Route::get('/borrow-request/{id}', [UserBookController::class, 'showBorrowRequest'])->name('user.borrow-request');
 
-
-
-
-
-
     // UNBORROWED BOOK
     Route::get('/unborrowed-book/{id}', [UserBookController::class, 'showUnborrowedBook'])->name('user.unborrowed-book');
 
@@ -148,14 +150,4 @@ Route::prefix('student')->middleware([Authenticate::class, RoleMiddleware::class
     // OVERDUE BOOK
     Route::get('/overdue-book/{id}', [UserBookController::class, 'showOverdueBook'])->name('user.overdue-book');
 
-
-        // TESTERS
-    // UNBORROWED BOOK
-    // Route::get('/unborrowed-book', [UserBookController::class, 'showUnborrowedBook'])->name('user.unborrowed-book');
-
-    // BORROWED BOOK
-    // Route::get('/borrowed-book', [UserBookController::class, 'showBorrowedBook'])->name('user.borrowed-book');
-
-    // OVERDUE BOOK
-    // Route::get('/overdue-book', [UserBookController::class, 'showOverdueBook'])->name('user.overdue-book');
 });
