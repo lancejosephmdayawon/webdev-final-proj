@@ -113,7 +113,9 @@ Route::prefix('student')->middleware([Authenticate::class, RoleMiddleware::class
     Route::get('/book-details/{id}', [UserHomeController::class, 'showBookDetails'])->name('user.book-details');
 
     // BOOK BORROW
-    Route::get('/borrow-book', [UserHomeController::class, 'showBorrowForm'])->name('user.borrow-book');
+    Route::get('/borrow-book/{id}', [UserHomeController::class, 'showBorrowForm'])->name('user.borrow-book');
+    // Submit borrow request
+    Route::post('/borrow-book/{id}', [UserHomeController::class, 'submitBorrowForm'])->name('user.submit-borrow');
 
     // BOOKS
     Route::get('/books', [UserBookController::class, 'showBooks'])->name('user.books');
