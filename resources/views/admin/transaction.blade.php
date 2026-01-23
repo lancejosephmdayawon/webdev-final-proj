@@ -141,11 +141,11 @@
 
 
 
-
+        <!-- 1st Row -->
         <div class="bottom-card">
             <div class="row g-4 mb-4">
                 <!-- UNBORROWED BOOKS -->
-                <div class="col-12 col-md-6">
+                <div class="col-12 col-md-4">
                     <div class="unborrowed-card" style="height: 600px; border-radius: 12px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); overflow: hidden;">
 
                         <!-- Sticky header -->
@@ -197,7 +197,7 @@
                     </div>
                 </div>
                 <!-- BORROWED BOOKS -->
-                <div class="col-12 col-md-6">
+                <div class="col-12 col-md-4">
                     <div class="unborrowed-card" style="height: 600px; border-radius: 12px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); overflow: hidden;">
 
                         <!-- Sticky header -->
@@ -248,6 +248,58 @@
 
                     </div>
                 </div>
+                <!-- OVERDUE BOOKS -->
+                <div class="col-12 col-md-4">
+                    <div class="unborrowed-card" style="height: 600px; border-radius: 12px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); overflow: hidden;">
+
+                        <!-- Sticky header -->
+                        <div class="card-header sticky-top bg-white p-3" style="border-bottom: 1px solid #e2e2e2; z-index: 10;">
+                            <p class="bot-title fw-bold mb-0">Overdue Books</p>
+                        </div>
+
+                        <!-- Scrollable body -->
+                        <div class="card-body overflow-auto p-3" style="max-height: 540px;">
+                            @foreach ($overdueTransactions as $transaction)
+                            @php
+                            $book = $transaction->borrowRequest->book;
+                            $category = $book->category->category_name;
+
+                            $colorClass = $categoryMeta[$category]['color'] ?? 'default-bar';
+                            $imgFile = $categoryMeta[$category]['img'] ?? 'default.png';
+                            @endphp
+
+                            <div class="card-data-book position-relative overflow-hidden m-2"
+                                onclick="openOverdueModal('{{ $transaction->id }}')">
+
+                                <!-- Category Color -->
+                                <div class="categ-bar">
+                                    <div class="{{ $colorClass }}"></div>
+                                </div>
+
+                                <!-- Category Image -->
+                                <div class="circle">
+                                    <img src="{{ asset('images/' . $imgFile) }}" class="categ-img">
+                                </div>
+
+                                <!-- Book Details -->
+                                <div class="card-book-info">
+                                    <p class="card-book-title">{{ $book->title }}</p>
+                                    <p class="card-book-author">{{ $book->author }}</p>
+                                </div>
+
+                                <!-- Request Date -->
+                                <div class="card-book-over">
+                                    <button type="button" class="btn-date-overdue">
+                                        {{ $transaction->borrowRequest->request_date->format('m/d/y') }}
+                                    </button>
+                                </div>
+
+                            </div>
+                            @endforeach
+                        </div>
+
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -258,11 +310,11 @@
         <div class="bottom-card">
             <div class="row g-4 mb-4">
                 <!-- RETURNED BOOKS -->
-                <div class="col-12 col-md-4">
-                    <div class="unborrowed-card" style="height: 600px; border-radius: 12px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); overflow: hidden;">
+                <div class="col-12">
+                    <div style="height: 600px; border-radius: 12px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); overflow: hidden;">
 
                         <!-- Sticky header -->
-                        <div class="card-header sticky-top bg-white p-3" style="border-bottom: 1px solid #e2e2e2; z-index: 10;">
+                        <div class="card-header sticky-top p-3" style="border-bottom: 1px solid #e2e2e2; z-index: 10;">
                             <p class="bot-title fw-bold mb-0">Returned Books</p>
                         </div>
 
@@ -309,116 +361,17 @@
 
                     </div>
                 </div>
-                <!-- OVERDUE BOOKS -->
-                <div class="col-12 col-md-4">
-                    <div class="unborrowed-card" style="height: 600px; border-radius: 12px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); overflow: hidden;">
-
-                        <!-- Sticky header -->
-                        <div class="card-header sticky-top bg-white p-3" style="border-bottom: 1px solid #e2e2e2; z-index: 10;">
-                            <p class="bot-title fw-bold mb-0">Unborrowed Books</p>
-                        </div>
-
-                        <!-- Scrollable body -->
-                        <div class="card-body overflow-auto p-3" style="max-height: 540px;">
-                            @foreach ($unborrowedTransactions as $transaction)
-                            @php
-                            $book = $transaction->borrowRequest->book;
-                            $category = $book->category->category_name;
-
-                            $colorClass = $categoryMeta[$category]['color'] ?? 'default-bar';
-                            $imgFile = $categoryMeta[$category]['img'] ?? 'default.png';
-                            @endphp
-
-                            <div class="card-data-book"
-                                onclick="openUnborrowedModal('{{ $transaction->id }}')">
-
-                                <!-- Category Color -->
-                                <div class="categ-bar">
-                                    <div class="{{ $colorClass }}"></div>
-                                </div>
-
-                                <!-- Category Image -->
-                                <div class="circle">
-                                    <img src="{{ asset('images/' . $imgFile) }}" class="categ-img">
-                                </div>
-
-                                <!-- Book Details -->
-                                <div class="card-book-info">
-                                    <p class="card-book-title">{{ $book->title }}</p>
-                                    <p class="card-book-author">{{ $book->author }}</p>
-                                </div>
-
-                                <!-- Request Date -->
-                                <div class="card-book-over">
-                                    <button type="button" class="btn-date-overdue">
-                                        {{ $transaction->borrowRequest->request_date->format('m/d/y') }}
-                                    </button>
-                                </div>
-
-                            </div>
-                            @endforeach
-                        </div>
-
-                    </div>
-                </div>
-                <!-- CANCELLED BOOKS -->
-                <div class="col-12 col-md-4">
-                    <div class="unborrowed-card" style="height: 600px; border-radius: 12px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); overflow: hidden;">
-
-                        <!-- Sticky header -->
-                        <div class="card-header sticky-top bg-white p-3" style="border-bottom: 1px solid #e2e2e2; z-index: 10;">
-                            <p class="bot-title fw-bold mb-0">Unborrowed Books</p>
-                        </div>
-
-                        <!-- Scrollable body -->
-                        <div class="card-body overflow-auto p-3" style="max-height: 540px;">
-                            @foreach ($unborrowedTransactions as $transaction)
-                            @php
-                            $book = $transaction->borrowRequest->book;
-                            $category = $book->category->category_name;
-
-                            $colorClass = $categoryMeta[$category]['color'] ?? 'default-bar';
-                            $imgFile = $categoryMeta[$category]['img'] ?? 'default.png';
-                            @endphp
-
-                            <div class="card-data-book"
-                                onclick="openUnborrowedModal('{{ $transaction->id }}')">
-
-                                <!-- Category Color -->
-                                <div class="categ-bar">
-                                    <div class="{{ $colorClass }}"></div>
-                                </div>
-
-                                <!-- Category Image -->
-                                <div class="circle">
-                                    <img src="{{ asset('images/' . $imgFile) }}" class="categ-img">
-                                </div>
-
-                                <!-- Book Details -->
-                                <div class="card-book-info">
-                                    <p class="card-book-title">{{ $book->title }}</p>
-                                    <p class="card-book-author">{{ $book->author }}</p>
-                                </div>
-
-                                <!-- Request Date -->
-                                <div class="card-book-over">
-                                    <button type="button" class="btn-date-overdue">
-                                        {{ $transaction->borrowRequest->request_date->format('m/d/y') }}
-                                    </button>
-                                </div>
-
-                            </div>
-                            @endforeach
-                        </div>
-
-                    </div>
-                </div>
 
 
 
             </div>
         </div>
+
+
+
     </div>
+</div>
+</div>
 </div>
 
 @endsection
@@ -460,13 +413,9 @@
         window.location = url;
     }
 
-    // function openDetailsModal(transactionID) {
-    //     const url = "{{ route('admin.borrowed-book', ':id') }}".replace(':id', transactionId);
-    //     window.location = url;
-    // }
-
-    function openOverdueModal(button) {
-        window.location = "{{ route('admin.overdue-book') }}"
+    function openOverdueModal(transactionID) {
+        const url = "{{ route('admin.overdue-book', ':id') }}".replace(':id', transactionID);
+        window.location = url;
     }
 </script>
 @endpush

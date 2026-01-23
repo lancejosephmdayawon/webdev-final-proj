@@ -71,85 +71,6 @@
             <p class="bot-title fw-bold mb-2">Book Inventory Status</p>
 
             <div class="table-res">
-                <!-- <table class="table table-bordered table-hover align-middle">
-                    <thead class="table-light">
-                        <tr>
-                            <th scope="col">ISBN</th>
-                            <th scope="col">Category</th>
-                            <th scope="col">Book Name</th>
-                            <th scope="col">Author</th>
-                            <th scope="col">Status</th>
-                            <th scope="col">Stock</th>
-                        </tr>
-                    </thead>
-
-                    <tbody>
-                        <tr>
-                            <td>978-0743273565</td>
-                            <td>Fantasy</td>
-                            <td>The Great Gatsby</td>
-                            <td>F.Scott Fitzgerald</td>
-                            <td><span class="avail-badge">Available</span></td>
-                            <td>2</td>
-                        </tr>
-                    </tbody>
-
-                    <tbody>
-                        <tr>
-                            <td>978-0743273565</td>
-                            <td>Fantasy</td>
-                            <td>The Great Gatsby</td>
-                            <td>F.Scott Fitzgerald</td>
-                            <td><span class="notavail-badge">Not Available</span></td>
-                            <td>0</td>
-                        </tr>
-                    </tbody>
-
-                    <tbody>
-                        <tr>
-                            <td>978-0743273565</td>
-                            <td>Fantasy</td>
-                            <td>The Great Gatsby</td>
-                            <td>F.Scott Fitzgerald</td>
-                            <td><span class="avail-badge">Available</span></td>
-                            <td>2</td>
-                        </tr>
-                    </tbody>
-
-                    <tbody>
-                        <tr>
-                            <td>978-0743273565</td>
-                            <td>Fantasy</td>
-                            <td>The Great Gatsby</td>
-                            <td>F.Scott Fitzgerald</td>
-                            <td><span class="notavail-badge">Not Available</span></td>
-                            <td>0</td>
-                        </tr>
-                    </tbody>
-
-                    <tbody>
-                        <tr>
-                            <td>978-0743273565</td>
-                            <td>Fantasy</td>
-                            <td>The Great Gatsby</td>
-                            <td>F.Scott Fitzgerald</td>
-                            <td><span class="avail-badge">Available</span></td>
-                            <td>2</td>
-                        </tr>
-                    </tbody>
-
-                    <tbody>
-                        <tr>
-                            <td>978-0743273565</td>
-                            <td>Fantasy</td>
-                            <td>The Great Gatsby</td>
-                            <td>F.Scott Fitzgerald</td>
-                            <td><span class="notavail-badge">Not Available</span></td>
-                            <td>0</td>
-                        </tr>
-                    </tbody>
-                </table> -->
-
                 <!-- DYNAMIC TABLE -->
                 <table class="table table-bordered table-hover align-middle">
                     <thead class="table-light">
@@ -181,7 +102,6 @@
                         @endforeach
                     </tbody>
                 </table>
-
             </div>
 
         </div>

@@ -93,9 +93,8 @@ Route::prefix('librarian')->middleware([Authenticate::class, RoleMiddleware::cla
     Route::get('/returned-book/{id}', [AdminTransactionController::class, 'showReturnedBook'])->name('admin.returned-book');
 
     // OVERDUE BOOK
-    Route::get('/overdue-book', [AdminTransactionController::class, 'showOverdueBook'])->name('admin.overdue-book');
-
-
+    Route::get('/overdue-book/{id}', [AdminTransactionController::class, 'showOverdueBook'])->name('admin.overdue-book');
+    // Route::post('/return-book/{id}', [AdminTransactionController::class, 'returnBook'])->name('admin.return-book'); -- Same as Return Route in BORROWED BOOK
 });
 
 

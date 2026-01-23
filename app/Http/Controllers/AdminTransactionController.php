@@ -33,6 +33,9 @@ class AdminTransactionController extends Controller
             'borrowRequest.user'
         ])
             ->where('status', 'borrowed')
+            ->whereHas('borrowRequest', function ($query) {
+                $query->whereDate('return_date', '>=', now());
+            })
             ->orderBy('date_borrowed')
             ->get();
 
@@ -45,12 +48,24 @@ class AdminTransactionController extends Controller
             ->orderBy('date_borrowed')
             ->get();
 
+        // Dynamically calculate overdue transactions
+        $overdueTransactions = BorrowTransaction::with([
+            'borrowRequest.book.category',
+            'borrowRequest.user'
+        ])
+            ->where('status', 'borrowed')
+            ->whereHas('borrowRequest', function ($query) {
+                $query->whereDate('return_date', '<', now());
+            })
+            ->get();
+
         return view('admin.transaction', compact(
             'borrowRequests',
             'declinedRequests',
             'unborrowedTransactions',
             'borrowedTransactions',
-            'returnedTransactions'
+            'returnedTransactions',
+            'overdueTransactions'
         ));
     }
 
@@ -157,8 +172,13 @@ class AdminTransactionController extends Controller
     }
 
 
-    public function showOverdueBook()
+    public function showOverdueBook($id)
     {
-        return view('admin.overdue-form');
+        $transaction = BorrowTransaction::with([
+            'borrowRequest.book.category',
+            'borrowRequest.user'
+        ])->findOrFail($id);
+
+        return view('admin.overdue-form', compact('transaction'));
     }
 }
