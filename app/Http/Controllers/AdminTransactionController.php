@@ -28,7 +28,20 @@ class AdminTransactionController extends Controller
             ->orderBy('date_borrowed')
             ->get();
 
-        return view('admin.transaction', compact('borrowRequests', 'declinedRequests', 'unborrowedTransactions'));
+        $borrowedTransactions = BorrowTransaction::with([
+            'borrowRequest.book.category',
+            'borrowRequest.user'
+        ])
+            ->where('status', 'borrowed')
+            ->orderBy('date_borrowed')
+            ->get();
+
+        return view('admin.transaction', compact(
+                                                'borrowRequests', 
+                                                'declinedRequests', 
+                                                'unborrowedTransactions', 
+                                                'borrowedTransactions'
+                                                ));
     }
 
     // Showing Barrow Requests
@@ -90,9 +103,28 @@ class AdminTransactionController extends Controller
     }
 
 
-    public function showBorrowedBook()
+    public function showBorrowedBook($id)
     {
-        return view('admin.borrowed-form');
+        $transaction = BorrowTransaction::with([
+            'borrowRequest.book.category',
+            'borrowRequest.user'
+        ])->findOrFail($id);
+
+        return view('admin.borrowed-form', compact('transaction'));
+    }
+
+        public function returnBook($id)
+    {
+        $transaction = BorrowTransaction::findOrFail($id);
+        $transaction->status = 'returned';
+        $transaction->date_borrowed = now();
+        $transaction->save();
+
+        // Return JSON for your JS fetch
+        return response()->json([
+            'success' => true,
+            'message' => 'Book returned!',
+        ]);
     }
 
     public function showBorrowDecline($id)

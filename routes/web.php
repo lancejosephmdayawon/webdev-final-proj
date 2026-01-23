@@ -82,11 +82,12 @@ Route::prefix('librarian')->middleware([Authenticate::class, RoleMiddleware::cla
 
     // UNBORROWED BOOK
     Route::get('unborrowed-book/{id}', [AdminTransactionController::class, 'showUnborrowedBook'])->name('admin.unborrowed-book');
-    // mARKark as borrowed
+    // Mark as borrowed
     Route::post('borrow-book/{id}', [AdminTransactionController::class, 'borrowBook'])->name('admin.borrow-book');
 
     // BORROWED BOOK
-    Route::get('/borrowed-book', [AdminTransactionController::class, 'showBorrowedBook'])->name('admin.borrowed-book');
+    Route::get('/borrowed-book/{id}', [AdminTransactionController::class, 'showBorrowedBook'])->name('admin.borrowed-book');
+    Route::post('/return-book/{id}', [AdminTransactionController::class, 'returnBook'])->name('admin.return-book');
 
     // OVERDUE BOOK
     Route::get('/overdue-book', [AdminTransactionController::class, 'showOverdueBook'])->name('admin.overdue-book');

@@ -1,13 +1,13 @@
 <div id="adminReturnConModal" class="confirm-overlay" style="display: none;">
     <div class="popup-confirm">
         <div class="align-center">
-            <img src="{{ asset('images/return-con.png') }}" class="return-con-img">
+            <img src="{{ asset('images/add-con.png') }}" class="add-con-img">
         </div>
-        <h2 class="my-2">Are you sure this book has been returned?</h2>
+        <h2 class="my-2">Are you sure you want to mark this book as returned?</h2>
 
         <div class="popup-btn mt-4">
-            <button class="btn-confirm" onclick="confirmRet()">Confirm</button>
-            <button class="btn-cancel" onclick="closeConfirmAccModal()">Cancel</button>
+            <button class="btn-confirm" onclick="confirmReturn()">Confirm</button>
+            <button class="btn-cancel" onclick="closeConfirmReturnModal()">Cancel</button>
         </div>
     </div>
 </div>
@@ -57,7 +57,7 @@
         font-weight: bold;
     }
 
-    .return-con-img {
+    .add-con-img {
         width: 80px;
         height: 80px;
         padding: 0.25rem;
@@ -122,12 +122,31 @@
 </style>
 
 <script>
-    function confirmRet() {
-        document.getElementById('adminReturnConModal').style.display = 'none';
-        document.getElementById('adminReturnSuccessModal').style.display = 'flex';
-    }
+function confirmReturn() {
+    const transactionId = document.getElementById('adminReturnConModal').dataset.transactionId;
 
-    function closeConfirmAccModal() {
-        document.getElementById('adminReturnConModal').style.display = 'none';
-    }
+    fetch(`/librarian/return-book/${transactionId}`, {
+        method: 'POST',
+        headers: {
+            'X-CSRF-TOKEN': '{{ csrf_token() }}',
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({})
+    })
+    .then(res => res.json())
+    .then(data => {
+        if(data.success) {
+            document.getElementById('adminReturnConModal').style.display = 'none';
+            document.getElementById('adminReturnSuccessModal').style.display = 'flex';
+        } else {
+            alert(data.message || "Failed to mark book as returned.");
+        }
+    })
+    .catch(err => console.error(err));
+}
+
+function closeConfirmBorrowModal() {
+    document.getElementById('adminReturnConModal').style.display = 'none';
+}
 </script>
