@@ -38,7 +38,8 @@ class AdminTransactionController extends Controller
 
         $returnedTransactions = BorrowTransaction::with([
             'borrowRequest.book.category',
-            'borrowRequest.user'
+            'borrowRequest.user',
+            'returnLog'
         ])
             ->where('status', 'returned')
             ->orderBy('date_borrowed')

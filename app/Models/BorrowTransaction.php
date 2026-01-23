@@ -25,6 +25,11 @@ class BorrowTransaction extends Model
         return $this->belongsTo(BorrowRequest::class, 'request_id');
     }
 
+    public function returnLog()
+    {
+        return $this->hasOne(ReturnLog::class, 'transaction_id');
+    }
+
     // Borrow book
     public function markBorrowed()
     {

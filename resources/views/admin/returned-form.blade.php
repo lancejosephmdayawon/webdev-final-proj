@@ -44,15 +44,20 @@
 
             <!-- Borrow Dates -->
             <div class="card-field row mb-10">
-                <div class="col-md-6">
+                <div class="col-12 col-md-4">
                     <label>Borrow Date</label>
                     <input type="text" class="form-control"
                         value="{{ $transaction->borrowRequest->borrow_date?->format('F j, Y') }}" readonly>
                 </div>
-                <div class="col-md-6">
+                <div class="col-12 col-md-4">
                     <label>Expected Return</label>
                     <input type="text" class="form-control"
                         value="{{ $transaction->borrowRequest->return_date?->format('F j, Y') }}" readonly>
+                </div>
+                <div class="col-12 col-md-4">
+                    <label>Date Returned</label>
+                    <input type="text" class="form-control bg-yellow-300 font-semibold"
+                        value="{{ $transaction->returnLog->date_returned?->format('F j, Y') }}" readonly>
                 </div>
             </div>
 
@@ -70,11 +75,9 @@
 
 @push('scripts')
 <script>
-
     function closeReturnedModal() {
         window.location = "{{ route('admin.transaction') }}";
     }
-
 </script>
 @endpush
 
