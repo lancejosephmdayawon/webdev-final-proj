@@ -103,7 +103,7 @@
                                 ];
                                 @endphp
 
-                                <div class="card-data-book" data-id="{{ $req->id }}">
+                                <div class="card-data-book" onclick="openDeclinedModal('{{ $req->id }}')">
 
                                     <div class="categ-bar">
                                         <div class="{{ $meta['color'] }}"></div>
@@ -382,14 +382,8 @@
         window.location = url;
     }
 
-    function openDeclineModal(el) {
-        const id = el.dataset.id;
-        if (!id) {
-            console.error('No ID found for this declined request.');
-            return;
-        }
-        // Redirect to the borrow-decline page
-        const url = "{{ route('admin.borrow-decline', ':id') }}".replace(':id', id);
+    function openDeclinedModal(requestId) {
+        const url = "{{ route('admin.borrow-decline', ':id') }}".replace(':id', requestId);
         window.location = url;
     }
 
