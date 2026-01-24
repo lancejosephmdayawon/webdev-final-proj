@@ -6,7 +6,7 @@
     <div class="inner-container">
         <div class="form-card">
             <div class="book-info-card row justify-content-center text-center mb-4">
-                <img src="{{ asset('images/return.png') }}" class="book-return-img mb-2">
+                <img src="{{ asset('images/book-overdue.png') }}" class="book-overdue-img mb-2">
                 <h2 class="font-extrabold">Overdue Book</h2>
             </div>
 

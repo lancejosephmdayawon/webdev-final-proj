@@ -6,8 +6,8 @@
     <div class="inner-container">
         <div class="form-card">
             <div class="book-info-card row justify-content-center text-center mb-4">
-                <img src="{{ asset('images/return.png') }}" class="book-return-img mb-2">
-                <h2 class="font-extrabold">Return a Book</h2>
+                <img src="{{ asset('images/book-borrowed.png') }}" class="book-borrowed-img mb-2">
+                <h2 class="font-extrabold">Borrowed Books</h2>
             </div>
 
             <div class="card-field mb-2">
