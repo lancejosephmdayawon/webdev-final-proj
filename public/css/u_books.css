@@ -12,6 +12,11 @@
     --color-phi: #ffc7a7;
 }
 
+/* * {
+    outline: 1px solid red;
+} */
+
+
 body {
     font-family: "Roboto", sans-serif;
 }
@@ -276,15 +281,20 @@ body {
 }
 
 .history-card {
-    height: 680px;
+    height: auto; /* small devices by default */
     padding: 0.5rem 1rem;
     border-radius: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
-
     overflow-x: auto;
     overflow-y: auto;
 }
 
+/* Medium devices (≥ 768px) */
+@media (min-width: 768px) {
+    .history-card {
+        height: 980px;
+    }
+}
 
 .historycard {
     overflow: auto;
