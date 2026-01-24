@@ -12,6 +12,10 @@
     --color-phi: #ffc7a7;
 }
 
+/* * {
+    outline: 1px solid red;
+} */
+
 body {
     font-family: "Roboto", sans-serif;
 }

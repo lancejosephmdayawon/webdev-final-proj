@@ -49,7 +49,7 @@ class AdminInventoryController extends Controller
 
     public function showUpdateBook($id)
     {
-        $books = Book::findOrFail($id);
+        $book = Book::findOrFail($id);
         $categories = Category::all(); // for select dropdown
         return view('admin.update-form', compact('book', 'categories'));
     }
