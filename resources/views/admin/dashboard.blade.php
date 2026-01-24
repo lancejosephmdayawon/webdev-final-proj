@@ -3,9 +3,8 @@
 @section('content')
 
 <div class="main-container">
-
-    <div class="container">
-        <div class="inner-container">
+    <div class="inner-container">
+        <div class="container">
             <!--GREETING CARD-->
             <div class="greet-card mb-4">
                 <div class="row align-items-center justify-content-center">
@@ -30,45 +29,45 @@
 
 
             <!--REPORT DASHBOARD-->
-            
-                <div class="report-card row">
-                    <div class="col-sm-6 col-lg-4">
-                        <div class="avail-card d-flex align-items-center mb-4">
-                            <img src="{{ asset('images/avail.png') }}" class="icon-mid mr-6">
-                            <div class="mid-content">
-                                <p class="mid-title fw-bold mb-1">Available Books</p>
-                                <p class="mid-detail">
-                                    <b>{{ $availableBooks }}</b><br>out of {{ $totalBooks }} total books
-                                </p>
-                            </div>
-                        </div>
-                    </div>
 
-                    <div class="col-sm-6 col-lg-4">
-                        <div class="borrow-card d-flex align-items-center mb-4">
-                            <img src="{{ asset('images/borrow.png') }}" class="icon-mid mr-6">
-                            <div class="mid-content">
-                                <p class="mid-title fw-bold mb-1">Borrowed Books</p>
-                                <p class="mid-detail">
-                                    <b>{{ $borrowedBooks }}</b><br>out of {{ $totalBooks }} total books
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-sm-6 col-lg-4">
-                        <div class="overdue-card d-flex align-items-center mb-4">
-                            <img src="{{ asset('images/overdue.png') }}" class="icon-mid mr-6">
-                            <div class="mid-content">
-                                <p class="mid-title fw-bold mb-1">Overdue Books</p>
-                                <p class="mid-detail">
-                                    <b>{{ $overdueBooks }}</b><br>out of {{ $borrowedBooks }} borrowed books
-                                </p>
-                            </div>
+            <div class="report-card row">
+                <div class="col-sm-6 col-lg-4">
+                    <div class="avail-card d-flex align-items-center mb-4">
+                        <img src="{{ asset('images/avail.png') }}" class="icon-mid mr-6">
+                        <div class="mid-content">
+                            <p class="mid-title fw-bold mb-1">Available Books</p>
+                            <p class="mid-detail">
+                                <b>{{ $availableBooks }}</b><br>out of {{ $totalBooks }} total books
+                            </p>
                         </div>
                     </div>
                 </div>
-            
+
+                <div class="col-sm-6 col-lg-4">
+                    <div class="borrow-card d-flex align-items-center mb-4">
+                        <img src="{{ asset('images/borrow.png') }}" class="icon-mid mr-6">
+                        <div class="mid-content">
+                            <p class="mid-title fw-bold mb-1">Borrowed Books</p>
+                            <p class="mid-detail">
+                                <b>{{ $borrowedBooks }}</b><br>out of {{ $totalBooks }} total books
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-lg-4">
+                    <div class="overdue-card d-flex align-items-center mb-4">
+                        <img src="{{ asset('images/overdue.png') }}" class="icon-mid mr-6">
+                        <div class="mid-content">
+                            <p class="mid-title fw-bold mb-1">Overdue Books</p>
+                            <p class="mid-detail">
+                                <b>{{ $overdueBooks }}</b><br>out of {{ $borrowedBooks }} borrowed books
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
 
 
             <!--BOOK STATUS TABLE-->
@@ -112,7 +111,6 @@
             </div>
         </div>
     </div>
-
 </div>
 
 @endsection
