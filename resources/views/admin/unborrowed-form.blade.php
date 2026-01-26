@@ -9,7 +9,7 @@
 
                 <!-- Book Info Header -->
                 <div class="book-info-card row justify-content-center text-center mb-4">
-                    <img src="{{ asset('images/book-borrow.png') }}" class="book-borrow-img mb-2">
+                    <img src="{{ asset('images/book-unborrow.png') }}" class="book-borrow-img mb-2">
                     <h2 class="font-extrabold">Book borrowed?</h2>
                 </div>
 

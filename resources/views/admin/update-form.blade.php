@@ -6,6 +6,10 @@
     <div class="inner-container">
         <div class="container">
             <div class="form-card">
+                <div class="book-info-card row justify-content-center text-center mb-4">
+                    <img src="{{ asset('images/book-upd.png') }}" class="book-upd-img mb-2">
+                    <h2 class="font-extrabold">Update the Archive</h2>
+                </div>
 
                 <form id="updateBookForm">
                     @csrf

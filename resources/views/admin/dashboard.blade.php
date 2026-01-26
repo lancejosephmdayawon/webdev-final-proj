@@ -136,7 +136,7 @@
                             @foreach($books as $book)
                             <tr>
                                 <td>{{ $book->isbn }}</td>
-                                <td>{{ $book->category->name ?? 'N/A' }}</td>
+                                <td>{{ $book->category->category_name ?? 'N/A' }}</td>
                                 <td>{{ $book->title }}</td>
                                 <td>{{ $book->author }}</td>
                                 <td>

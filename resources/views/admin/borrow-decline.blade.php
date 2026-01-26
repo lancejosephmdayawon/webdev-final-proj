@@ -36,7 +36,7 @@ $meta = $categoryMeta[$catName] ?? ['color'=>'','img'=>'default.png'];
                 </div>
 
                 <div class="book-info-card row justify-content-center text-center mb-4">
-                    <img src="{{ asset('images/' . $meta['img']) }}" class="book-decline-img mb-2">
+                    <img src="{{ asset('images/book-decline.png') }}" class="book-decline-img mb-2">
                     <h2 class="font-extrabold">Declined Request</h2>
                 </div>
 

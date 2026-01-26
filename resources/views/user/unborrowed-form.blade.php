@@ -1,5 +1,5 @@
 @extends('layouts.user-borrowreq')
-@section('title', 'ISKO-LIB: Student Borrow Request')
+@section('title', 'ISKO-LIB: Student Unborrowed Book')
 
 @section('content')
 <div class="main-container">
