@@ -12,18 +12,25 @@ This project was developed as part of an academic requirement and deployed to a 
 - 📖 **Book Management**
   - Add, update, view, and organize books
   - Category-based classification
+ 
+- 📖 **Borrow and Return System**
+  - Allows librarians to see book borrow and return transactions
+  - Tracks borrowed books, due dates, and return status
+  - Prevents borrowing when a book is unavailable
+  - Automatically updates book availability upon return
 
 - 🗂️ **Category Management**
   - Dynamic book categorization
   - Relational database structure
 
 - 👤 **User Roles**
-  - Admin / Librarian dashboard
+  - Admin / Librarian
+  - Student
   - Secure authentication
 
 - 📊 **Inventory Overview**
   - Real-time book listings
-  - Clean and sortable tables
+  - Clean UI
 
 - 🎨 **Responsive UI**
   - Optimized for desktop and mobile devices
