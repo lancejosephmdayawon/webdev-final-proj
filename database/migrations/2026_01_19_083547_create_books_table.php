@@ -13,7 +13,7 @@ return new class extends Migration
             $table->string('isbn', 20)->unique();
             $table->string('title');
             $table->string('author');
-            $table->unsignedInteger('category_id'); // matches categories.id INT UNSIGNED
+            $table->unsignedBigInteger('category_id');
             $table->unsignedInteger('stock_qty')->default(0);
             $table->text('description')->nullable();
             $table->timestamps();
