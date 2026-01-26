@@ -37,7 +37,7 @@
                             </div>
 
                             <div class="book-card">
-                                <div class="d-flex flex-row flex-nowrap overflow-auto g-4 mb-4 px-2">
+                                <div class="row g-4 mb-4">
                                     @foreach($borrowRequests as $request)
                                     @php
                                     $book = $request->book;
@@ -82,6 +82,9 @@
                             </div>
                         </div>
                     </div>
+
+                    
+
                     <div class="col-sm-12 col-lg-4 mb-4">
 
                         <!-- Declined Requests -->

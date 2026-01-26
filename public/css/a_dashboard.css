@@ -114,7 +114,7 @@ body {
     padding: 24px;
     flex: 1;
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.25);
-    
+
     display: flex;
     align-items: center;
     gap: 16px;
@@ -157,7 +157,6 @@ body {
     min-width: 0;
 }
 
-
 .mid-title {
     font-size: 20px;
     margin-bottom: 16px;
@@ -173,7 +172,6 @@ body {
     overflow: hidden;
     text-overflow: ellipsis;
 }
-
 
 .book-status {
     height: 330px;
@@ -221,6 +219,20 @@ body {
     vertical-align: bottom;
     background-color: var(--color-maroon);
     color: #ffffff;
+}
+
+
+@media (max-width: 576px) {
+    .table th:nth-child(1), /* ISBN */
+    .table td:nth-child(1),
+    .table th:nth-child(2), /* Category */
+    .table td:nth-child(2),
+    .table th:nth-child(4), /* Author */
+    .table td:nth-child(4),
+    .table th:nth-child(6), /* Stock Quantity */
+    .table td:nth-child(6) {
+        display: none;
+    }
 }
 
 .avail-badge,

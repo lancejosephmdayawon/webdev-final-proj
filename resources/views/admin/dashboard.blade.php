@@ -31,23 +31,23 @@
 
 
             <!--REPORT DASHBOARD-->
-<<<<<<< HEAD
+
 
             <div class="report-card row">
-=======
+
             <!-- <div class="report-card row">
->>>>>>> Lance-Code
+
                 <div class="col-sm-6 col-lg-4">
                     <div class="avail-card d-flex align-items-center mb-4">
                         <img src="{{ asset('images/avail.png') }}" class="icon-mid mr-6">
                         <div class="mid-content">
                             <p class="mid-title fw-bold mb-1">Available Books</p>
                             <p class="mid-detail">
-<<<<<<< HEAD
+
                                 <b>{{ $availableBooks }}</b><br>out of {{ $totalBooks }} total books
 =======
                                 <b>123</b><br>out of total books
->>>>>>> Lance-Code
+
                             </p>
                         </div>
                     </div>
@@ -59,8 +59,6 @@
                         <div class="mid-content">
                             <p class="mid-title fw-bold mb-1">Borrowed Books</p>
                             <p class="mid-detail">
-<<<<<<< HEAD
-=======
                                 <b>123</b><br>out of total books
                             </p>
                         </div>
@@ -103,7 +101,6 @@
                         <div class="mid-content">
                             <p class="mid-title fw-bold mb-1">Borrowed Books</p>
                             <p class="mid-detail">
->>>>>>> Lance-Code
                                 <b>{{ $borrowedBooks }}</b><br>out of {{ $totalBooks }} total books
                             </p>
                         </div>
@@ -129,26 +126,26 @@
             <div class="book-status mb-4">
                 <p class="bot-title fw-bold mb-2">Book Inventory Status</p>
 
-                <div class="table-res">
+                 <div class="table-res">
                     <!-- DYNAMIC TABLE -->
                     <table class="table table-bordered table-hover align-middle">
-                        <thead class="table-light">
+                        <thead class="table-light align-bottom bg-maroon text-white sticky top-0 z-10 px-4 py-2">
                             <tr>
-                                <th scope="col">ISBN</th>
-                                <th scope="col">Category</th>
+                                <th class="hidden md:table-cell" scope="col">ISBN</th>
+                                <th class="hidden md:table-cell" scope="col">Category</th>
                                 <th scope="col">Book Name</th>
-                                <th scope="col">Author</th>
+                                <th class="hidden md:table-cell" scope="col">Author</th>
                                 <th scope="col">Status</th>
-                                <th scope="col">Stock</th>
+                                <th class="hidden md:table-cell" scope="col">Stock</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach($books as $book)
                             <tr>
-                                <td>{{ $book->isbn }}</td>
-                                <td>{{ $book->category->category_name ?? 'N/A' }}</td>
+                                <td class="hidden md:table-cell">{{ $book->isbn }}</td>
+                                <td class="hidden md:table-cell">{{ $book->category->category_name ?? 'N/A' }}</td>
                                 <td>{{ $book->title }}</td>
-                                <td>{{ $book->author }}</td>
+                                <td class="hidden md:table-cell">{{ $book->author }}</td>
                                 <td>
                                     @if($book->stock_qty > 0)
                                     <span class="avail-badge">Available</span>
@@ -156,7 +153,7 @@
                                     <span class="notavail-badge">Not Available</span>
                                     @endif
                                 </td>
-                                <td>{{ $book->stock_qty }}</td>
+                                <td class="hidden md:table-cell">{{ $book->stock_qty }}</td>
                             </tr>
                             @endforeach
                         </tbody>
@@ -164,13 +161,12 @@
                 </div>
 
             </div>
+
+
+
+
         </div>
     </div>
-<<<<<<< HEAD
-=======
-
-
->>>>>>> Lance-Code
 </div>
 
 @endsection
