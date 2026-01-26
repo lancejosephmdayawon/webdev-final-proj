@@ -130,7 +130,6 @@ This project provided hands-on experience with:
 
 ## 🔮 Future Improvements
 
-- Borrowing and returning system
 - Activity logs
 - Advanced search and filtering
 - Role-based access enhancements
