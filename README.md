@@ -37,6 +37,7 @@ This project was developed as part of an academic requirement and deployed to a 
   - Simple and user-friendly design
 
 - 🚀 **Deployed Live**
+  - 1-month Hostinger Plan
   - Production-ready configuration
   - Environment-based setup
 
