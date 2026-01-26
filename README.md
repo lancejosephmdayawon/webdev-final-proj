@@ -49,7 +49,7 @@ This project was developed as part of an academic requirement and deployed to a 
 ## 📂 Project Structure (Simplified)
 
 ```text
-iskolib/
+webdev-final-proj/
 ├── app/
 ├── database/
 ├── public/
