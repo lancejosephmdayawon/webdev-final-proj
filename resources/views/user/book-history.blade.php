@@ -1,5 +1,5 @@
 @extends('layouts.user-book-history')
-@section('title', 'ISKO-LIB: User Book History')
+@section('title', 'ISKO-LIB: Student Book History')
 @section('content')
 
 <div class="main-container">

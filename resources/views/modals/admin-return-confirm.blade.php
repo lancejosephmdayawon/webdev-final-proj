@@ -1,7 +1,7 @@
 <div id="adminReturnConModal" class="confirm-overlay" style="display: none;">
     <div class="popup-confirm">
         <div class="align-center">
-            <img src="{{ asset('images/add-con.png') }}" class="add-con-img">
+            <img src="{{ asset('images/return-con.png') }}" class="return-con-img">
         </div>
         <h2 class="my-2">Are you sure you want to mark this book as returned?</h2>
 
@@ -57,7 +57,7 @@
         font-weight: bold;
     }
 
-    .add-con-img {
+    .return-con-img {
         width: 80px;
         height: 80px;
         padding: 0.25rem;
@@ -146,7 +146,7 @@ function confirmReturn() {
     .catch(err => console.error(err));
 }
 
-function closeConfirmBorrowModal() {
+function closeConfirmReturnModal() {
     document.getElementById('adminReturnConModal').style.display = 'none';
 }
 </script>

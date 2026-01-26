@@ -1,5 +1,5 @@
 @extends('layouts.user-borrowreq')
-@section('title', 'ISKO-LIB: Student Borrow Request')
+@section('title', 'ISKO-LIB: Student Overdue Book')
 
 @section('content')
 <div class="main-container">
@@ -12,7 +12,7 @@
                 </div>
 
                 <div class="book-info-card row justify-content-center text-center mb-4">
-                    <img src="{{ asset('images/book-borrow.png') }}" class="book-borrow-img mb-2">
+                    <img src="{{ asset('images/book-overdue.png') }}" class="book-overdue-img mb-2">
                     <h2 class="font-extrabold">Overdue Book</h2>
                 </div>
 

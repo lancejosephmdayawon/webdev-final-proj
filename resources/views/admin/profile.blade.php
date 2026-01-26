@@ -1,5 +1,5 @@
-@extends('layouts.user-profile')
-@section('title', 'ISKO-LIB: Student Profile')
+@extends('layouts.admin-profile')
+@section('title', 'ISKO-LIB: Admin Profile')
 @section('content')
 
 <div class="main-container">
@@ -12,7 +12,7 @@
 
                 <div class="book-info-card row justify-content-center text-center mb-4">
                     <img src="{{ asset(Auth::user()->profile_picture ?? 'images/student-pfp.png') }}" class="student-pfp-img mb-2">
-                    <h2 class="font-extrabold">Student Profile</h2>
+                    <h2 class="font-extrabold">Admin Profile</h2>
                 </div>
 
                 <div class="card-field mb-2">
