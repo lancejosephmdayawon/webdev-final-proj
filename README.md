@@ -1,59 +1,149 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# 📚 ISKO-LIB  
+**A Web-Based Library Management System built with Laravel**
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+ISKO-LIB is a full-stack web application designed to modernize and simplify library operations for academic institutions. Built with **Laravel** and **MySQL**, it provides an efficient way to manage books, categories, and user interactions through a clean and responsive interface.
 
-## About Laravel
+This project was developed as part of an academic requirement and deployed to a live hosting environment, following real-world development and deployment practices.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+---
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## ✨ Features
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+- 📖 **Book Management**
+  - Add, update, view, and organize books
+  - Category-based classification
 
-## Learning Laravel
+- 🗂️ **Category Management**
+  - Dynamic book categorization
+  - Relational database structure
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+- 👤 **User Roles**
+  - Admin / Librarian dashboard
+  - Secure authentication
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+- 📊 **Inventory Overview**
+  - Real-time book listings
+  - Clean and sortable tables
 
-## Laravel Sponsors
+- 🎨 **Responsive UI**
+  - Optimized for desktop and mobile devices
+  - Simple and user-friendly design
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+- 🚀 **Deployed Live**
+  - Production-ready configuration
+  - Environment-based setup
 
-### Premium Partners
+---
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+## 🛠️ Tech Stack
 
-## Contributing
+- **Backend:** Laravel  
+- **Frontend:** Blade, CSS, JavaScript  
+- **Database:** MySQL  
+- **Build Tool:** Vite  
+- **Deployment:** Shared Hosting (Hostinger)  
+- **Version Control:** Git & GitHub  
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+---
 
-## Code of Conduct
+## 📂 Project Structure (Simplified)
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+```text
+iskolib/
+├── app/
+├── database/
+├── public/
+├── resources/
+├── routes/
+├── storage/
+└── .env
+```
 
-## Security Vulnerabilities
+---
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+## ⚙️ Installation & Setup
 
-## License
+### 1. Clone the Repository
+```bash
+git clone https://github.com/your-username/iskolib.git
+cd iskolib
+```
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+### 2. Install Dependencies
+```bash
+composer install
+npm install
+npm run build
+```
+
+### 3. Environment Configuration
+```bash
+cp .env.example .env
+php artisan key:generate
+```
+
+Update your database credentials in `.env`:
+```env
+DB_DATABASE=your_database
+DB_USERNAME=your_username
+DB_PASSWORD=your_password
+```
+
+### 4. Run Migrations
+```bash
+php artisan migrate
+```
+
+### 5. Serve the Application
+```bash
+php artisan serve
+```
+
+---
+
+## 🌐 Deployment Notes
+
+- Public files are correctly mapped to the hosting root
+- Environment variables are secured
+- Vite assets are compiled for production
+- Storage permissions configured for live hosting
+
+---
+
+## 📸 Screenshots
+
+_Add screenshots here (Dashboard, Inventory, Login, etc.)_
+
+---
+
+## 📌 Lessons Learned
+
+This project provided hands-on experience with:
+
+- Laravel MVC architecture  
+- Eloquent ORM and database relationships  
+- Debugging production errors  
+- Shared hosting deployment workflows  
+- UI responsiveness and UX improvements  
+
+---
+
+## 🔮 Future Improvements
+
+- Borrowing and returning system
+- Activity logs
+- Advanced search and filtering
+- Role-based access enhancements
+- UI/UX animations and polish
+
+---
+
+## 👨‍💻 Author
+
+**WebDev Group 1-1**  
+BSIT 3-3 Students | Polytechnic University of the Philippines
+
+Built with patience, prayer, and persistence.
+
+> *“Commit your work to the Lord, and your plans will be established.”*  
+> — Proverbs 16:3
