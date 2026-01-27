@@ -50,27 +50,19 @@
                     <hr class="my-2">
 
                     <!-- Dates -->
+                    @php
+                    $today = now()->toDateString();
+                    @endphp
                     <div class="card-field row mb-10">
                         <div class="col-md-6">
                             <label>Borrow Date</label>
-                            <input type="date" name="borrow_date" class="form-control"
-                                value="{{ now()->toDateString() }}"
-                                min="{{ now()->toDateString() }}"
-                                required>
+                            <input type="date" id="borrow_date" name="borrow_date" class="form-control" value="{{ $today }}" min="{{ $today }}" required>
                         </div>
-
-                        @php
-                        $today = now()->toDateString();
-                        $maxReturn = now()->addWeeks(4)->toDateString();
-                        @endphp
 
                         <div class="col-md-6">
                             <label>Expected Return <i>(Optional)</i></label>
-                            <input type="date" name="expected_return" class="form-control"
-                                min="{{ $today }}"
-                                max="{{ $maxReturn }}">
+                            <input type="date" id="expected_return" name="expected_return" class="form-control">
                         </div>
-
                     </div>
 
                     <div class="action-buttons">
@@ -148,5 +140,45 @@
     function closeSuccessModal() {
         window.location = "{{ route('user.home') }}";
     }
+
+    // Set max expected return date based on borrow date
+    const borrowDateInput = document.getElementById('borrow_date');
+    const expectedReturnInput = document.getElementById('expected_return');
+
+    function updateExpectedReturnLimits() {
+        const borrowDate = borrowDateInput.value;
+        if (!borrowDate) return;
+
+        const borrow = new Date(borrowDate);
+
+        // Set minimum to borrow date
+        const minDate = borrow;
+        const minY = minDate.getFullYear();
+        const minM = String(minDate.getMonth() + 1).padStart(2, '0');
+        const minD = String(minDate.getDate()).padStart(2, '0');
+        expectedReturnInput.min = `${minY}-${minM}-${minD}`;
+
+        // Set maximum to 4 weeks after borrow date
+        const maxDate = new Date(borrow);
+        maxDate.setDate(maxDate.getDate() + 28);
+        const maxY = maxDate.getFullYear();
+        const maxM = String(maxDate.getMonth() + 1).padStart(2, '0');
+        const maxD = String(maxDate.getDate()).padStart(2, '0');
+        expectedReturnInput.max = `${maxY}-${maxM}-${maxD}`;
+
+        // Optional: reset current value if outside new limits
+        if (expectedReturnInput.value) {
+            const val = new Date(expectedReturnInput.value);
+            if (val < minDate || val > maxDate) {
+                expectedReturnInput.value = '';
+            }
+        }
+    }
+
+    // Run on page load
+    updateExpectedReturnLimits();
+
+    // Update whenever borrow date changes
+    borrowDateInput.addEventListener('change', updateExpectedReturnLimits);
 </script>
 @endpush
